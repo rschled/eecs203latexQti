@@ -13,6 +13,7 @@ assessmentItem = """"[
 
 
 def generate_assessment_item(title: str, question: str, answerChoices: [str], answer: [int]):
+    # TODO correct answer options
     choices = [
         f'<qti-simple-choice identifier=Choice{chr(95+i)}>{choice}</qti-simple-choice>'
         for (i, choice) in enumerate(answerChoices)
