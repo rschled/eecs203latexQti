@@ -1,0 +1,934 @@
+Fall18_2_Q3,unlabeled,"
+
+
+Throw two fair dice. What is the probability the difference between the two numbers rolled is greater than 1?
+
+"," 11/36
+    "," 7/18
+    "," 4/9
+    "," 5/9
+    "," 25/36
+","5,"
+Fall18_2_Q10,unlabeled,"
+
+
+Which of the following sets are well ordered under the standard `<` ordering?
+"," ℕ
+"," ℤ
+"," ℤ^+
+"," ℝ^+ ∪{0} 
+"," {0, 1 , 2}
+","3,"
+Fall18_2_Q11,unlabeled,"
+
+
+Which of the following are true?
+
+    
+  * E(X) = 2
+    
+  * E(Y) = 2
+    
+  * E(XY) = 4
+    
+  * E(X+Y) = 4
+
+
+A, B, D
+
+
+(c) is not guaranteed since X and Y are not independent, and if you solve for it you get 11/3
+
+"," E(X) = 2
+    "," E(Y) = 2
+    "," E(XY) = 4
+    "," E(X+Y) = 4
+",,"3,"
+Winter20_2_Q2,unlabeled,"
+
+
+Consider license plates with 7 characters, each of which can either be an uppercase letter or a numerical digit 0 through 9.  How many possible license plates are there that start or end with the word “CAT""?
+"," 26^4+26^4-26
+    "," 36^4
+    "," 26^4+26^4+10
+    "," 36^4+36^4-36
+    "," 36^4+36^4
+","4,"
+Winter20_2_Q5,unlabeled,"
+
+
+Pam wants to prank her mom for April Fools' Day.  When she pulls a prank on her mom, her mom will react in one of 3 different ways: she laughs, she groans, or she gets angry.  Each of these 3 reactions are equally likely.  Pam will keep pranking her mom until she gets at least one laugh and at least one groan.  How many pranks should Pam expect to have to pull?
+"," 1.5
+    "," 3
+    "," 4.5
+    "," 5.5
+    "," 6
+","3,"
+Winter20_2_Q6,unlabeled,"
+
+
+24 IAs sit in a circle for board game night. Grace wants to sit next to Yunsoo and directly across from Eric. 
+
+If they sit down randomly, what is the probability that this happens?
+"," 21!/24!
+    "," 24 · 21!/24! 
+    "," 24 · 2 · 21!/24! 
+    "," 2 · 21!/24! 
+    "," 24 · 2/24! 
+","3,"
+Winter20_2_Q8,unlabeled,"
+
+
+Michigan's basketball team is predicted to win 60% of the games they play. When the team is predicted to win, they have a 70% probability of actual winning. When they are predicted to lose, they have a 45% probability of winning. Given that Michigan won a basketball game, what is the probability that they were predicted to win?
+"," 0.6
+"," 0.6·0.7
+"," 0.7/0.45+0.7
+"," 0.6·0.7/0.6·0.7+0.6·(1-0.45)
+"," 0.6·0.7/0.6·0.7+(1-0.6)·0.45
+","5,"
+Winter20_2_Q9,unlabeled,"
+
+
+
+You would like to cross the river depicted below.  Sometimes, though, the bridges are broken.  Each bridge has probability p that you can cross it.  What is the probability that you are able to get across the river.
+
+
+    < g r a p h i c s >
+
+
+
+
+
+"," 4p^2
+"," 2p^2 + 2p^3
+"," 4p-6p^2+6p^3-p^4
+"," (2p-p^2)^2
+"," (2p^2 - 3p)^2
+","4,"
+Winter20_2_Q11,unlabeled,"
+
+
+
+Balls labeled 1 through 9 are placed in a knapsack. Two balls are selected from the knapsack, one at a time without replacement. The first ball we draw is even.  What is the probability that the second ball is greater than the first ball?
+"," 1/9
+"," 3/8
+"," 4/9
+"," 1/2
+"," 5/8
+","4,"
+Winter20_2_Q13,unlabeled,"
+
+
+Emily pays $1 to play a dice game.  She rolls a fair 6-sided die.
+
+    
+  * If she rolls a 1 or a 2 she loses another $2
+    
+  * If she rolls a 3 or 4 she wins $4
+    
+  * If she rolls a 5 or a 6 she wins $7
+
+Let X be a random variable for the amount of money Emily gained or lost due to playing the game. (Remember that she spent $1 to play the game.) 
+
+
+What is E(X)? What is Var(X)?
+
+"," E(X) = 2
+    "," E(X) = 3
+    "," E(X) = 13/3
+    "," Var(X) = 14
+    "," Var(X) = 38/9
+","1,"
+Winter20_2_Q14,unlabeled,"
+
+
+Which of the following sets are well-ordered under the given ordering?
+"," (ℝ^+, <)
+    "," (ℤ∩ℚ^-, >)
+    "," ([-2, 7], <)
+    "," (ℕ, >)
+    "," ({-1/n|n∈ℤ^+}∪{1-1/n|n∈ℤ^+},<)
+","2,5,"
+Spring19_F_Q2,unlabeled,"
+
+What is the remainder when 2^38·3^19·5^2 is divided by 19?
+"," 9
+"," 11
+"," 12
+"," 15
+"," 17
+","4,"
+Spring19_F_Q5,unlabeled,"
+
+Let S be a set such that |S|=10. How many relations over S are antisymmetric and reflexive?
+
+"," 2^45
+"," 3^45
+"," 2^90
+"," 2^10
+"," 2^45-10· 2^44
+","2,"
+Spring19_F_Q7,unlabeled,"
+
+Yunsoo and Reuben each have a box containing balls numbered 1 to 30. Yunsoo randomly selects a ball from his box and puts it into Reuben's box. After Yunsoo has placed his ball into Reuben's box, Reuben randomly selects a ball and puts it into Yunsoo's box. What is the probability that Yunsoo and Reuben each end up having balls numbered 1 to 30?
+
+"," 2/30
+"," 1/30· 31
+"," 1/31
+"," 1/30
+"," 2/31
+","5,"
+Spring19_F_Q8,unlabeled,"
+
+A certain divide and conquer algorithm divides a problem of size n into 9 non-overlapping subproblems, each of equal size. The algorithm must then solve one third of the 9 subproblems and do 2n+5 work to join the results of the subproblems before the problem of size n has been solved. What is the runtime of this algorithm?
+
+
+    
+  * Θ(√(n))
+    
+  * Θ(n)
+    
+  * Θ(n^2)
+    
+  * Θ(nlog_9 n)
+    
+  * Θ(n^n)
+
+
+
+(b)
+
+T(n) = 3T(n/9) + 2n + 5. Note that 2n + 5 is Θ(n). Then by applying Master Theorem, we see a/b^d = 3/9^1 < 1. Therefore, the algorithm is O(n^1) = O(n).
+
+
+
+"," Θ(√(n))
+    "," Θ(n)
+    "," Θ(n^2)
+    "," Θ(nlog_9 n)
+    "," Θ(n^n)
+","2,"
+Winter19_F_Q4,unlabeled,"
+
+What is the remainder when 9^102 is divided by 11?
+
+"," 2
+    "," 4
+    "," 6
+    "," 8
+    "," 10
+","2,"
+Winter19_F_Q5,unlabeled,"
+
+Let a_n = k_1· a_n-1 + k_2· a_n-2. If the roots to its characteristic equation are -5 and 2, what are k_1 and k_2?
+"," k_1 = -7, k_2 = -10
+"," k_1 = -3, k_2 = 10
+"," k_1 = 3, k_2 = -10
+"," k_1 = 7, k_2 = -10
+"," k_1 = 3, k_2 = 10
+","2,"
+Winter19_F_Q6,unlabeled,"
+
+You roll a fair 6-sided die  until a 5 or a 6 comes up or you've rolled three times. For example, if you roll (3, 5) you roll a total of 2 times, and if you roll (3, 3, 4) you roll a total of 3 times. Let X be the number of times you roll the die. Find E(X).
+
+
+
+
+"," 11/9
+"," 5/3
+"," 2
+"," 19/9
+"," 3
+","4,"
+Winter19_F_Q7,unlabeled,"
+
+The relation represented by this zero - one matrix possesses which of the following properties?
+ 
+
+
+[ 1 1 1 1; 1 0 0 0; 1 0 1 1; 1 0 1 1;   ] 
+
+
+
+
+"," reflexive
+    "," symmetric
+    "," antisymmetric
+    "," irreflexive
+    "," transitive
+","2,"
+Winter19_F_Q8,unlabeled,"
+
+Which of the following functions are O(n^3), regardless of whether they are Ω(n^3)?
+"," (n+log (n^n)+4)(7n+5)
+"," (nlog n+n^2+4)(3n+log n+9)
+"," (2^n+4)(n+1)
+"," (log (n^2) + 4)(n+2n^2+4)
+"," (n^2+nlog n+1)(3+n!)
+","1,2,4,"
+Winter19_F_Q9,unlabeled,"
+
+Let R and S be two relations defined on the same set A. Select all of the statements that must be true.
+
+"," If R, S are both irreflexive, then R ∪ S is irreflexive.
+	"," If R, S are both asymmetric, then R ∪ S is asymmetric.
+	"," If R, S are both asymmetric, then	R - S is	asymmetric.
+	"," If R, S are both transitive, then	R - S is transitive.
+",,"1,"
+Winter19_F_Q10,unlabeled,"
+
+Which of the following functions are onto?
+"," f: ℕ→ℕ: f(x) = x+1
+"," f: ℝ-{1/2}→ℝ: f(x) = 1/1-2x
+"," f: ℝ→ℝ: f(x) = x^2 + 2x
+"," f: ℤ→ℤ: f(x) = 2x
+"," f: ℤ→ℕ: f(x) = |x+5|
+","5,"
+Fall18_F_Q1,unlabeled,"
+
+An undirected graph G has 10 edges and an unknown number of vertices. Two of the vertices have degree 3, and another two vertices have degree 4. All remaining vertices have degree less than 3. Which of the following statements regarding the total number of vertices in G is the most accurate? 
+
+
+    
+  * There must be fewer than 10 vertices in G.
+     
+  * There must be fewer than 12 vertices in G.
+     
+  * There must be at least 7 vertices in G.
+     
+  * There must be at least 10 vertices in G.
+    
+  * None of the above.
+
+
+
+(c)
+
+Assuming there are m vertices. Based on the handshake theorem, 2× 10 ≤ 2× 3 + 2× 4 + (m-4)× 2. Thus m≥ 7.
+
+
+
+
+"," There must be fewer than 10 vertices in G.
+     "," There must be fewer than 12 vertices in G.
+     "," There must be at least 7 vertices in G.
+     "," There must be at least 10 vertices in G.
+    "," None of the above.
+","3,"
+Fall18_F_Q4,unlabeled,"
+
+What is the value of 4^35 mod 17?
+"," 1
+"," 5
+"," 9
+"," 13
+"," 16
+","4,"
+Fall18_F_Q5,unlabeled,"
+
+We are given the following roots for an unknown recurrence relation: -1 and -1 (this is not a typo). The initial conditions for our recurrence relation are a_0 = 2, a_1 = 5. What is a_2? 
+
+"," -12
+"," -5
+"," 5
+"," 7
+"," There is not enough information to solve this problem.
+","1,"
+Fall18_F_Q6,unlabeled,"
+
+
+How many positive integers less than 200 are congruent to 2 mod 4, including 2?
+
+"," 49
+"," 50
+"," 51
+"," 100
+"," 101
+","2,"
+Fall18_F_Q7,unlabeled,"
+
+Find the roots of the characteristic equation corresponding to the following recurrence relation: 
+    a_n = 6a_n-2 - 8a_n-4
+
+"," 2, 2, -2, -2
+"," √(2), -√(2)
+"," √(2), √(2), -√(2), -√(2)
+"," 2, -2, √(2), -√(2)
+"," 2, -2
+","4,"
+Fall18_F_Q9,unlabeled,"
+
+Which of the following graphs are bipartite? Select all that apply.
+
+
+    
+  * C_6
+    
+  * Q_3
+    
+  * W_6
+    
+  * K_5
+    
+  * C_31
+
+
+
+
+(a), (b) 
+
+",,,,,,"1,"
+Fall18_F_Q10,unlabeled,"
+
+
+Consider the relation R on the set of integers greater than or equal to 2, such that a relates to b if a and b are relatively prime. For instance, 7 relates to 8. What properties hold for R?
+
+"," R is reflexive
+"," R is irreflexive
+"," R is symmetric
+"," R is antisymmetric
+"," R is transitive
+","2,"
+Fall18_F_Q11,unlabeled,"
+
+Which of the following are true given the following functions:
+
+    
+  * f(x) = x - √(x)
+    
+  * g(x) = log(x^2)
+    
+  * h(x) = log(x) + √(x)
+
+
+"," f(x) is O(g(x))
+    "," f(x) is Ω(h(x))
+    "," f(x) is Θ(h(x))
+    "," g(x) is O(h(x))
+    "," h(x) is O(g(x))
+","2,"
+Fall18_F_Q12,unlabeled,"
+
+A sample space can be partitioned into three events, E_1, E_2, and E_3, and it can also be partitioned into two different events, G_1 and G_2. We are given that P(E_1) = P(G_1) = 2/5. Which of the following must be true? 
+
+"," P(E_1 | G_1) = P(G_1 | E_1)
+"," P(E_1) = 2/5P(E_1 | G_1) + 3/5P(E_1 | G_2)
+"," P(E_1 | G_2) = P(E_1 ∩ G_2)/P(E_1)
+"," P(E_1) = 2/3 P(G_2)
+"," P(E_1) = 1 - P((E_2 ∪ E_3) ∩ G_1)) - P((E_2 ∪ E_3) ∩ G_2))
+","1,"
+Spring20_F_Q1,unlabeled,"
+
+In this question we will look at the number of ways to misspell English words.
+When Benny types, he might click by mistake on the wrong key. The wrong key will be adjacent to the key Benny is trying to press.
+For example, if Benny tries to hit G, he may hit one of T,Y,F,H,V,B instead (or he may actually hit G like he wanted).
+
+How many ways does Benny have to misspell “pastel” (how many ways can he accidentally type it incorrectly)?
+
+
+    < g r a p h i c s >
+
+
+
+    
+  * 2· 4· 6 · 4 · 4 · 3
+    
+  * 2· 4· 6 · 4 · 4 · 3-1
+    
+  * 3· 5· 7 · 5 · 5 · 4
+    
+  * 3· 5· 7· 5· 5· 4 - 1
+    
+  * 3· 5· 7 · 5 · 5 · 4 - 2· 4· 6 · 4 · 4 · 3
+
+
+ (d)
+
+    We will enumerate the amount of keys that might be hit for each letter:
+    
+        
+  * P can be P,O,L - 3 options
+        
+  * A can be A,Q,W,S,Z - 5 options
+        
+  * S can be S,W,E,D,X,Z,A - 7 options
+        
+  * T can be T,R,F,G,Y - 5 options
+        
+  * E can be E,W,R,S,D - 5 options
+        
+  * L can be L,P,O,K - 4 options
+    
+    In total 3· 5· 7 · 5 · 5 · 4 ways, one of which is correct (not misspelled), so there are 3· 5· 7 · 5 · 5 · 4-1
+
+
+
+"," 2· 4· 6 · 4 · 4 · 3
+    "," 2· 4· 6 · 4 · 4 · 3-1
+    "," 3· 5· 7 · 5 · 5 · 4
+    "," 3· 5· 7· 5· 5· 4 - 1
+    "," 3· 5· 7 · 5 · 5 · 4 - 2· 4· 6 · 4 · 4 · 3
+",,,,"4,"
+Spring20_F_Q3,unlabeled," 
+
+Let A and B be sets. Which of the following is equivalent to A - B?
+
+    
+  * A - B
+    
+  * B
+    
+  * B - A
+    
+  * A ∩ B
+    
+  * A∪ B
+
+
+
+(e)  A-B=A∩B=A∪ B
+
+
+
+"," A - B
+    "," B
+    "," B - A
+    "," A ∩ B
+    "," A∪ B
+",,,,"5,"
+Spring20_F_Q5,unlabeled,"
+
+Let G_1 be a wheel graph with 22 edges and let G_2 be a simple graph. Let G_3 be G_1 ∩ G_2 and is guaranteed to contain the center vertex of G_1. If G_3 has 8 vertices and G_1 ∪ G_2 has 18 vertices, how many vertices does G_2 have.
+
+    
+  * 4
+    
+  * 8
+    
+  * 12
+    
+  * 14
+    
+  * 18
+
+
+(d) 
+
+G_1 is a W_11 graph since there are 22 edges. A W_11 graph has 12 vertices so G_1 has 12 vertices. After, we can solve this with inclusion exclusion, since the vertices of G_1 ∪ G_2 = G_1 + G_2 - G_1 ∩ G_2. 18 = 12 + G_2 - 8. G_2 = 14
+
+"," 4
+    "," 8
+    "," 12
+    "," 14
+    "," 18
+",,,,"4,"
+Spring20_F_Q10,unlabeled,"
+Which of the following are O(n^2)?
+
+    
+  * (n^2+n)+(n·log (n^4))
+    
+  * (n log n) + (n log n)
+    
+  * (n^3 - n^2)(n^4 - n^3)
+    
+  * n^2log (n^1/n)
+    
+  * n!/(n-5)!·n/n^3
+
+
+
+(a), (b), (d)
+
+(a) n^2+n∈ O(n^2), and n·log(n^4)∈ O(nlog n), so (a)∈ O(n^2+nlog n)=O(n^2)
+
+(b) This is O(nlog n) (and therefore transitively O(n^2))
+
+(c) This is n^7-2n^6+n^5∈Ω(n^7)
+
+(d) n^2log(n^1/n)=n^2·1/nlog n=nlog n≤ n^2
+
+(e) This is n(n-1)(n-2)(n-3)(n-4)1/n^2=(n-1)(n-2)(n-3)(n-4)/n∈Ω(n^3)
+
+
+"," (n^2+n)+(n·log (n^4))
+    "," (n log n) + (n log n)
+    "," (n^3 - n^2)(n^4 - n^3)
+    "," n^2log (n^1/n)
+    "," n!/(n-5)!·n/n^3
+",,,,"1,"
+Spring20_F_Q12,unlabeled,"
+
+Take partial order R on set S. Let the domain of discourse of x, y, and z be elements in S. Which of the following must be true:
+
+    
+  * ∀ x ∃ y (xRy)
+    
+  * ∃ x ∀ y (yRx)
+    
+  * ∀ x ∀ y (xRy) → (yRx)
+    
+  * ∀ x ∀ y ∀ z (xRy) ∧ (yRz) → (x = z)
+    
+  * ∀ x ∀ y (xRy) ∨ (yRx)
+
+
+a
+
+    
+  * This follows from reflexivity. Since R is reflexive, for every element, there exists an element that it relates to: itself.
+    
+  * This basically says there is a maximum element, however since this is a partial order and not necessarily a total order, it is not guaranteed to be true.
+    
+  * This is the definition of symmetry.  R is guaranteed to be antisymmetric, but not guaranteed to be symmetric.
+    
+  * This is a hybrid of antisymmetric and transitive, however does not follow from those properties.  The only partial order with this property is “=""
+    
+  * This basically says every 2 elements must be comparable (close to the definition of total), however since this is a partial order, not necessarily a total order, it is not guarenteed to be true.
+
+
+
+"," ∀ x ∃ y (xRy)
+    "," ∃ x ∀ y (yRx)
+    "," ∀ x ∀ y (xRy) → (yRx)
+    "," ∀ x ∀ y ∀ z (xRy) ∧ (yRz) → (x = z)
+    "," ∀ x ∀ y (xRy) ∨ (yRx)
+",,,,"3,"
+Spring20_F_Q13,unlabeled,"
+
+Let R be a reflexive and not transitive relation and let Q be a transitive and not reflexive relation both on set S, which of the following must be true.
+
+    
+  * R ∩ Q is reflexive
+    
+  * R ∪ Q is reflexive
+    
+  * R ∩ Q is transitive 
+    
+  * Q - R is irreflexive
+    
+  * Q - R is transitive
+
+
+b, d, 
+
+    
+  * since Q is not reflexive, taking the intersection means some element will not relate to itself
+    
+  * true all the self-loops from R will be in the new relation
+    
+  * false, if Q and R both had (a,b) and (b,c) but only Q had (a,c) then the intersection would not be transitive
+    
+  * subtracting R took away all the self-loops
+    
+  * false, if Q had (a,b), (b,c), (a,c) and R has (a,c) but neither of the other two listed, then the set minus would not be transitive
+
+
+"," R ∩ Q is reflexive
+    "," R ∪ Q is reflexive
+    "," R ∩ Q is transitive 
+    "," Q - R is irreflexive
+    "," Q - R is transitive
+",,,,"1,2,"
+Winter20_F_Q2,unlabeled,"
+
+
+How many relations on a set S are transitive, given that |S|=2?
+"," 2
+"," 4
+"," 9
+"," 13
+"," 16
+","4,"
+Winter20_F_Q3,unlabeled,"
+
+
+Stewart, Emily, Grace, and Katie are the only people running for EECS Mayor. There are 150 people voting, and each voter votes completely at random for exactly one person. What is the probability that at least one of them receives 30 or more votes?
+"," 0
+"," 1/30
+"," 1/5
+"," 3/5
+"," 1
+","5,"
+Winter20_F_Q4,unlabeled,"
+
+
+
+Consider the sequence defined by the recurrence relation a_n, and unspecified base cases. Which is the tightest big O bound can we guarantee?
+
+
+    a_n=5a_n-1-6a_n-2
+
+"," n^2
+"," n^3
+"," 2^n
+"," 3^n
+"," n!
+","4,"
+Winter20_F_Q5,unlabeled,"
+
+
+The Hamming distance H(s_1,s_2) between two bit strings s_1 and s_2 of equal length is the number of positions at which the corresponding bits are different. For example:
+
+    
+  * H(001,100)=2
+    
+  * H(1101,1001)=1. 
+
+Consider randomly selecting two bit strings s_1 and s_2 from the set of all bit strings of length 5 with repetition (i.e. it is allowed that the two strings are equal). Find E(H(s_1,s_2)), the expected value of the Hamming distance between s_1 and s_2.
+"," 5/4
+"," 5/2
+"," C(5,1)+2· C(5,2)+3· C(5,3)+4· C(5,4)+5· C(5,5)/2^5-1
+"," 15/4
+"," 5
+","2,"
+Winter20_F_Q7,unlabeled,"
+
+
+Hao rolls 2 fair dice, and he decides to use random variable X to denote the quotient of the first die divided by the second die. What can we say about X?
+"," X is a not a function
+"," X is one-to-one but not onto
+"," X is onto but not one-to-one
+"," X is one-to-one and onto
+"," X is neither one-to-one nor onto
+","5,"
+Winter20_F_Q8,unlabeled,"
+
+
+R is an irreflexive relation on a set A.  If we add the in-degree and out-degree of every vertex in the graph of R, we get a total of 30. What is the minimum value |A| could be?
+"," 4
+"," 5
+"," 6
+"," 8
+"," 11
+","2,"
+Winter20_F_Q9,unlabeled,"
+
+
+Jose likes to two-color graphs using red and blue stickers, which he sticks on each vertex. Jose will be given a bipartite graph with 8 vertices to two-color, but he doesn't know what the graph will be. What is the minimum number of stickers he needs to prepare in advance, so that he can guarantee he will be able to two-color this graph?
+"," 8
+    "," 9
+    "," 11
+    "," 12
+    "," 14
+","3,"
+Winter20_F_Q11,unlabeled,"
+
+
+
+
+Let R be an equivalence relation over the set S, where |S|=5. Which of the following are possible values for |R|?
+"," 5
+"," 7
+"," 9
+"," 11
+"," 13
+","1,2,3,4,5,"
+Winter20_F_Q12,unlabeled,"
+
+
+Which of the following statements are true:
+"," (n^4+3^n)(log(n)+√(n)) is O(n^4√(n))
+"," (n!+10^n)(n^2+2^n) is O(10^nn^2)
+"," 3n^5+n^3+1/n^5+1 is O(1)
+"," (n!+10n)(n^3+n^2) is O(10n^4)
+"," (e^n+log(n))(10^n+2^n) is O(10^2n)
+","3,5,"
+Fall19_2_Q1,unlabeled,"
+
+
+Darius rolls a fair 9-sided die. If he rolls a 1, 2, or 3, he wins $1, $2, or $3, respectively, and if he rolls anything else (4, 5, 6, 7, 8, 9), he wins nothing. Find the variance of the amount of money that Darius wins.
+
+
+"," 0
+"," 22/81
+"," 8/9
+"," 10/9
+"," 14/9
+","4,"
+Fall19_2_Q3,unlabeled,"
+
+Denise is preparing for the Detroit Marathon. In the span of 30 days, what is the minimum number of days she would have to run to guarantee that she runs on 6 consecutive days?
+"," 6 times
+    "," 24 times
+    "," 25 times
+    "," 26 times
+    "," 30 times
+","4,"
+Fall19_2_Q7,unlabeled,"
+
+Five people will be placed in a row. The leftmost person has to be either Yingchen or Thomas, and Thomas cannot be the rightmost person. How many unique ways are there to arrange the 5 people?
+
+
+"," 30
+    "," 36
+    "," 42
+    "," 48
+    "," 54
+","3,"
+Fall19_2_Q9,unlabeled,"
+
+A ternary string is a string that has only 0, 1, or 2 as its digits. How many ternary strings of length 6 have the sum of the digits equal to 3? 
+
+For example, 002010 is one such string.
+"," 20 
+    "," 22 
+    "," 50 
+    "," 56 
+    "," 66 
+
+","3,"
+Fall19_2_Q11,unlabeled,"
+
+
+Which of the following sets are well-ordered with the corresponding relations?
+
+
+
+"," The set {1,2,3} with the relation ≺, where ≺ is such that 2≺ 1, 3≺1, 3≺2.
+"," The set {1,2,3} with the relation ≺, where ≺ is such that 1≺ 2, 2≺3, 3≺1.
+"," The set of rectangles in ℝ^2 where all four vertices have integer coordinates and all four edges are parallel to either the x-axis or the y-axis with the relation ≺, where A≺ B if and only if rectangle A lies completely within rectangle B.
+
+"," The set {n!|n∈ℤ^+} with the relation ≺, where a≺ b if and only if b is a multiple of a.
+"," The set ℤ^+×ℤ^+ with the relation ≺, where (a,b)≺(c,d) if and only if
+
+ a<c or (a=c and b<d).
+","1,4,5,"
+Fall19_2_Q12,unlabeled,"
+
+
+Which of the following properties does the relation {(1,4),(4,1),(2,3),(3,1),(4,2),(3,3)} on the set {1,2,3,4} have?
+"," Reflexive
+"," Symmetric
+"," Antisymmetric
+"," Transitive
+",,"1,"
+Fall19_2_Q14,unlabeled,"
+
+
+Let S be the sample space, and E and F be two events. Which of the following statements are true?
+"," If P(F)=0, then E and F must be independent.
+"," If E and F are disjoint, then P(E-F)=P(E)-P(F).
+"," If E and F are disjoint and P(F)>0, then P(E|F)=0.
+"," If E and F are independent, then E and F are also independent.
+",,"1,3,4,"
+Winter19_2_Q1,unlabeled,"
+
+How many numbers must be selected from the set of all integers to guarantee that at least 2 of the numbers are divisible by 100?
+
+
+    
+  * 100
+    
+  * 101
+    
+  * 201
+    
+  * 10,001
+    
+  * This cannot be guaranteed 
+
+
+
+    (e) It is possible to keep selecting integers and have none of them be divisible by 100. Note that we cannot apply the Pigeon-hole Principle here. If the question was asking about numbers that have the same remainder when divided by 100, then we could use the PP to determine we need 101 integers to guarantee this. Remember that the PP guarantees that at least one hole has at least two pigeons, but can never guarantee the number of pigeons in a particular hole.
+
+
+
+
+"," 100
+    "," 101
+    "," 201
+    "," 10,001
+    "," This cannot be guaranteed 
+","5,"
+Winter19_2_Q3,unlabeled,"
+
+Suppose you toss a fair coin 12 times resulting in a sequence of heads (H) and tails (T). Let N be the number of times that the sequence HTHT appears.  For example, HTHT appears twice in 
+    HTHTHTTTTTTT
+ Find E(N). 
+"," 1/16
+"," 3/16
+"," 9/16
+"," 5/8
+"," 3/4
+","3,"
+Winter19_2_Q5,unlabeled,"
+
+What is the flaw in the following induction proof?
+
+
+Claim: a^n=1 for all nonnegative integers n, whenever a is a nonzero real number.
+
+Base case: a^0=1 is true by rules of exponents.
+
+Inductive step: Assume that a^j=1 for all nonnegative integers j with j ≤ k. Then 
+    a^k+1=a^ka^k/a^k-1=1 · 1/1=1
+
+
+"," The inductive proof is correct.
+"," It fails to prove P(0)
+"," It fails to prove P(0)→ P(1)
+"," It fails to prove P(1)→ P(2)
+"," It fails to prove P(2)→ P(3)
+","3,"
+Winter19_2_Q8,unlabeled,"
+
+6 green balls, 8 blue balls, and 3 red balls are placed in a bag. You are asked to select 3 balls from the bag without replacement. If the first ball you pick is green, what is the probability that after all three picks, you end up with at least two green balls?
+"," 6 · 5/17 · 16
+    "," 6 · 5 · 4/17 · 16 · 15
+    "," 1 - 11 · 10/17 · 16
+    "," 1 - 11 · 10/16 · 15
+    "," 5/16
+","4,"
+Winter19_2_Q10,unlabeled,"
+
+Consider the following identity:
+
+    ∑_i=1^n i=n(n+1)/2
+
+Which of the following approaches would be a valid way to show this?
+"," Using arithmetic series identities
+"," Using geometric series identities
+"," Mathematical induction
+"," Strong induction
+",,"1,"
+Winter19_2_Q12,unlabeled,"
+
+You roll a fair five-sided die with faces 1, 2, 3, 4, and 5. Let X be a random variable representing the number you roll. Which of the following statements are correct?
+
+"," p(X=3)=0.2
+"," p(X>3)=0.4
+"," E(X)=3
+"," V(X)=3
+",,"1,"
+Winter19_2_Q13,unlabeled,"
+
+A river splits up into two branches, then recombines after a series of dams in each branch. As shown in the figure below, Branch A has two dams and Branch B has three dams.  At any particular time, each dam has a probability of 0.1 of being lowered, and each dam is lowered independently of the others. Water can flow through only if at least one branch has all of its dams lowered. What is the probability that water can flow through?
+
+    < g r a p h i c s >
+
+
+
+    
+  * 1 - 0.9^5
+    
+  * 0.1^3 + 0.1^2 - 0.1^5
+    
+  * 0.1^3 + 0.1^2
+    
+  * 0.1^5
+    
+  * 1 - (0.9^3 + 0.9^2)
+
+
+(b) 
+
+Water can flow through if all the dams in branch A are lowered or all the dams in branch B are lowered. We now use inclusion-exclusion principle. The probability of any individual gate being lowered is 0.1 and each gate is independent of the other gates, so we use product rule to find the following probabilities. The probability that the water can flow through branch A is 0.1^2 and the probability that the water can flow through branch B is 0.1^3.  The probability that water can flow through both branch A and B is 0.1^2 · 0.1^3 = 0.1^5. Thus, by inclusion-exclusion, answer (b) is correct.
+
+
+"," 1 - 0.9^5
+    "," 0.1^3 + 0.1^2 - 0.1^5
+    "," 0.1^3 + 0.1^2
+    "," 0.1^5
+    "," 1 - (0.9^3 + 0.9^2)
+","2,"

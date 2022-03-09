@@ -1,5 +1,7 @@
 from pylatexenc.latex2text import LatexNodes2Text, UnknownMacroError
 
+class EmptyCompilationResult(Exception):
+    pass
 
 def begin(arg: str):
     return '\\begin{' + arg + '}'
@@ -15,4 +17,7 @@ def isProbheaderNum(string: str) -> bool:
 
 
 def compile(header, text):
-    return LatexNodes2Text().latex_to_text(text)
+    ret = LatexNodes2Text().latex_to_text(text)
+    if len(ret) == 0 or ret.isspace():
+        raise EmptyCompilationResult
+    return ret

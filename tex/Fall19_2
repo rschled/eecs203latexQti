@@ -1,0 +1,560 @@
+\title{FA 2019 EECS203 Midterm Exam 2, Questions}
+\documentclass[12pt]{exam}
+%\footer{}{}{\thepage}
+%\footer{}{\thepage}{}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\oddsidemargin .25in
+\evensidemargin .25in
+\topmargin -0.25in
+\textwidth 6.0in
+\textheight 9.5in
+\sloppy
+
+\usepackage{graphicx}
+\usepackage{url, amsmath, amsthm, enumerate, multicol}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{eucal}
+\usepackage{todonotes}
+\usepackage{algpseudocode}
+\let\oldReturn\Return
+\renewcommand{\Return}{\State\oldReturn}
+
+\usepackage{placeins}
+\usepackage{listings}
+
+
+\usepackage{verbatim}
+\usepackage{fullpage}
+\usepackage{array}
+
+
+\usepackage{soul}
+\usepackage{color}
+
+\usepackage{comment}
+
+\definecolor{Light}{gray}{.90}
+\sethlcolor{Light}
+
+\newcounter{bar}
+\newcommand{\probheadernum}[1]{%
+        \vspace{0.2in}
+        \stepcounter{bar}%
+        \noindent{\large\bf Problem \arabic{bar}. {(#1 points)}}
+%        \noindent{\large\bf Problem \arabic{bar}. {\small (#1 points)}}
+        \smallskip
+}
+
+
+\newcounter{scantron}
+\newcommand{\scantronlabelnocount}{{\texttt{{\large\hl{{\small Scantron} XX{}}}}}}
+
+\newcommand{\scantronlabel}{
+	\stepcounter{scantron}
+	{\texttt{{\large\hl{{\small Scantron} \thescantron{\small }}}}}
+}
+\newcommand{\tfproblem}{
+	\vspace{0.2in}
+	\noindent \hspace{0.4in}
+	{\texttt{\scantronlabel (A) True (B) False}}
+	\vspace{0.2in}
+}
+
+\newcommand{\multchoice}{\vspace{0.3in}\noindent\scantronlabel
+}
+
+\pagenumbering{arabic}
+
+\def\infer#1#2{\raisebox{.5ex}{\rule{0pt}{2.5ex}$#1$}
+            \over\raisebox{.5ex}{\rule{0pt}{2.5ex}$#2$}}
+
+
+\def\encl#1#2{\fbox{\parbox{.3em}{$#1$ $\vdots$ $#2$}}}
+\def\bigencl#1#2{\fbox{\parbox{1em}{$#1$ $~\,\vdots$ $~~#2$}}}
+\def\bbigencl#1#2{\fbox{\parbox{5em}{$#1$ \hspace{4em}  $~~~~~~\vdots~~~$ $~~~~~~~#2$}}}
+\def\low#1{{\parbox{2em}{$~~~~~~$ $~~~~~~$ $~~~~~~$ $#1$}}}
+
+\mathchardef\hyph="2D
+\newcommand{\premise}{\mathrm{premise}}
+\newcommand{\assump}{\mathrm{assumption}}
+\newcommand{\intr}{\mathrm{\hyph intro\ }}
+\newcommand{\eli}{\mathrm{\hyph elim\ }}
+\newcommand{\fal}{{\tt F}}
+\newcommand{\mt}{\mathrm{Modus Tollens\ }}
+\newcommand{\pbc}{\mathrm{PBC\ }}
+\newcommand{\chyz}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+
+\newcommand{\romanlist}{(\roman{enumi})}
+\newcommand{\countlist}{\usecounter{enumi}}
+\newcommand{\se}{\subseteq}
+
+% Shortcuts
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\ex}{\exists}
+
+%Removed these to get page numbers to show up
+%\thispagestyle{empty}
+%\pagestyle{empty}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{.7, .7, .7}
+\usepackage{calc}
+\usepackage{framed}
+
+\newcommand{\newpagename}{\newpage
+\noindent
+
+{\bf Name (Print): }\hrulefill
+\bigskip}
+
+\printanswers
+
+\setlength\parindent{0pt}       %Turn off indents
+\begin{document}
+
+\begin{minipage}[t]{0.98\columnwidth}%
+\begin{shaded}
+\section*{
+     \begin{center}
+          Midterm 2\\
+          QUESTIONS PACKET\\
+          EECS 203\\
+          Fall 2019
+     \end{center}}
+\medskip
+\end{shaded}
+\end{minipage}
+
+
+\vspace{0.4in}
+\noindent
+{\bf Name (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf Uniqname (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf 8-Digit UMID: }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+\begin{center}%TODO
+{\bf ***MAKE SURE YOU HAVE PROBLEMS 1 - 19 IN THIS BOOKLET.*** }
+\end{center}
+\vspace{0.2in}
+\noindent {\large \bf General Instructions}
+
+\vspace{0.1in}
+\noindent 
+You have 120 minutes to complete 
+this exam. 
+You should have two exam packets. 
+%\vspace{0.1in}
+\begin{itemize}
+%TODO Here
+\item \textbf{Questions Packet:} Contains ALL of the questions for this exam, worth 100 points total. There are 13 Multiple Choice questions (4 points each) and 6 Free Response questions (8 points each). You may do scratch work on this part of the exam, but only work in the Answers Packet will be graded. 
+
+\item \textbf{Answers Packet:} Write all of your answers in the Answers Packet, including your answers to multiple choice questions. 
+%There is no Scantron form for this exam. 
+%Both sides of the pages in the Answers Packet will be scanned and graded. 
+\textbf{For free response questions, you must show your work! Answers alone will receive little or no credit.}
+%Write down your answer with care: {\bf If your answer is unreadable (such as too faint or messy), it will not be graded}. 
+
+\item You may bring \textbf{two} 8.5'' by 11'' note sheets, front and back, created by you. 
+\item You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. 
+%\item Leave at least one seat between yourself and other students, if possible.
+
+\item After you complete the exam, sign the Honor Code Pledge on the front of the Answers Packet.
+
+\item You must turn in both parts of this exam.
+
+\item \textbf{You are not to discuss the exam until the solutions are published.}
+
+%\item  This exam is administered under the College of Engineering Honor Code. \textbf{After you have completed the exam}, please sign the Honor Code statement below. We will not grade your exam without your signature.
+\end{itemize}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A1 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Part A1: Single Answer Multiple Choice}
+\textbf{[Only one answer choice is correct in Part A1]} 
+\vspace{0.1in}
+
+\probheadernum{4}\\
+% Brainstorm 1.13
+Darius rolls a fair \textbf{9-sided} die. If he rolls a 1, 2, or 3, he wins \$1, \$2, or \$3, respectively, and if he rolls anything else (4, 5, 6, 7, 8, 9), he wins nothing. Find the variance of the amount of money that Darius wins.\\
+%\emph{Note: Another version of this problem would be to make it a MAMC in the form of `which of the following are true', with options about E(X), V(X). The W19 exam had a similar MAMC question.}
+\begin{enumerate}[(a)]
+\item 0
+\item 22/81
+\item 8/9
+\item 10/9
+\item 14/9
+\end{enumerate}
+\begin{solution}
+(d)\\
+The sample space consists of the possible rolls: \{1, 2, 3, 4, 5, 6, 7, 8, 9\}, with each outcome equally likely. Let $X$ be the random variable representing the amount that Darius wins. Then $X(1)=1$, $X(2)=2$, $X(3)=3$, and $X(4)=X(5)=X(6)=X(7)=X(8)=X(9)=0$. 
+\begin{itemize}
+\item $E(X) = 1\cdot \frac19 + 2\cdot \frac19 + 3\cdot \frac19 + 0\cdot \frac69 = \frac69 = \frac23$.
+\item $E(X^2) = 1^2\cdot \frac19 + 2^2\cdot \frac19 + 3^2\cdot \frac19 + 0^2\cdot \frac69 = \frac19 (1+4+9) = \frac{14}9$.
+\item $V(X) = E(X^2) - (E(X))^2 = \frac{14}9 - (\frac23)^2 = \frac{14}9 - \frac49= 10/9$.
+\end{itemize}
+\end{solution}
+
+\vspace{1in}
+
+\probheadernum{4}
+
+Four people are standing in a circle as shown. Each person is given a T-shirt to wear.  The shirts come in 3 different colors, and any two people next to each other cannot wear the same color shirt. How many ways are there to give T-shirts to the four people?
+\vspace{0.1in}
+
+\begin{minipage}{.3\textwidth}
+\begin{enumerate}[(a)]
+    \item 15
+    \item 18
+    \item 24
+    \item 36
+    \item 40
+\end{enumerate}
+\end{minipage}
+\begin{minipage}{.7\textwidth}
+% Literally a circle drawn in MS paint. Hope this is what was needed
+\vspace{0.1in}
+\includegraphics[width=.4\textwidth]{203circle.png}
+\end{minipage}
+
+\begin{solution}
+% Team 3.2
+
+(b)
+
+We can start with person A, and A has 3 choices. The two people next to A are B and D, and they can be in the same color or different colors.
+
+\begin{enumerate}
+    \item If B and D are in the same color, there are 2 ways to color B and D, and there are also 2 ways to color C, since B and D are C's neighbors and they are in the same color. For this case, there are $3\cdot 2\cdot 2 = 12$ ways.
+    \item If B and D are in different colors, then there are 2 ways to color B, and 1 ways to color D, since D has to be different with both A and B. Since B and D are C's neighbors and they have different colors, there is 1 way to give C colors. For this case, there are $3\cdot 2\cdot 1\cdot1 = 6$ ways.
+\end{enumerate}
+The two cases sum up to 18.
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+Denise is preparing for the Detroit Marathon. In the span of 30 days, what is the minimum number of days she would have to run to guarantee that she runs on 6 consecutive days?
+\begin{enumerate}[(a)]
+    \item 6 times
+    \item 24 times
+    \item 25 times
+    \item 26 times
+    \item 30 times
+\end{enumerate}
+
+\begin{solution}
+% Team 2
+(d) \\
+Split 30 days into 5 trunks (the holes). To guarantee there is a hole that has at least 6 pigeons (the day she ran), there must exist at least 26 pigeons. If she only runs 25 days, then she could run 5 sets of 5 consecutive days with 1 rest day in between sets. In this arrangement, she never ran 6 days in a row. 
+\end{solution}
+
+\vspace{1in}
+
+
+% \probheadernum{4}
+
+% If an office building has 47 floors with 30 offices per floor, how many ways are there to give three people offices (if they are all empty) if offices on the same floor are not distinguishable. People are considered distinguishable from each other.
+
+% \begin{enumerate}[(a)]
+% \item{$\binom{30\cdot47}{3}$}
+% \item{$47^3$}
+% \item{$\frac{47!}{30!3!}$}
+% \item{$\frac{47!}{33!}$}
+% \item{$P(47,3)$}
+% \end{enumerate}
+% \begin{solution}
+% (b)
+% % Team 3.5
+
+% Since each office on a given floor is the same, and since there are enough offices on each floor for everyone to be on the same floor, this is the same as choosing which floor each person is on. Since there are $47$ floors/options for each of the three people, there are $47^3$ ways to assign floors to these three employees. 
+% \end{solution}
+
+\newpage
+\probheadernum{4}\\
+% Brainstorm 4.7
+Consider two fair, six-sided dice with non-standard faces. One die is red and the other is blue. The red die has faces 1, 2, 2, 3, 3, 4, and the blue die has faces 2, 2, 4, 6, 6, 8.  Let $X$ be the sum of the faces when the dice are rolled. What is $p(X \geq 10)$?
+%The red dice has the sides 1, 2, 2, 3, 3, 4. The blue dice has the sides 2, 2 ,4, , 8, 8. Both dices are standard six-sided dice so that each face shows up equally likely. What is $p(X \geq 10)$?
+\begin{enumerate}[(a)]
+\item $\dfrac{1}{4}$ %There are 4 unique faces per dice, so 16 total. 4 sums are geq 10.
+\item $\dfrac{1}{9}$ %p(X=10)
+\item $\dfrac{3}{10}$ %there are 10 unique sums, 3 of which are geq than 10
+\item $\dfrac{7}{36}$ %right answer
+\item $\dfrac{10}{36}$ %10 is in the problem and 36 is 6^2
+\end{enumerate}
+\begin{solution}
+(d)\\
+There are 7 possible roll combinations that result in a sum greater or equal to than 10: $\{(2,8), (2,8), (4,6), (4,6), (3,8), (3,8), (4,8)\}$. There are 36 total roll combinations, so the probability is $\frac{7}{36}$.
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+How many permutations of the string ``ABCDEFGHIJKLMNOPQRSTUVWXYZ" contain the substrings ``HAVE" and ``FUN"?
+Substrings must appear exactly as written. 
+
+\textit{e.g.,} LCQOPGRK\underline{\textbf{FUN}}TYDIWS\underline{\textbf{HAVE}}ZXMJB is a valid substring.
+%where the letters in each substring are consective and in order. 
+%with the designated letters consecutive and in order.
+\begin{enumerate}[(a)]
+    \item $\dfrac{26!}{4!3!}$
+    \item $\dfrac{26!}{20!}$
+    \item 20!
+    \item $2 \cdot 20!$
+    \item $21!$
+\end{enumerate}
+
+\begin{solution}
+% Team 2
+
+(e)
+
+Since both ``HAVE" and ``FUN" are substrings and each letter only appears once in the permutation of the string, we can consider each of those substrings as a single unit. Now, we consider all permutations of $26 - 3 - 4 + 2= 21$ items, of which there are $21!$ of them. 
+\end{solution}
+
+\vspace{1in}
+
+\probheadernum{4}
+
+Five people will be placed in a row. The leftmost person has to be either Yingchen or Thomas, and Thomas cannot be the rightmost person. How many unique ways are there to arrange the 5 people?
+
+%**\emph{todo: update answer choices to reflect 5 ppl instead of 6 ppl. (c) and (d) have been updated, but not the others}
+\begin{enumerate}[(a)]
+    \item 30
+    \item 36
+    \item 42
+    \item 48
+    \item 54
+\end{enumerate}  
+
+\begin{solution}
+% Team 3.1
+(c)
+
+For the situation where either Yingchen or Thomas is the leftmost person, we have $2\cdot 4! = 48$ ways. Since Thomas cannot be the rightmost person, we have to subtract this case from 48. The only case which satisfies ``Yingchen or Thomas is the leftmost person" and ``Thomas is the rightmost person" is ``Yingchen is the leftmost and Thomas is the rightmost", and there are $3! = 6$ ways. At the end, we have $48 - 6 = 42$ ways. \\ 
+
+\emph{Alternate Solution:} \\
+Yingchen or Thomas has to be on the left. If Yingchen is on the left, then there are 3 choices for the rightmost person (since Thomas cannot be the rightmost), and $3!$ ways to fill in the middle three slots. So $3 \cdot 3!$ ways to arrange the people with Yingchen as the leftmost person.  
+
+On the other hand, if Thomas is the leftmost person, then there no restrictions on where the remaining people can stand, so there are $4!$ ways to arrange them. Using the sum rule to consider both cases, we have $3 \cdot 3! + 4! = 3\cdot6 + 24 = 18+24 = 42$.
+\end{solution}
+
+
+\newpage
+
+
+
+\probheadernum{4}\\
+% Brainstorm 4.4
+Balls numbered from 1 to 203 are placed inside a box. You randomly draw six balls from the box one at a time without replacement. What is the probability that the numbers on the balls are drawn in decreasing order? An example of this would be first drawing the ball with 203, then 200, 199, 150, 100, 40. \\
+In the answer choices, $P$ refers to permutations.
+\begin{enumerate}[(a)]
+\item $\dfrac{1}{6!}$
+\item $\dfrac{1}{P(203, 6)}$
+\item $\dfrac{6!}{P(203, 6)}$
+\item $\dfrac{203}{P(203, 6)}$
+\item $\dfrac{1}{\binom{203}6}$
+
+\end{enumerate}
+\begin{solution}
+(a)\\
+We can think of this as first picking the 6 balls. There are only 6! possible ways to order the balls by the numbers on them, and only one of these orders is decreasing.
+\end{solution}
+
+\vspace{1in}
+
+\probheadernum{4}
+
+A ternary string is a string that has only 0, 1, or 2 as its digits. How many ternary strings of length 6 have the sum of the digits equal to 3? \\
+For example, 002010 is one such string.
+\begin{enumerate}[(a)]
+    \item 20 % $\binom{6}{3}$
+    \item 22 %$2\binom{8}{2} - 6$
+    \item 50 %$\binom{8}{3} - 6$
+    \item 56 %$\binom{8}{3}$
+    \item 66 % misc
+
+\end{enumerate}
+\begin{solution}
+% Team 3.6
+(c)
+
+There are two cases. \\
+Either the one digit is 2 and another is 1 or we have three 1s. \\
+In the first case, we would choose 2 of 6 possible digits, and choose one of the two to be a 2. So this is $2\binom{6}{2}$. \\
+The second case is simply choosing 3 digits out of 6 possible digits, so it's $\binom{6}{3}$. \\
+Therefore, the total is $2\binom{6}{2} + \binom{6}{3}$.
+\end{solution}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A2 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Part A2: Multiple Answer Multiple Choice}
+\textbf{In this section, select ALL of the answers that are correct for each question. Each question may have 0, 1, 2, 3, 4, or 5 correct answers.} 
+\vspace{0.2in}
+
+
+\probheadernum{4}
+
+Let $a,b,n \in \mathbb{Z}^+$. Given $a+b = n$, which of the following are true?
+\begin{enumerate}[(a)]
+\item{$\dbinom{n}{a} = \dbinom{n}{b}$}
+\item{$P(n,a) = P(n,b)$}
+\item{$\dbinom{n-1}{a-1} + \dbinom{n-1}{a} = \dbinom{n}{a}$}
+\item{$\dfrac{P(n,b)}{b!} = \dfrac{P(n,a)}{a!}$}
+\item{$\dbinom{n}{b}\dbinom{n-b}{a} = \dfrac{n!}{a!b!}$}
+
+\end{enumerate}
+\begin{solution}
+% Team 3.MC.2
+(a),(c),(d), (e)\\
+(a):$$ \chyz{n}{a} = \frac{n!}{a!(n-a)!} = \frac{n!}{(n-b)!b!}= \chyz{n}{b}$$
+(b): Take $a=1,b=2,n=m$ then $P(n,a) = 3, P(n,b) = 3!=6$ \\
+(c): Is a direct result of Bernoulli's Identity.\\
+(d): $$\frac{1}{b!}P(n,b) = \frac{1}{b!}\frac{n!}{(n-b)!} = \frac{1}{(n-a)!}\frac{n!}{a!} = \frac{1}{a!}\frac{n}{(n-a)!} = \frac{1}{a!}P(n,a)$$
+(e): $$\chyz{n}{b}\chyz{n-b}{a} = \chyz{n}{b} = \frac{n!}{(n-b)!b!} = \frac{n!}{a!b!}$$
+\end{solution} 
+
+\vspace{0.8in}
+
+
+\probheadernum{4}\\
+% Brainstorm 1.6
+Which of the following sets are well-ordered with the corresponding relations?
+
+%\emph{Kim's note: don't we need to define $\subset$ in part (c)? What does it mean for one rectangle to be a subset of another?}
+
+\begin{enumerate}[(a)]
+\item The set $\{1,2,3\}$ with the relation $\prec$, where $\prec$ is such that $2\prec 1$, $3\prec1$, $3\prec2$.
+\item The set $\{1,2,3\}$ with the relation $\prec$, where $\prec$ is such that $1\prec 2$, $2\prec3$, $3\prec1$.
+\item The set of rectangles in $\mathbb{R}^2$ where all four vertices have integer coordinates and all four edges are parallel to either the $x$-axis or the $y$-axis with the relation $\prec$, where $A\prec B$ if and only if rectangle A lies completely within rectangle B.
+% ...where all four vertices have integer coordinates and all four edges are parallel to either the $x$-axis or the $y$-axis with the relation...
+\item The set $\{n!|n\in\mathbb{Z}^+\}$ with the relation $\prec$, where $a\prec b$ if and only if $b$ is a multiple of $a$.
+\item The set $\mathbb{Z}^+\times\mathbb{Z}^+$ with the relation $\prec$, where $(a,b)\prec(c,d)$ if and only if
+
+\hspace{2.5in} $a<c$ or ($a=c$ and $b<d$).
+\end{enumerate}
+\begin{solution}
+(a)(d)(e)
+\begin{enumerate}[(a)]
+\item
+The number $3$ is the least element of the sets $\{1,2,3\}$, $\{1,3\}$, and $\{2,3\}$; the number $2$ is the least element of the set $\{1,2\}$.
+\item
+There is no least element in the set $\{1,2,3\}$.
+\item
+Note that the relation is not a total order in the set. For example, let $A$ be the rectangle which has the four vertices $(0,0)$, $(2,0)$, $(0,2)$, and $(2,2)$, and let $B$ be the rectangle which has the four vertices $(1,1)$, $(3,1)$, $(1,3)$, and $(3,3)$. Note that $A\not\subset B$ and $B\not\subset A$. So the set $\{A,B\}$ has no least element.
+\item
+Note that for two different positive integers $a$ and $b$, we have $b!$ is a multiple of $a!$ if and only if $a<b$. This implies the structure of the relation $\prec$ defined above on the set $\{n!|n\in\mathbb{Z}^+\}$ is isomorphic to the relation $<$ on $\mathbb{Z}^+$, which we know is well-ordered.
+\item
+Given any subset $S$ of $\mathbb{Z}^+\times\mathbb{Z}^+$, we find the least element using the following method. We first order the elements with $<$ based on the first coordinate, and put any element that is the least element in this ordering in the set $S'$, which should be non-empty and $\subset S$. Then we order the elements in $S'$ with $<$ based on the second coordinate and get the least element.
+\end{enumerate}
+\end{solution}
+
+\newpage
+
+\probheadernum{4}\\
+% Brainstorm 1.8
+Which of the following properties does the relation $\{(1,4),(4,1),(2,3),(3,1),(4,2),(3,3)\}$ on the set $\{1,2,3,4\}$ have?
+\begin{enumerate}[(a)]
+\item Reflexive
+\item Symmetric
+\item Antisymmetric
+\item Transitive
+\end{enumerate}
+\begin{solution}
+None
+\begin{enumerate}[(a)]
+\item The relation is not reflexive because $(1,1)$ is not in the relation.
+\item The relation is not symmetric because $(2,3)$ is in the relation but $(3,2)$ is not.
+\item The relation is not antisymmetric because $(1,4)$ and $(4,1)$ are in the relation.
+\item The relation is not transitive because $(2,3)$ and $(3,1)$ are in the relation but $(2,1)$ is not.
+\end{enumerate}
+\end{solution}
+
+\vspace{1in}
+
+\newpage
+\probheadernum{4}
+
+Which of the following are equivalent to $\binom{7}{3}$?
+\begin{enumerate}[(a)]
+    \item The number of bit strings of length seven that contain exactly four 0s.
+    \item The number of ways to distribute 3 identical candy bars to 5 children.
+    \item The number of ways to assign rankings of 1st, 2nd, and 3rd to a group of seven competitors.
+    \item The number of possible outcomes that contain at least three heads if a coin is flipped seven times.
+    \item The number of possible outcomes that contain one more head than tail if a coin is flipped seven times.
+\end{enumerate}
+
+
+\begin{solution}
+% Team 2.3
+(a), (b), (e) \\
+(a) is correct because this is equal to the number of bit strings of length seven that contain exactly three 1s. (Also, C(7,3) = C(7,4).) \\
+(b) can be found with the stars and bars method. There are 3 stars (number of candy bars) and 4 bars (number of children minus one). Then, we have C(stars + bars, stars), which will give us C(7,3). \\
+(c) is incorrect because this would be choosing ordered arrangements. \\
+(d) is incorrect because the number of possible outcomes that contain \textbf{at least} three heads is equal to C(7,3) + C(7,4) + C(7,5) + C(7,6) + C(7,7). \\
+(e) is correct because the only way this can happen is if there are four heads and three tails, which would give us C(7,3).
+\end{solution}
+
+
+\newpage
+
+\probheadernum{4}\\
+% Brainstorm 1.7
+Let $S$ be the sample space, and $E$ and $F$ be two events. Which of the following statements are true?
+\begin{enumerate}[(a)]
+\item If $P(F)=0$, then $E$ and $F$ must be independent.
+\item If $E$ and $F$ are disjoint, then $P(E-F)=P(E)-P(F)$.
+\item If $E$ and $F$ are disjoint and $P(F)>0$, then $P(E|F)=0$.
+\item If $E$ and $F$ are independent, then $E$ and $\overline{F}$ are also independent.
+\end{enumerate}
+\begin{solution}
+(a)(c)(d)
+\begin{enumerate}[(a)]
+\item Since $E\cap F\subset F$, $0\leq P(E\cap F)\leq P(F)=0$; hence, we have $P(E\cap F)=0=P(E)P(F)$ and conclude that $E$ and $F$ are indeed independent.
+\item If $E$ and $F$ are mutually exclusive, then $E-F=E$, so $P(E-F)=P(E)$.
+\item If $E$ and $F$ are mutually exclusive, then $P(E\cap F)=P(\phi)=0$, so $P(E|F)=\frac{P(E\cap F)}{P(F)}=0$.
+\item Note that $E-F$ and $E\cap F$ are mutually exclusive, so $P(E)=P((E-F)\cup(E\cap F))=P(E-F)+P(E\cap F)=P(E-F)+P(E)P(F)$; the last equality follows from the fact that $E$ and $F$ are independent. Hence, $P(E\cap(S-F))=P(E-F)=P(E)(1-P(F))=P(E)P(S-F)$.
+\end{enumerate}
+\end{solution}
+
+
+
+
+\end{document}

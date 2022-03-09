@@ -1,0 +1,590 @@
+\title{FA 2018 EECS203 Midterm Exam 2, Questions}
+\documentclass[12pt]{exam}
+%\footer{}{}{\thepage}
+%\footer{}{\thepage}{}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\oddsidemargin .25in
+\evensidemargin .25in
+\topmargin -0.25in
+\textwidth 6.0in
+\textheight 9.5in
+\sloppy
+
+\usepackage{graphicx}
+\usepackage{url, amsmath, amsthm, enumerate, multicol}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{boxproof}
+\usepackage{amsthm}
+\usepackage{eucal}
+\usepackage{todonotes}
+\usepackage{algpseudocode}
+\let\oldReturn\Return
+\renewcommand{\Return}{\State\oldReturn}
+
+\usepackage{placeins}
+\usepackage{listings}
+
+
+\usepackage{verbatim}
+\usepackage{fullpage}
+
+
+
+\usepackage{soul}
+\usepackage{color}
+
+\usepackage{comment}
+
+\definecolor{Light}{gray}{.90}
+\sethlcolor{Light}
+
+\newcounter{bar}
+\newcommand{\probheadernum}[1]{%
+        \vspace{0.2in}
+        \stepcounter{bar}%
+        \noindent{\large\bf Problem \arabic{bar}. {(#1 points)}}
+%        \noindent{\large\bf Problem \arabic{bar}. {\small (#1 points)}}
+        \smallskip
+}
+
+
+\newcounter{scantron}
+\newcommand{\scantronlabelnocount}{{\texttt{{\large\hl{{\small Scantron} XX{}}}}}}
+
+\newcommand{\scantronlabel}{
+	\stepcounter{scantron}
+	{\texttt{{\large\hl{{\small Scantron} \thescantron{\small }}}}}
+}
+\newcommand{\tfproblem}{
+	\vspace{0.2in}
+	\noindent \hspace{0.4in}
+	{\texttt{\scantronlabel (A) True (B) False}}
+	\vspace{0.2in}
+}
+
+\newcommand{\multchoice}{\vspace{0.3in}\noindent\scantronlabel
+}
+
+\pagenumbering{arabic}
+
+\def\infer#1#2{\raisebox{.5ex}{\rule{0pt}{2.5ex}$#1$}
+            \over\raisebox{.5ex}{\rule{0pt}{2.5ex}$#2$}}
+
+
+\def\encl#1#2{\fbox{\parbox{.3em}{$#1$ $\vdots$ $#2$}}}
+\def\bigencl#1#2{\fbox{\parbox{1em}{$#1$ $~\,\vdots$ $~~#2$}}}
+\def\bbigencl#1#2{\fbox{\parbox{5em}{$#1$ \hspace{4em}  $~~~~~~\vdots~~~$ $~~~~~~~#2$}}}
+\def\low#1{{\parbox{2em}{$~~~~~~$ $~~~~~~$ $~~~~~~$ $#1$}}}
+
+\mathchardef\hyph="2D
+\newcommand{\premise}{\mathrm{premise}}
+\newcommand{\assump}{\mathrm{assumption}}
+\newcommand{\intr}{\mathrm{\hyph intro\ }}
+\newcommand{\eli}{\mathrm{\hyph elim\ }}
+\newcommand{\fal}{{\tt F}}
+\newcommand{\mt}{\mathrm{Modus Tollens\ }}
+\newcommand{\pbc}{\mathrm{PBC\ }}
+
+\newcommand{\romanlist}{(\roman{enumi})}
+\newcommand{\countlist}{\usecounter{enumi}}
+\newcommand{\se}{\subseteq}
+
+% Shortcuts
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\ex}{\exists}
+
+%Removed these to get page numbers to show up
+%\thispagestyle{empty}
+%\pagestyle{empty}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{.7, .7, .7}
+\usepackage{calc}
+%\usepackage{framed}
+
+\newcommand{\newpagename}{\newpage
+\noindent
+
+{\bf Name (Print): }\hrulefill
+\bigskip}
+
+\printanswers
+
+\setlength\parindent{0pt}       %Turn off indents
+\begin{document}
+
+\begin{minipage}[t]{0.98\columnwidth}%
+\begin{shaded}
+\section*{
+     \begin{center}
+          Midterm 2\\
+          %(Part A -- Multiple Choice)\\
+          QUESTIONS PACKET\\
+          EECS 203\\
+          Winter 2019
+     \end{center}}
+\medskip
+\end{shaded}
+\end{minipage}
+
+
+\vspace{0.4in}
+\noindent
+{\bf Name (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf Uniqname (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf 8-Digit UMID: }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+\begin{center}%TODO
+{\bf ***MAKE SURE YOU HAVE PROBLEMS 1 - 19 IN THIS BOOKLET.*** }
+\end{center}
+\vspace{0.2in}
+\noindent {\large \bf General Instructions}
+
+\vspace{0.1in}
+\noindent 
+You have 120 minutes to complete 
+this exam. 
+You should have two exam packets. 
+%\vspace{0.1in}
+\begin{itemize}
+%TODO Here
+\item \textbf{Questions Packet:} Contains ALL of the questions for this exam, worth 100 points total. There are 13 Multiple Choice questions (4 points each) and 6 Free Response questions (8 points each). You may do scratch work on this part of the exam, but only work in the Answers Packet will be graded. 
+
+\item \textbf{Answers Packet:} Write all of your answers in the Answers Packet, including your answers to multiple choice questions. 
+%There is no Scantron form for this exam. 
+%Both sides of the pages in the Answers Packet will be scanned and graded. 
+\textbf{For free response questions, you must show your work! Answers alone will receive little or no credit.}
+%Write down your answer with care: {\bf If your answer is unreadable (such as too faint or messy), it will not be graded}. 
+
+\item You may bring \textbf{two} 8.5'' by 11'' note sheets, front and back, created by you. 
+\item You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. 
+%\item Leave at least one seat between yourself and other students, if possible.
+
+\item After you complete the exam, sign the Honor Code Pledge on the front of the Answers Packet.
+
+\item You must turn in both parts of this exam.
+
+\item \textbf{You are not to discuss the exam until the solutions are published.}
+
+%\item  This exam is administered under the College of Engineering Honor Code. \textbf{After you have completed the exam}, please sign the Honor Code statement below. We will not grade your exam without your signature.
+\end{itemize}
+
+%\noindent This exam is administered under the College of Engineering Honor Code.  Your signature endorses the pledge below. We will not grade your exam without your signature.
+
+% \bigskip
+% \linespread{1.5}
+% \noindent
+% \textit{I have neither given nor received unauthorized aid on this examination, nor 
+% have I concealed any violations of the Honor Code. I further agree not to discuss any aspect of this examination in any way, shape, or form until the solutions have been published.} 
+
+% \bigskip
+% \vspace{0.2 in}
+% \noindent Signature: \hrulefill
+
+% \linespread{1}
+
+% \noindent {\large \bf General Instructions}
+
+% \noindent 
+% You have 120 minutes to complete the two parts of this exam. {\bf Part A has 13 problems (four points each), and part B has 6 problems (eight points each)}. The exam is worth 100 points total.
+% \vspace{0.5em}
+
+% \noindent
+% For this exam, you are allowed to bring two 8.5'' by 11'' note sheets, front and back, created by you. You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. Leave at least one seat between yourself and other students. %This also means making room if you are in a row with 2 or more seats.
+% \vspace{0.5em}
+
+% \noindent
+% Your answers for all parts of this exam will be written in the Answers packet. The Answers packet contains more instructions. % this sounds clunky
+% \vspace{0.5em}
+
+% \noindent
+% Feel free to do scratch work on this part of the exam.
+
+
+% \noindent Please note: \textbf{You are not to discuss the exam until the solutions are published}
+
+\newpage
+
+\begin{comment}
+\noindent {\large \bf Part A Instructions} 
+\begin{itemize}
+\item This section of the exam contains \textbf{13 multiple choice questions}, each worth 4 points, for a total of 52 points. 
+\item Write your answer(s) to each multiple-choice question in the corresponding box in the Answers Packet. 
+\item Nothing written in this Questions Packet will be graded.
+\end{itemize}
+\vspace{0.2in}
+%%% TODO: Fill in which questions belong to A1 and A2
+
+\noindent
+\textbf{Part A1: Single Answer Multiple Choice}
+\begin{itemize}
+\itemsep0em
+\item Questions 1-7 each have a single correct answer. \textbf{Please write only one answer for each question.} 
+\item If you write more than one letter as an answer in your Answers Packet, that question will be marked as incorrect.
+\end{itemize}
+\vspace{0.2in}
+
+\noindent
+\textbf{Part A2: Multiple Answer Multiple Choice} \begin{itemize}
+\itemsep0em
+    \item For Questions 8-13, \textbf{select ALL of the answers that are correct for each question.} 
+    \item Each question may have 0, 1, 2, 3, 4, or 5 correct answers. 
+ For example, if answers A B and C are correct, write ``ABC" in the corresponding answer box.
+ \item Partial credit can be earned for partially correct answers.
+ \end{itemize}
+\vspace{0.2in}
+
+\noindent {\large \bf Part B Instructions}
+
+\begin{itemize}
+\itemsep0em
+\item Part B (Questions 14-19) contains {\bf six Free Response problems} each worth eight points, for a total of 48 points. 
+\item Please write your solutions clearly on the corresponding pages in the Answers Packet.
+\item Nothing in this Questions Packet will be graded.
+\end{itemize}
+\vspace{0.2 in}
+
+%\noindent
+%You must write your name and uniqname on the front cover of this packet and turn in this part of the exam, along with your Answers packet. (We will check to make sure that you have turned in this part of the exam.)
+\vspace{0.2in}
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 	NO HONOR CODE SIGNATURE LINE	  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\bigskip
+
+
+\noindent {\large \bf Honor Code  Instructions}
+
+\noindent This exam is administered under the College of Engineering Honor Code. After you finish your exam, please sign on the line below. Your signature endorses the pledge below. We will not grade your exam without your signature.
+
+\bigskip
+\linespread{1.5}
+\noindent
+\textit{I have neither given nor received unauthorized aid on this examination, nor 
+have I concealed any violations of the Honor Code. I further agree not to discuss any aspect of this examination in any way, shape, or form until the solutions have been published.} 
+
+\bigskip
+
+\noindent Signature: \hrulefill
+
+\linespread{1}
+
+\setcounter{bar}{15}
+
+\newpage
+
+Scratch paper. {\bf Nothing written on this page will be graded.}
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A1 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section*{Part A1: Single Answer Multiple Choice}
+\textbf{[Only one answer choice is correct in Part A1]} 
+\vspace{0.1in}
+
+\probheadernum{4}
+
+How many numbers must be selected from the set of all integers to guarantee that at least 2 of the numbers are divisible by 100?
+\begin{enumerate}[{(a)}]
+% Hw Team 2
+    \item 100
+    \item 101
+    \item 201
+    \item 10,001
+    \item This cannot be guaranteed 
+\end{enumerate}
+
+\begin{solution}
+    (e) It is possible to keep selecting integers and have \textbf{none} of them be divisible by 100. Note that we cannot apply the Pigeon-hole Principle here. If the question was asking about numbers that have the same remainder when divided by 100, then we could use the PP to determine we need 101 integers to guarantee this. Remember that the PP guarantees that at least one hole has at least two pigeons, but can never guarantee the number of pigeons in a particular hole.
+\end{solution}
+
+\vspace{2cm}
+
+\probheadernum{4}
+
+What is the constant term in the expansion of $(203x^2+376\frac{1}{x})^{300}$ ?
+\begin{enumerate}[{(a)}]
+    \item $\binom{300}{100} \cdot 203^{100} \cdot 376^{200}$
+    \item $\binom{300}{150} \cdot 203^{150} \cdot 376^{150}$
+    \item $203^{100} \cdot 376^{200}$
+    \item $203^{150} \cdot 376^{150}$
+    \item 0
+\end{enumerate}
+
+\begin{solution}
+% Hw Team 2
+(a) The constant term must have the $x^2$ and $\frac{1}{x}$ cancel out. This happens when there is a $(203x^2)^{100}$ and $(376\frac{1}{x})^{200}$ in the term. Using the binomial expansion formula, the term is $$\binom{300}{100}(203x^2)^{100}(376\frac{1}{x})^{200} = \binom{300}{100}203^{100}376^{200}$$
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+Suppose you toss a fair coin 12 times resulting in a sequence of heads (H) and tails (T). Let N be the number of times that the sequence HTHT appears.  For example, HTHT appears twice in $$\underline{\text{HT}\overline{\text{HT}}}\overline{\text{HT}}\text{TTTTTT}$$ Find E(N). 
+\begin{enumerate}[(a)]
+\item $\frac{1}{16}$
+\item $\frac{3}{16}$
+\item $\frac{9}{16}$
+\item $\frac{5}{8}$
+\item $\frac{3}{4}$
+\end{enumerate}
+\begin{solution}
+% Team 4
+(c) You can break a sequence of 12 into 9 overlapping mini sequences, each of size 4. For each mini-sequence, the probability of getting HTHT is $(\frac{1}{2})^4=\frac{1}{16}$, so the expected number of times HTHT appears in a mini sequence is $E(X_i) = 1 \cdot \frac{1}{16} + 0 \cdot \frac{15}{16} =\frac{1}{16} $. Now we can use linearity of expectation to find the expected number of times HTHT appears in the larger sequence. Recall that linearity of expectation does not require independence, so the fact that the mini-sequences overlap is irrelevant.  
+
+$E(X) = E(X_1 + X_2 +...+X_9)= 9E(X_i) = \frac{9}{16}$.
+\end{solution}
+
+\vspace{2cm}
+
+\probheadernum{4}
+
+A fair coin is flipped 6 times in a row. Given that the fourth flip is tails, what is the probability that exactly 4 flips come up heads?
+\\
+\begin{enumerate} [(a)]
+    \item $\frac{1}{64}$
+    \item $\frac{1}{32}$
+    \item $\frac{5}{32}$
+    \item $\frac{15}{64}$
+    \item $\frac{15}{32}$
+
+\end{enumerate}
+\begin{solution}
+% Team 3 
+c) Because the fourth flip is tails, we are looking for the probability that exactly 4 of the other 5 flips come up heads. This probability can be found using the binomial distribution. We have $n = 5$, and $k = 4$, and $p = 1 - p = 1/2$ (because the coin is fair). Thus, we know that the probability is $\binom{5}{4}(1/2)^4(1/2)^1 = \frac{5}{32}$
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+What is the flaw in the following induction proof?\\
+
+Claim: $a^n=1$ for all nonnegative integers $n$, whenever $a$ is a nonzero real number.\\
+Base case: $a^0=1$ is true by rules of exponents.\\
+Inductive step: Assume that $a^j=1$ for all nonnegative integers $j$ with $j \leq k$. Then $$a^{k+1}=\frac{a^ka^k}{a^{k-1}}=\frac{1 \cdot 1}{1}=1$$
+
+\begin{enumerate}[(a)]
+\item The inductive proof is correct.
+\item It fails to prove $P(0)$
+\item It fails to prove $P(0)\rightarrow P(1)$
+\item It fails to prove $P(1)\rightarrow P(2)$
+\item It fails to prove $P(2)\rightarrow P(3)$
+\end{enumerate}
+\begin{solution}
+(c) The base case of $P(0)$ is true since $a^0$ is indeed equal to 1 for any nonzero real number $a$. If we assume the inductive hypothesis, $P(k)$, for any $k \geq $\textbf{1}, we can prove $P(k+1)$. However, the proof breaks down when we try to prove $P(0) \rightarrow P(1)$ because $a^{0+1} = \frac{a^0 a^0}{a^{0-1}}=\frac{1}{a^{-1}}=a$. In the denominator, we cannot assume by our inductive hypothesis that $a^{-1} = 1$ since this inductive hypothesis is only applicable to $a$ raised to a natural number, but $-1$ is not a natural number. Therefore, this proof fails to prove $P(0)\rightarrow P(1)$.
+\end{solution}
+
+\vspace{2cm}
+
+\probheadernum{4}
+
+After repeatedly rolling 2 identical standard dice, you finally notice that a combination has repeated itself. For example, on the second roll, you roll a 1 and a 5, and on the eighth roll, you roll a 5 and a 1.  How many rolls of 2 dice are required to guarantee that some unordered combination has been repeated?  
+\begin{enumerate}[{(a)}]
+    \item 13
+    \item 16
+    \item 19
+    \item 22
+    \item 37
+\end{enumerate}
+\begin{solution}
+% Hw Team 2
+% TODO: Team 2 to update solution using stars and bars
+(d) There are $\binom{6}{2} = 15$ ways to choose, in no particular order, two distinct numbers, and another 6 ways to choose two repeated numbers. This means there are $15 + 6 = 21$ distinct die rolls and thus there must be 22 rolls of 2 dice in order to guarantee that some combination has been repeated.
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+Six identical prizes are to be given to 12 chefs in a local cook-off. Nevertheless, any individual chef may win anywhere between 0 and 6 prizes, inclusive. How many ways are there to award the chefs the prizes?
+\begin{enumerate}[{(a)}]
+    \item $\frac{12^6}{6!}$
+    \item $12^6$
+    \item $\binom{17}{5}$
+    \item $\binom{17}{11}$
+    \item $\frac{12!}{6!}$
+\end{enumerate}
+\begin{solution}
+% Hw Team 2
+(d) By stars n' bars, we see that there are 6 stars and 11 bars. Since the prizes are identical (indistinguishable) then we treat the prizes as stars, and the chefs are distinguishable and are used to calculate bars as $12 - 1 = 11$. Thus, there are $\binom{17}{6} = \binom{17}{11}$ ways to award the chefs the prizes.
+\end{solution}
+
+\vspace{2cm}
+
+\probheadernum{4}
+
+6 green balls, 8 blue balls, and 3 red balls are placed in a bag. You are asked to select 3 balls from the bag without replacement. If the first ball you pick is green, what is the probability that after all three picks, you end up with at least two green balls?
+\begin{enumerate}[(a)]
+% Team 3
+    \item $\frac{6 \cdot 5}{17 \cdot 16}$
+    \item $\frac{6 \cdot 5 \cdot 4}{17 \cdot 16 \cdot 15}$
+    \item $1 - \frac{11 \cdot 10}{17 \cdot 16}$
+    \item $1 - \frac{11 \cdot 10}{16 \cdot 15}$
+    \item $\frac{5}{16}$
+\end{enumerate}
+\begin{solution}
+
+(d) 
+
+We are looking for the probability of drawing at least 1 green ball on your last two draws. To find this, we can find the probability you pick no green balls on your last two draws, and subtract that from 1. The probability you don't pick a green ball on your second draw is the same as the probability of drawing a blue or red ball on your second draw, which is $\frac{11}{16}$. Because we are drawing without replacement, there are 16 total balls in the bag on draw 2. Similarly, we find the probability for not drawing a green ball on draw 3 to be $\frac{10}{15}$. Multiplying these two probabilities and subtracting from 1 gives us answer d.
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+Computer programs print output to a screen, and sometimes when multiple programs try to print output at the same time, the individual characters get interleaved, while maintaining their original order from within their respective programs. For example, if Program A prints \textbf{abc} and Program B prints \textbf{DEF}, the output may be \textbf{aDbcEF}, but never \textbf{cbaDEF}.
+
+\vspace{0.1in}
+If Program 1 prints \textbf{RISHI}, Program 2 prints \textbf{ADAM}, and Program 3 prints\\ \textbf{ELLEN}, how many possible interleavings are there?
+
+\begin{enumerate}[(a)]
+    \item $\frac{14!}{2!2!2!2!}$
+    \item $\frac{14!}{8!}$
+    \item $\binom{14}{5} \binom{9}{4}$
+    \item $\frac{1}{2!2!2!2!} \binom{14}{5} \binom{9}{4}$
+    \item $\frac{1}{8!}\binom{14}{5} \binom{9}{4}$
+\end{enumerate}
+
+\begin{solution} 
+%Hw Team 2
+(c)
+
+There are
+\[
+    \binom{14}{5} \binom{9}{4}
+\]
+ways to choose the interleavings, since you first choose the 5 spots for the 5 characters printed by program 1, then choose the 4 spots for the 4 characters printed by program 2. This is because once the spots are chosen, the order of the letters printed by the program is predetermined. 
+
+Note that no overcounting occurs, since the words were chosen carefully so that there is no overlap between the output of the 3 programs. Even though there are two "$i$"s in $rishi$, each $i$ is placed uniquely by the choice of the spots for $rishi$, so no overcounting occurs.
+\end{solution}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A2 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Part A2: Multiple Answer Multiple Choice}
+\textbf{In this section, select ALL of the answers that are correct for each question. Each question may have 0, 1, 2, 3, 4, or 5 correct answers.} 
+\vspace{0.2in}
+
+
+
+\probheadernum{4}
+
+Consider the following identity:
+\begin{align*}
+    \sum_{i=1}^{n} i=\frac{n(n+1)}{2}
+\end{align*}
+Which of the following approaches would be a valid way to show this?
+\begin{enumerate}[(a)]
+\item Using arithmetic series identities
+\item Using geometric series identities
+\item Mathematical induction
+\item Strong induction
+\end{enumerate}
+\begin{solution}
+(a), (c), (d)
+\\This identity can be proven with arithmetic series identities as it itself is an arithmetic series identity. Mathematical or strong induction can prove this identity with base case P(1) : 1 = $\frac{1 \cdot 2}{2}$. Inductive Hypothesis: P(k) : $\Sigma_{i=1}^ki=\frac{k(k+1)}{2}$. Inductive Step: assume P(k), show P(k+1) is true: $\Sigma_{i=1}^{k+1}i= \Sigma_{i=1}^{k}i + (k+1) = \frac{k(k+1)}{2} + (k+1) = \frac{k(k+1) + 2(k+1)}{2} = \frac{k^2 + k + 2k + 2}{2} = \frac{(k+1)(k+2)}{2} $. Geometric series identities would not be a valid way of proving the identity because they deal with a geometric series, not an arithmetic series.
+\end{solution}
+
+\vspace{2cm}
+
+\probheadernum{4}
+
+Which of the following sets are well-ordered under the given ordering?
+\begin{enumerate}[(a)]
+\item ($\mathbb{Q^+} \cup \{0\}$, $<$)
+\item ($\mathbb{R} \cap \mathbb{N}$, $<$)
+\item $(\Z^-, <)$
+\item ($\{\pi, 1, \sqrt{2}, -5\}$, $>$)
+\item $([0,1], >)$
+\end{enumerate}
+\begin{solution}
+(b), (d)\\
+(a) is not well ordered because there is a nonempty subset (e.g. $\mathbb{Q^+}$) that has no least element.\\
+(b) is well ordered since this reduces to $\mathbb{N}$ which is well-ordered under $<$.\\
+(c) is not well ordered because there is a nonempty subset (e.g. $\mathbb{Z^-}$) that has no least element.\\
+(d) is well ordered because every nonempty subset has a least element and a defined ordering.\\
+(e) is not well ordered because there is a nonempty subset (e.g. (0, 1)) that has no least element.
+\end{solution}
+
+\vspace{1cm}
+
+\newpage
+\probheadernum{4}
+
+You roll a fair five-sided die with faces 1, 2, 3, 4, and 5. Let $X$ be a random variable representing the number you roll. Which of the following statements are correct?
+
+\begin{enumerate}[(a)]
+\item $p(X=3)=0.2$
+\item $p(X>3)=0.4$
+\item $E(X)=3$
+\item $V(X)=3$
+\end{enumerate}
+
+\begin{solution}
+(a), (b), (c)
+Since the die is fair, then each face comes up with equal probability, therefore, $p(X=1)=p(X=2)=p(X=3)=p(X=4)=p(X=5)=0.2$. 
+This explains answer (a). Answer (b) follows directly since $p(X>3) = p(X = 4) + p(X = 5) = .2 + .2 = .4$. \\\\Now to calculate $E(X)$, we see $E(X)= .2 \cdot 1 + .2 \cdot 2 + .2 \cdot 3 + .2 \cdot 4 + .2 \cdot 5 = 3$, thus (c) is correct. Finally, $V(X) = E(X^2) - (E(X))^2$. $E(X^2) = .2 \cdot (1 + 4 + 9 + 16 + 25) = .2 \cdot (55) = 11$. Then $V(X) = 11 - 3^2 = 2$, so (d) is incorrect.
+
+\end{solution}
+
+\vspace{2cm}
+
+\probheadernum{4}
+
+A river splits up into two branches, then recombines after a series of dams in each branch. As shown in the figure below, Branch A has two dams and Branch B has three dams.  At any particular time, each dam has a probability of $0.1$ of being lowered, and each dam is lowered independently of the others. Water can flow through only if at least one branch has all of its dams lowered. What is the probability that water can flow through?
+\includegraphics[width=\linewidth]{river.png}
+
+\begin{enumerate} [(a)]
+    \item $1 - 0.9^5$
+    \item $0.1^3 + 0.1^2 - 0.1^5$
+    \item $0.1^3 + 0.1^2$
+    \item $0.1^5$
+    \item $1 - (0.9^3 + 0.9^2)$
+\end{enumerate}
+\begin{solution}
+(b) 
+
+Water can flow through if all the dams in branch A are lowered or all the dams in branch B are lowered. We now use inclusion-exclusion principle. The probability of any individual gate being lowered is $0.1$ and each gate is independent of the other gates, so we use product rule to find the following probabilities. The probability that the water can flow through branch A is $0.1^2$ and the probability that the water can flow through branch B is $0.1^3$.  The probability that water can flow through both branch A and B is $0.1^2 \cdot 0.1^3 = 0.1^5$. Thus, by inclusion-exclusion, answer (b) is correct.
+\end{solution}
+
+
+\end{document}

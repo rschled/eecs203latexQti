@@ -1,0 +1,680 @@
+\title{WN 2020 EECS203 Midterm Exam 2, Questions}
+\documentclass[12pt]{exam}
+%\footer{}{}{\thepage}
+%\footer{}{\thepage}{}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\oddsidemargin .25in
+\evensidemargin .25in
+\topmargin -0.25in
+\textwidth 6.0in
+\textheight 9.5in
+\sloppy
+
+\usepackage{graphicx}
+\usepackage{url, amsmath, amsthm, enumerate, multicol}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{boxproof}
+\usepackage{amsthm}
+\usepackage{eucal}
+\usepackage{todonotes}
+\usepackage{algpseudocode}
+\let\oldReturn\Return
+\renewcommand{\Return}{\State\oldReturn}
+
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage{hyperref}
+
+% Needed for algorithm formatting
+\usepackage[linesnumbered,boxed]{algorithm2e}
+
+
+\usepackage{verbatim}
+\usepackage{fullpage}
+\usepackage{array}
+
+
+\usepackage{soul}
+\usepackage{color}
+
+\usepackage{comment}
+
+\definecolor{Light}{gray}{.90}
+\sethlcolor{Light}
+
+\newcounter{bar}
+\newcommand{\probheadernum}[1]{%
+        \vspace{0.2in}
+        \stepcounter{bar}%
+        \noindent{\large\bf Problem \arabic{bar}. {(#1 points)}}
+%        \noindent{\large\bf Problem \arabic{bar}. {\small (#1 points)}}
+        \smallskip
+}
+
+
+\newcounter{scantron}
+\newcommand{\scantronlabelnocount}{{\texttt{{\large\hl{{\small Scantron} XX{}}}}}}
+
+\newcommand{\scantronlabel}{
+	\stepcounter{scantron}
+	{\texttt{{\large\hl{{\small Scantron} \thescantron{\small }}}}}
+}
+\newcommand{\tfproblem}{
+	\vspace{0.2in}
+	\noindent \hspace{0.4in}
+	{\texttt{\scantronlabel (A) True (B) False}}
+	\vspace{0.2in}
+}
+
+\newcommand{\multchoice}{\vspace{0.3in}\noindent\scantronlabel
+}
+
+\pagenumbering{arabic}
+
+\def\infer#1#2{\raisebox{.5ex}{\rule{0pt}{2.5ex}$#1$}
+            \over\raisebox{.5ex}{\rule{0pt}{2.5ex}$#2$}}
+
+
+\def\encl#1#2{\fbox{\parbox{.3em}{$#1$ $\vdots$ $#2$}}}
+\def\bigencl#1#2{\fbox{\parbox{1em}{$#1$ $~\,\vdots$ $~~#2$}}}
+\def\bbigencl#1#2{\fbox{\parbox{5em}{$#1$ \hspace{4em}  $~~~~~~\vdots~~~$ $~~~~~~~#2$}}}
+\def\low#1{{\parbox{2em}{$~~~~~~$ $~~~~~~$ $~~~~~~$ $#1$}}}
+
+\mathchardef\hyph="2D
+\newcommand{\premise}{\mathrm{premise}}
+\newcommand{\assump}{\mathrm{assumption}}
+\newcommand{\intr}{\mathrm{\hyph intro\ }}
+\newcommand{\eli}{\mathrm{\hyph elim\ }}
+\newcommand{\fal}{{\tt F}}
+\newcommand{\mt}{\mathrm{Modus Tollens\ }}
+\newcommand{\pbc}{\mathrm{PBC\ }}
+
+\newcommand{\romanlist}{(\roman{enumi})}
+\newcommand{\countlist}{\usecounter{enumi}}
+\newcommand{\se}{\subseteq}
+
+% Shortcuts
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\ex}{\exists}
+
+%Removed these to get page numbers to show up
+%\thispagestyle{empty}
+%\pagestyle{empty}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{.7, .7, .7}
+\usepackage{calc}
+\usepackage{framed}
+
+\newcommand{\newpagename}{\newpage
+\noindent
+
+{\bf Name (Print): }\hrulefill
+\bigskip}
+
+\printanswers
+
+\setlength\parindent{0pt}       %Turn off indents
+\setlength {\marginparwidth}{2cm}
+\begin{document}
+
+\begin{minipage}[t]{0.98\columnwidth}%
+\begin{shaded}
+\section*{
+     \begin{center}
+          Final Exam\\
+          %(Part A -- Multiple Choice)\\
+          QUESTIONS PACKET\\
+          EECS 203\\
+          Winter 2020
+     \end{center}}
+\medskip
+\end{shaded}
+\end{minipage}
+
+
+\vspace{0.4in}
+\noindent
+{\bf Name (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf Uniqname (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf 8-Digit UMID: }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+\begin{center}%TODO
+{\bf ***MAKE SURE YOU HAVE PROBLEMS 1 - 19 IN THIS BOOKLET.*** }
+\end{center}
+\vspace{0.2in}
+\noindent {\large \bf General Instructions}
+
+\vspace{0.1in}
+\noindent 
+You have 120 minutes to complete 
+this exam. 
+You should have two exam packets. 
+%\vspace{0.1in}
+\begin{itemize}
+%TODO Here
+\item \textbf{Questions Packet:} Contains ALL of the questions for this exam, worth 100 points total. There are 13 Multiple Choice questions (4 points each) and 6 Free Response questions (8 points each). You may do scratch work on this part of the exam, but only work in the Answers Packet will be graded. 
+
+\item \textbf{Answers Packet:} Write all of your answers in the Answers Packet, including your answers to multiple choice questions. 
+%There is no Scantron form for this exam. 
+%Both sides of the pages in the Answers Packet will be scanned and graded. 
+\textbf{For free response questions, you must show your work! Answers alone will receive little or no credit.}
+%Write down your answer with care: {\bf If your answer is unreadable (such as too faint or messy), it will not be graded}. 
+
+\item You may bring \textbf{three} 8.5'' by 11'' note sheet, front and back, created by you. 
+\item You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. 
+%\item Leave at least one seat between yourself and other students, if possible.
+
+\item After you complete the exam, sign the Honor Code Pledge on the front of the Answers Packet.
+
+\item You must turn in both parts of this exam.
+
+\item \textbf{You are not to discuss the exam until the solutions are published.}
+
+%\item  This exam is administered under the College of Engineering Honor Code. \textbf{After you have completed the exam}, please sign the Honor Code statement below. We will not grade your exam without your signature.
+\end{itemize}
+
+%\noindent This exam is administered under the College of Engineering Honor Code.  Your signature endorses the pledge below. We will not grade your exam without your signature.
+
+% \bigskip
+% \linespread{1.5}
+% \noindent
+% \textit{I have neither given nor received unauthorized aid on this examination, nor 
+% have I concealed any violations of the Honor Code. I further agree not to discuss any aspect of this examination in any way, shape, or form until the solutions have been published.} 
+
+% \bigskip
+% \vspace{0.2 in}
+% \noindent Signature: \hrulefill
+
+% \linespread{1}
+
+% \noindent {\large \bf General Instructions}
+
+% \noindent 
+% You have 120 minutes to complete the two parts of this exam. {\bf Part A has 13 problems (four points each), and part B has 6 problems (eight points each)}. The exam is worth 100 points total.
+% \vspace{0.5em}
+
+% \noindent
+% For this exam, you are allowed to bring two 8.5'' by 11'' note sheets, front and back, created by you. You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. Leave at least one seat between yourself and other students. %This also means making room if you are in a row with 2 or more seats.
+% \vspace{0.5em}
+
+% \noindent
+% Your answers for all parts of this exam will be written in the Answers packet. The Answers packet contains more instructions. % this sounds clunky
+% \vspace{0.5em}
+
+% \noindent
+% Feel free to do scratch work on this part of the exam.
+
+
+% \noindent Please note: \textbf{You are not to discuss the exam until the solutions are published}
+
+\newpage
+
+\begin{comment}
+\noindent {\large \bf Part A Instructions} 
+\begin{itemize}
+\item This section of the exam contains \textbf{13 multiple choice questions}, each worth 4 points, for a total of 52 points. 
+\item Write your answer(s) to each multiple-choice question in the corresponding box in the Answers Packet. 
+\item Nothing written in this Questions Packet will be graded.
+\end{itemize}
+\vspace{0.2in}
+%%% TODO: Fill in which questions belong to A1 and A2
+
+\noindent
+\textbf{Part A1: Single Answer Multiple Choice}
+\begin{itemize}
+\itemsep0em
+\item Questions 1-7 each have a single correct answer. \textbf{Please write only one answer for each question.} 
+\item If you write more than one letter as an answer in your Answers Packet, that question will be marked as incorrect.
+\end{itemize}
+\vspace{0.2in}
+
+\noindent
+\textbf{Part A2: Multiple Answer Multiple Choice} \begin{itemize}
+\itemsep0em
+    \item For Questions 8-13, \textbf{select ALL of the answers that are correct for each question.} 
+    \item Each question may have 0, 1, 2, 3, 4, or 5 correct answers. 
+ For example, if answers A B and C are correct, write ``ABC" in the corresponding answer box.
+ \item Partial credit can be earned for partially correct answers.
+ \end{itemize}
+\vspace{0.2in}
+
+\noindent {\large \bf Part B Instructions}
+
+\begin{itemize}
+\itemsep0em
+\item Part B (Questions 14-19) contains {\bf six Free Response problems} each worth eight points, for a total of 48 points. 
+\item Please write your solutions clearly on the corresponding pages in the Answers Packet.
+\item Nothing in this Questions Packet will be graded.
+\end{itemize}
+\vspace{0.2 in}
+
+%\noindent
+%You must write your name and uniqname on the front cover of this packet and turn in this part of the exam, along with your Answers packet. (We will check to make sure that you have turned in this part of the exam.)
+\vspace{0.2in}
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 	NO HONOR CODE SIGNATURE LINE	  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\bigskip
+
+
+\noindent {\large \bf Honor Code  Instructions}
+
+\noindent This exam is administered under the College of Engineering Honor Code. After you finish your exam, please sign on the line below. Your signature endorses the pledge below. We will not grade your exam without your signature.
+
+\bigskip
+\linespread{1.5}
+\noindent
+\textit{I have neither given nor received unauthorized aid on this examination, nor 
+have I concealed any violations of the Honor Code. I further agree not to discuss any aspect of this examination in any way, shape, or form until the solutions have been published.} 
+
+\bigskip
+
+\noindent Signature: \hrulefill
+
+\linespread{1}
+
+\setcounter{bar}{15}
+
+\newpage
+
+Scratch paper. {\bf Nothing written on this page will be graded.}
+
+\end{comment}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A1 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Part A1: Single Answer Multiple Choice}
+\textbf{[Only one answer choice is correct in Part A1]} 
+\vspace{0.1in}
+
+
+\probheadernum{4}\\
+title page question
+
+
+\probheadernum{4}\\
+% Team 1, Question 3
+How many relations on a set $S$ are transitive, given that $|S|=2$?
+\begin{enumerate}[(a)]
+\item 2
+\item 4
+\item 9
+\item 13
+\item 16
+\end{enumerate}
+\begin{solution}
+(d)\\
+Suppose $S=\{a,b\}$. The only way that a relation $R$ on $S$ is \textit{not} transitive is if $(a,b),(b,a)\in R$, but at least one of $(a,a)$ and $(b,b)$ is not in $R$. There are only 3 relations that are not transitive, namely $\{(a,b),(b,a)\}$, $\{(a,b),(b,a),(a,a)\}$, and $\{(a,b),(b,a),(b,b)\}$. There are $2^2$ potential ordered pairs, so there are $2^{2^2}-3=13$ relations that are transitive.
+\end{solution}
+
+
+\probheadernum{4}\\
+% Team 1, Question 5
+Stewart, Emily, Grace, and Katie are the only people running for EECS Mayor. There are 150 people voting, and each voter votes completely at random for exactly one person. What is the probability that at least one of them receives 30 or more votes?
+\begin{enumerate}[(a)]
+\item $0$
+\item $\frac{1}{30}$
+\item $\frac{1}{5}$
+\item $\frac{3}{5}$
+\item $1$
+\end{enumerate}
+\begin{solution}
+(e)\\
+Since each person can only vote for one of the four contenders, we can consider this as putting 150 objects into 4 boxes. By the generalized pigeonhole principle, we know that at least one box has at least $\lceil \frac{150}{4} \rceil$, or 38, objects. This means that we know at least one of the contenders receives at least 30 votes, so the probability is 1.
+\end{solution}
+
+
+\probheadernum{4}\\
+% Team 2, Question 1
+% TODO: Reword!
+Consider the sequence defined by the recurrence relation $a_n$, and unspecified base cases. Which is the tightest big O bound can we guarantee?
+
+\[
+    a_{n}=5a_{n-1}-6a_{n-2}
+\]
+\begin{enumerate}[(a)]
+\item $n^2$
+\item $n^3$
+\item $2^n$
+\item $3^n$
+\item $n!$
+\end{enumerate}
+\begin{solution}
+(d)\\
+This can be found by solving the characteristic equation, which works out to be $r^2-5r+6=0$. This yields roots $r=2$ and $r=3$. Thus, $a_{n}=c_{1}(2)^n+c_{2}(3)^n$, which is $O(3^{n})$.
+\end{solution}
+
+
+\probheadernum{4}\\
+% Team 2, Question 4, Alternate
+The Hamming distance $H(s_1,s_2)$ between two bit strings $s_1$ and $s_2$ of equal length is the number of positions at which the corresponding bits are different. For example:
+\begin{itemize}
+    \item $H(\underline{0}0\underline{1},\underline{1}0\underline{0})=2$
+    \item $H(1\underline{1}01,1\underline{0}01)=1$. 
+\end{itemize}
+Consider randomly selecting two bit strings $s_1$ and $s_2$ from the set of all bit strings of length $5$ \emph{with repetition} (i.e. it is allowed that the two strings are equal). Find $E(H(s_1,s_2))$, the expected value of the Hamming distance between $s_1$ and $s_2$.
+\begin{enumerate}[(a)]
+\item $\frac{5}{4}$
+\item $\frac{5}{2}$
+\item $\frac{C(5,1)+2\cdot C(5,2)+3\cdot C(5,3)+4\cdot C(5,4)+5\cdot C(5,5)}{2^5-1}$
+\item $\frac{15}{4}$
+\item $5$
+\end{enumerate}
+\begin{solution}
+(b)\\
+Denote $s_{ij}$ to be the $j$-th bit of string $s_i$. Then for all $j$,
+\[
+E(H(s_{1j},s_{2j}))=\frac{1}{2}\cdot0+\frac{1}{2}\cdot1=\frac{1}{2},
+\]
+and
+\[
+E(H(s_1,s_2))=\sum_{j=1}^5E(H(s_{1j},s_{2j}))=\frac{5}{2}.
+\]
+\end{solution}
+
+
+\probheadernum{4}
+% Team 3, Question 1
+
+Brian is shopping for ice cream, and the grocery store has 6 pints left, each of a different flavor. He doesn't want to come back empty-handed, so he buys at least one pint. In how many ways can he buy his ice cream?
+
+\begin{enumerate}[(a)]
+\item $2^6-1$
+\item $2^6$
+\item $\binom{7}{6}-1$
+\item $\binom{7}{6}$
+\item $6$
+\end{enumerate}
+\begin{solution}
+(a)\\
+There are $2$ options for each flavor of ice cream (in/out) and there are $6$ flavors of ice cream. However, we are overcounting the scenario of all $6$ flavors being out since Brian has to buy at least $1$ pint of ice cream, so we subtract $1$.
+\end{solution}
+
+Brian is pulling cards out of a standard deck of cards one at a time, without replacement, until all cards have been pulled out. How many different ways are there for Brian to pull cards if for every rank (number/face) all four suits of that rank get pulled one after another consecutively?
+
+For example, he could start with $(5\heartsuit,5\spadesuit,5\clubsuit,5\diamondsuit,\ \ 2\spadesuit,2\diamondsuit,2\clubsuit,2\heartsuit,...)$,\\
+while $(2\heartsuit,3\spadesuit,3\clubsuit,3\heartsuit,3\diamondsuit,4\clubsuit,...)$ is an invalid sequence.
+\begin{enumerate}[(a)]
+\item $13!$
+\item $\frac{13!}{4!}$
+\item $13!\cdot 4!$
+\item $13!\cdot(4!\cdot13)$
+\item $13!\cdot(4!)^{13}$
+\end{enumerate}
+\begin{solution}
+(e)\\
+
+Consider first the ordering between the ranks. There are 13 ranks, so this means that there are $13!$ different ways to order the ranks to get pulled out.
+
+Next, we consider the arrangement within each rank. We have to order the $4$ cards of that rank.  For each of the $13$ ranks, there are $4!$ ways to order the cards of all the four suits. Since we have to order the $4$ cards in all of the $13$ ranks, $4!$ is multiplied $13$ times, or $(4!)^{13}$.
+
+So the total is $13! \cdot (4!)^{13}$
+\end{solution}
+
+
+\probheadernum{4}\\
+% Team 3, Question 4
+Hao rolls 2 fair dice, and he decides to use random variable $X$ to denote the quotient of the first die divided by the second die. What can we say about $X$?
+\begin{enumerate}[(a)]
+\item $X$ is a not a function
+\item $X$ is one-to-one but not onto
+\item $X$ is onto but not one-to-one
+\item $X$ is one-to-one and onto
+\item $X$ is neither one-to-one nor onto
+\end{enumerate}
+\begin{solution}
+(e)\\
+A random variable is a function from the sample space to $\mathbb{R}$. $X$ is not onto because not every real number is mapped to, e.g. 43 is not mapped to. $X$ is not one-to-one because, for example, $3$ can be mapped to from both $(3,1)$ and $(6,2)$. 
+\end{solution}
+
+
+\probheadernum{4}\\
+% Team 4, Question 2
+$R$ is an irreflexive relation on a set $A$.  If we add the in-degree and out-degree of every vertex in the graph of $R$, we get a total of $30$. What is the minimum value $|A|$ could be?
+\begin{enumerate}[(a)]
+\item 4
+\item 5
+\item 6
+\item 8
+\item 11
+\end{enumerate}
+\begin{solution}
+(b)\\
+The Handshaking Theorem tells us that each (directed) edge will be counted twice in the sum, once for the in-degree and once for the out-degree; hence, there are total $30/2=15$ edges. Since $R$ is irreflexive, there is no self-loop. So if $|A|=n$, then there is at most $n(n-1)$ edges, since every vertex can be directed to all the other $n-1$ vertices. When $n=4$, $4\cdot(4-1)=12<15$, which is not possible, while when $n=5$, $5\cdot(5-1)=20>15$, which is possible.
+\end{solution}
+
+
+\probheadernum{4}\\
+% Team 4, Question 4
+Jose likes to two-color graphs using red and blue stickers, which he sticks on each vertex. Jose will be given a bipartite graph with 8 vertices to two-color, but he doesn't know what the graph will be. What is the minimum number of stickers he needs to prepare in advance, so that he can guarantee he will be able to two-color this graph?
+\begin{enumerate}[(a)]
+    \item 8
+    \item 9
+    \item 11
+    \item 12
+    \item 14
+\end{enumerate}
+\begin{solution} (c)
+There are 4 possibilities for the grouping of 8 vertices into two parts. 
+(7, 1), (6, 2), (5, 3), (4, 4). To account for the worst case in all 4 scenarios, we need 7 red + 4 blue (or vice-versa) = 11 stickers in total. Note that if we had (8, 0), that would require that there are no edges in the graph, so we can pick a different 2-coloring with whatever stickers we want.
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Comment Out %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\probheadernum{4}\\
+% Team 4, Question 5
+% TODO: Tweak to make balanced case??
+What is the runtime complexity of the following algorithm:
+% See: http://mirror.hmc.edu/ctan/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf
+\begin{algorithm}[H]
+    \SetKwFunction{f}{badSearch}{}
+    \SetKwFunction{Print}{print}
+    \SetKwProg{Fn}{procedure}{\string:}{}
+    \SetKwFor{For}{for}{}{}
+    \SetKwFor{While}{while}{}{}
+    \SetKwFor{If}{if}{then}{}
+    \SetKwInOut{Input}{input}
+    \DontPrintSemicolon
+    \Input{$n$ an integer}
+    \BlankLine
+    %REMEMBER: \; ends a line!
+    \Fn{\f{n}}{
+        \If{$n=1$} \KwRet{}
+        \f{$n/3$}\; 
+        \f{$n/3$}\; 
+        \For{$i := 1$ \KwTo $n$}{
+            \For{$j := 1$ \KwTo $10$}{
+                \Print{``Hello, I am lost.''}\;
+            }
+         }
+        \f{$n/3$}\; 
+        \Print{``Nevermind, I got it.''}\;
+        \KwRet{}
+     }
+     \caption{A bad search algorithm}
+\end{algorithm}
+\begin{enumerate}[(a)]
+\item $\Theta(n)$
+\item $\Theta(n^{\log_3(2)})$
+\item $\Theta(n^2)$
+\item $\Theta(n\log(n))$
+\item $\Theta(n^{\log_2(3)})$
+\end{enumerate}
+\begin{solution}
+(c)\\
+The recurrence is $T(n)=2T(n/3)+O(n^2)$. Since $\frac{2}{3^2}<1$, by the Master Theorem this algorithm is $\Theta(n^2)$.
+\end{solution}
+\end{comment}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A2 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Part A2: Multiple Answer Multiple Choice}
+\textbf{In this section, select ALL of the answers that are correct for each question. Each question may have 0, 1, 2, 3, 4, or 5 correct answers.} 
+\vspace{0.2in}
+
+
+\probheadernum{4}\\
+% Team 1, Question 6
+\begin{comment}
+% Original $|S|=5$ version
+Let $R$ be an equivalence relation over the set $S$, where $|S|=5$. Which of the following are possible values for $|R|$?
+\begin{enumerate}[(a)]
+\item 5
+\item 7
+\item 9
+\item 11
+\item 13
+\end{enumerate}
+\begin{solution}
+(a)(b)(c)(d)(e)\\
+We know $R$ is an equivalence relation, thus it can be partitioned into equivalence classes with the following number of elements in each class: $11111$, $2111$, $221$, $311$, $32$, $41$, $5$. From this we know that all elements within a class must relate to each other, thus within each class we have $n^2$ relations. From this, the possible number of related pairs can then be
+\begin{align*}
+1^2 + 1^2 + 1^2 + 1^2 + 1^2 &= 5\\
+2^2 + 1^2 + 1^2 + 1^2 &= 7\\
+2^2 + 2^2 + 1^2 &= 9\\
+3^2 + 1^2 + 1^2 &= 11\\
+3^2 + 2^2 &= 13 \\
+4^2 + 1^2 &= 17 \\
+5^2 &= 25
+\end{align*}
+From this, we can see all the answer choices are plausible.
+\end{solution}
+\end{comment}
+Let $R$ be an equivalence relation over the set $S$, where $|S|=4$. Which of the following are possible values for $|R|$?
+\begin{enumerate}[(a)]
+\item 0
+\item 4
+\item 6
+\item 9
+\item 16
+\end{enumerate}
+\begin{solution}
+(b)(c)(e)\\
+We know $R$ is an equivalence relation, thus it can be partitioned into equivalence classes with the following number of elements in each class: $1111$, $211$, $22$, $31$, $4$. From this we know that all elements within a class must relate to each other, thus within each class we have $n^2$ relations. From this, the possible number of related pairs can then be
+\begin{align*}
+1^2 + 1^2 + 1^2 + 1^2 &= 4,\\
+2^2 + 1^2 + 1^2 &= 6,\\
+2^2 + 2^2 &= 8,\\
+3^2 + 1^2 &= 10,\\
+4^2 &= 16.
+\end{align*}
+\end{solution}
+
+
+\probheadernum{4}\\
+% Team 4, Question 8
+Which of the following statements are true:
+\begin{enumerate}[(a)]
+\item $(n^4+3^n)(\log(n)+\sqrt{n})$ is $O(n^4\sqrt{n})$
+\item $(n!+10^n)(n^2+2^n)$ is $O(10^nn^2)$
+\item $\frac{3n^5+n^3+1}{n^5+1}$ is $O(1)$
+\item $(n!+10n)(n^3+n^2)$ is $O(10n^4)$
+\item $(e^n+\log(n))(10^n+2^n)$ is $O(10^{2n})$
+\end{enumerate}
+\begin{solution}
+(c)(e) 
+\begin{enumerate}[(a)]
+\item $(n^4+3^n) \in O(3^n)$ and $(\log(n)+\sqrt{n}) \in O(\sqrt n)$ \\ So $(n^4+3^n)(\log(n)+\sqrt{n})$ is $O(3^n\sqrt n)$
+\item $(n!+10^n) \in O(n!)$ and $(n^2+2^n) \in O(2^n)$ \\ So $(n!+10^n)(n^2+2^n)$ is $O(n!2^n)$
+\item $\frac{3n^5+n^3+1}{n^5+1} \leq \frac{5n^5}{n^5+1} \leq \frac{5n^5}{n^5} = 5$ which is $O(1)$
+\item $(n!+10n) \in O(n!)$ and $(n^3+n^2) \in O(n^3)$ \\ So $(n!+10n)(n^3+n^2)$ is $O(n!n^3)$
+\item $(e^n+\log(n)) \in O(e^n)$ and $(10^n+2^n) \in O(10^n)$ \\ So $(e^n+\log(n))(10^n+2^n)$ is $O(e^n10^n)$ which is $O(10^n10^n)$ and that equals $O(10^{2n})$
+\end{enumerate}
+
+
+\end{solution}
+
+
+\probheadernum{4}\\
+% Additional, Question 1
+Suppose we want to find a solution to the following system of linear congruences:
+\begin{center}
+$x \equiv 2 \mod{7}$\\
+$x \equiv 6 \mod{10}$\\
+$x \equiv 11 \mod{13}$\\
+\end{center}
+Which of the following terms must be computed when solving for $x$ using the Chinese Remainder Theorem
+\begin{enumerate}[(a)]
+\item $(6 \cdot 11)^{-1} \mod{7}$
+\item $(7 \cdot 6 \cdot 13)^{-1} \mod{10}$
+\item $(7 \cdot 10)^{-1} \mod{13}$
+\item $2 \cdot 6 \cdot 11$
+\item $7 \cdot 10 \cdot 13$
+\end{enumerate}
+\begin{solution}
+(c)(e)\\
+Using the Chinese Remainder Theorem, we can compute $x$ as:\\
+\scalebox{0.7}{
+$x \equiv \left(2 \cdot (10 \cdot 13) \cdot [(10 \cdot 13)^{-1} \mod{7}] + 6 \cdot (7 \cdot 13) \cdot [(7 \cdot 13)^{-1} \mod{10}] + 11 \cdot (7 \cdot 10) \cdot [(7 \cdot 10)^{-1} \mod{13}] \right) \mod{7 \cdot 10 \cdot 13}$.
+}\\
+We need to calculate the inverses of the products of two moduli mod the other modulus (c), as well as the product of all the moduli (e).
+\end{solution}
+
+
+\probheadernum{4}\\
+% Additional, Question 4
+Let $A$, $B$, and $C$ be three distinct prime numbers such that $A=2B+1$. Which of the following are correct?  
+
+\textit{Note:} Make sure to read each modulus, as they are not all the same.
+\begin{enumerate}[(a)]
+\item $C^{AB}\equiv C^B\pmod{A}$
+\item $C^{AB}\equiv C^3\pmod{B}$
+\item $B^{-1}\equiv -2\pmod{A}$
+\item $A^{-1}\equiv 1\pmod{B}$
+\end{enumerate}
+\begin{solution}
+(a)(b)(c)(d)
+\begin{enumerate}[(a)]
+\item Since $A$ is prime and $C$ is not divisible by $A$, we have $C^{A}\equiv C\pmod{A}$ by Fermat’s Little Theorem. Then $C^{AB}=(C^{A})^B\equiv (C)^B\pmod{A}$.
+\item Similarly, we know that $C^{B}\equiv C\pmod{B}$ and $C^{AB}\equiv C^A\pmod{B}$, which can be turned into $C^A=C^{2B+1}=(C^B)^2\cdot C =(C)^2\cdot C\equiv C^3\pmod{B}$.
+\item It is sufficient to verify whether $B(-2)\equiv1\pmod{A}$. Indeed, $B(-2)=-2B\equiv A-2B=(2B+1)-2B\equiv1\pmod{A}$.
+\item Since $A=2B+1$, we get that $A\equiv 1\pmod{B}$. Then $A^{-1}\equiv1^{-1}\equiv1\pmod{B}$.
+\end{enumerate}
+\end{solution}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,532 @@
+\title{SP 2019 EECS203 Midterm Exam 1, Questions}
+\documentclass[12pt]{exam}
+%\footer{}{}{\thepage}
+%\footer{}{\thepage}{}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\oddsidemargin .25in
+\evensidemargin .25in
+\topmargin -0.25in
+\textwidth 6.0in
+\textheight 9.5in
+\sloppy
+
+\usepackage{graphicx}
+\usepackage{url, amsmath, amsthm, enumerate, multicol}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{eucal}
+\usepackage{todonotes}
+\usepackage{algpseudocode}
+\usepackage[linesnumbered,boxed]{algorithm2e}
+\usepackage{tikz}
+\let\oldReturn\Return
+\renewcommand{\Return}{\State\oldReturn}
+
+\usepackage{placeins}
+\usepackage{listings}
+
+
+\usepackage{verbatim}
+\usepackage{fullpage}
+
+
+
+\usepackage{soul}
+\usepackage{color}
+
+\usepackage{comment}
+\usepackage{setspace}
+
+\definecolor{Light}{gray}{.90}
+\sethlcolor{Light}
+
+\newcounter{bar}
+\newcommand{\probheadernum}[1]{%
+        \vspace{0.2in}
+        \stepcounter{bar}%
+        \noindent{\large\bf Problem \arabic{bar}. {(#1 points)}}
+%        \noindent{\large\bf Problem \arabic{bar}. {\small (#1 points)}}
+        \smallskip
+}
+
+
+\newcounter{scantron}
+\newcommand{\scantronlabelnocount}{{\texttt{{\large\hl{{\small Scantron} XX{}}}}}}
+
+\newcommand{\scantronlabel}{
+	\stepcounter{scantron}
+	{\texttt{{\large\hl{{\small Scantron} \thescantron{\small }}}}}
+}
+\newcommand{\tfproblem}{
+	\vspace{0.2in}
+	\noindent \hspace{0.4in}
+	{\texttt{\scantronlabel (A) True (B) False}}
+	\vspace{0.2in}
+}
+
+\newcommand{\multchoice}{\vspace{0.3in}\noindent\scantronlabel
+}
+
+\pagenumbering{arabic}
+
+\def\infer#1#2{\raisebox{.5ex}{\rule{0pt}{2.5ex}$#1$}
+            \over\raisebox{.5ex}{\rule{0pt}{2.5ex}$#2$}}
+
+
+\def\encl#1#2{\fbox{\parbox{.3em}{$#1$ $\vdots$ $#2$}}}
+\def\bigencl#1#2{\fbox{\parbox{1em}{$#1$ $~\,\vdots$ $~~#2$}}}
+\def\bbigencl#1#2{\fbox{\parbox{5em}{$#1$ \hspace{4em}  $~~~~~~\vdots~~~$ $~~~~~~~#2$}}}
+\def\low#1{{\parbox{2em}{$~~~~~~$ $~~~~~~$ $~~~~~~$ $#1$}}}
+
+\mathchardef\hyph="2D
+\newcommand{\premise}{\mathrm{premise}}
+\newcommand{\assump}{\mathrm{assumption}}
+\newcommand{\intr}{\mathrm{\hyph intro\ }}
+\newcommand{\eli}{\mathrm{\hyph elim\ }}
+\newcommand{\fal}{{\tt F}}
+\newcommand{\mt}{\mathrm{Modus Tollens\ }}
+\newcommand{\pbc}{\mathrm{PBC\ }}
+
+\newcommand{\romanlist}{(\roman{enumi})}
+\newcommand{\countlist}{\usecounter{enumi}}
+\newcommand{\se}{\subseteq}
+
+% Shortcuts
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\ex}{\exists}
+
+%Removed these to get page numbers to show up
+%\thispagestyle{empty}
+%\pagestyle{empty}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{.7, .7, .7}
+\usepackage{calc}
+%\usepackage{framed}
+
+\newcommand{\newpagename}{\newpage
+\noindent
+
+{\bf Name (Print): }\hrulefill
+\bigskip}
+
+\printanswers
+
+\setlength\parindent{0pt}       %Turn off indents
+\begin{document}
+
+\begin{minipage}[t]{0.98\columnwidth}%
+\begin{shaded}
+\section*{
+     \begin{center}
+          Final Exam\\
+          %(Part A -- Multiple Choice)\\
+          QUESTIONS PACKET\\
+          EECS 203\\
+          Spring 2019 
+     \end{center}}
+\medskip
+\end{shaded}
+\end{minipage}
+
+
+\vspace{0.4in}
+\noindent
+{\bf Name (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf Uniqname (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf 8-Digit UMID: }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+\begin{center}%TODO
+{\bf ***MAKE SURE YOU HAVE PROBLEMS 1 - 19 IN THIS BOOKLET.*** }
+\end{center}
+\vspace{0.2in}
+\noindent {\large \bf General Instructions}
+
+\vspace{0.1in}
+\noindent 
+You have 120 minutes to complete 
+this exam. 
+You should have two exam packets. 
+%\vspace{0.1in}
+\begin{itemize}
+%TODO Here
+\item \textbf{Questions Packet:} Contains ALL of the questions for this exam, worth 100 points total. There are 13 Multiple Choice questions (4 points each) and 6 Free Response questions (8 points each). You may do scratch work on this part of the exam, but only work in the Answers Packet will be graded. 
+
+\item \textbf{Answers Packet:} Write all of your answers in the Answers Packet, including your answers to multiple choice questions. 
+%There is no Scantron form for this exam. 
+%Both sides of the pages in the Answers Packet will be scanned and graded. 
+\textbf{For free response questions, you must show your work! Answers alone will receive little or no credit.}
+%Write down your answer with care: {\bf If your answer is unreadable (such as too faint or messy), it will not be graded}. 
+
+\item You may bring \textbf{two} 8.5'' by 11'' note sheet, front and back, created by you. 
+\item You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. 
+%\item Leave at least one seat between yourself and other students, if possible.
+
+\item After you complete the exam, sign the Honor Code Pledge on the front of the Answers Packet.
+
+\item You must turn in both parts of this exam.
+
+\item \textbf{You are not to discuss the exam until the solutions are published.}
+\end{itemize}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A1 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\doublespacing
+\newpage
+\section*{Part A1: Single Answer Multiple Choice}
+\textbf{[Only one answer choice is correct in Part A1]} 
+\vspace{0.1in}
+
+\probheadernum{4}
+
+There are 50 participants in a TV show. The host of the show will distribute three identical prizes among the participants by spinning a wheel that has numbers 1 through 50 on it three times. How many ways are there to distribute the prizes?
+
+\begin{enumerate}[(a)]
+    \item $\frac{50^3}{3!}$
+    \item $50^3$
+    \item $\binom{52}{2}$
+    \item $\binom{52}{49}$
+    \item $\binom{50}{3}$
+\end{enumerate}
+
+\begin{solution}
+(d) \\
+Note that any individual can win anywhere between 0 and 3 prizes, inclusive (repetition). By stars n' bars, we see that there are 3 stars and 49 bars. Since the prizes are identical (indistinguishable) then we treat the prizes as stars, and the participants are distinguishable and are used to calculate bars as $50 - 1 = 49$. Thus, there are $\binom{52}{3} = \binom{52}{49}$ ways to award the prizes.
+\end{solution}
+
+\vspace{2cm}
+
+\probheadernum{4}
+
+What is the remainder when $2^{38}\cdot3^{19}\cdot5^{2}$ is divided by 19?
+\begin{enumerate}[(a)]
+\item 9
+\item 11
+\item 12
+\item 15
+\item 17
+\end{enumerate}
+
+\begin{solution}
+%TODO fix solution
+(d) \\
+We can divide up the problem as $(2^{38} \pmod{19} \cdot 3^{19} \pmod{19} \cdot 5^2 \pmod{19}) \pmod{19}$ by the definition of modulus. \\
+Using Fermat's Little Theorem, we know that $(2^{38} \equiv 2^2 \cdot 2^{18}\cdot 2^{18} \equiv 4 \pmod{19}$, $3^{19} \equiv 3 \cdot 3^{18} \equiv 3 \pmod{19}$. \\
+$5^2 \equiv 25 \equiv 6 \pmod{19}$. \\
+Multiplying them together, we get $4 \cdot 3 \cdot 6 = 72$. \\
+$72 \pmod{19} = 15$, so the remainder is 15.
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+Grace has 3 red balls, 3 blue balls, and 4 green balls. She wants to put the balls into $x$ boxes that can each hold any number of balls. What's the largest value of $x$ such that Grace can guarantee that at least two of the same colored balls are in some box? 
+
+\begin{enumerate}[a)]
+\item 3
+\item 4
+\item 7
+\item 9
+\item 10
+\end{enumerate}
+
+\begin{solution}
+(a) \\
+This is because for red balls and blue balls, it's possible that they are distributed evenly among the three boxes. However, for green balls, there are 4 balls but only 3 boxes, so using the pigeonhole principle, $\lceil \frac{4}{3} \rceil = 2$. \\
+For any value of $ x > 3$ (ex. 4), we can't apply pigeonhole principle because the number of boxes are greater or equal to the number of balls of each color.
+\end{solution}
+
+\newpage
+%\vspace{2cm}
+
+\probheadernum{4}
+
+What is the big-$\Theta$ runtime of this algorithm when the input is a positive integer $n$?
+
+\begin{algorithm}[H]
+    \SetKwFunction{Alg}{Alg}{}
+    \SetKwFunction{Print}{print}
+    \SetKwProg{Fn}{procedure}{\string:}{}
+    \SetKwFor{For}{for}{do}{}
+    \SetKwFor{While}{while}{do}{}
+    \SetKwInOut{Input}{input}
+    \DontPrintSemicolon
+    \Input{$n$, a positive integer}
+    \BlankLine
+    \Fn{\Alg{n}}{
+        $k=1$ \\
+        \For{$i := 1$ \KwTo $n$}{
+            $k=k * 2$
+         }
+         \While{$(k>1)$} {
+            $k = k / 10$
+         }
+         \KwRet{}
+     }
+     \caption{Alg}
+\end{algorithm}
+
+\begin{enumerate}[a)]
+\item $\Theta(\log n)$
+\item $\Theta(n)$
+\item $\Theta(n^2)$
+\item $\Theta(2^n)$
+\item $\Theta(2^n \log n)$
+\end{enumerate}
+
+\begin{solution}
+(b) \\
+The first for loop iterates $n$ times and the value of $k$ becomes $2^n$. \\
+The while loop iterates $\log_{10} k = \log_{10} (2^n) = n \log_{10} 2$ times, where $\log_{10} 2$ is a constant. \\
+Therefore, this algorithm runs in $\Theta(n)$ time.
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+Let $S$ be a set such that $|S|=10$. How many relations over $S$ are antisymmetric and reflexive?
+
+\begin{enumerate}[(a)]
+\item $2^{45}$
+\item $3^{45}$
+\item $2^{90}$
+\item $2^{10}$
+\item $2^{45}-10\cdot 2^{44}$
+\end{enumerate}
+
+\begin{solution}
+(b) \\
+For the relation to be reflexive, we have to include everything of the form $(a,a)$. After we have taken care of these, we are left with those pairs of the form $(a,b)$, there are $\binom{10}{2}=45$ unordered pairs. We can either choose to include $(a,b), (b,a),$ or neither as the relation must be antisymmetric, thus there are 3 choices for each unordered pair. There are $3^{45}$ such relations.
+\end{solution}
+
+\vspace{.6cm}
+
+\probheadernum{4}
+
+Suppose you randomly select an integer from the set $\{1, 2, \dots, 1000\}$. What is the expected number of digits in the selected number?
+
+\begin{enumerate}[a)]
+    \item 2.888
+    \item 2.893
+    \item 3.21
+    \item 3.228
+    \item None of the above
+\end{enumerate}
+
+\begin{solution}
+(b) \\
+Let X represent the number of digits in the selected number. X could take on the value 1, 2, 3, or 4 since there could be anywhere between 1 to 4 digits in the selected number. Now to find $E(X)$, we have to determine the probability that X takes on each of 1, 2, 3, or 4. We do this by calculating $\frac{|E|}{|S|}$, with $|S| = 1000$ since there are $1000$ numbers in our sample space.\\
+\newline
+$P(X = 1) = \frac{|\{1, 2, \dots, 9\}|}{1000} = \frac{9}{1000}$.\\
+$P(X = 2) = \frac{|\{10, 11, \dots, 99\}|}{1000} = \frac{90}{1000}$.\\
+$P(X = 3) = \frac{|\{100, 101, \dots, 999\}|}{1000} = \frac{900}{1000}$.\\
+$P(X = 4) = \frac{|\{1000\}|}{1000} = \frac{1}{1000}$.\\
+\newline
+    $E(X) = 1 (\frac{9}{1000}) + 2 (\frac{90}{1000}) + 3 (\frac{900}{1000}) + 4 (\frac{1}{1000}) = \frac{9 + 180 + 2700 + 4}{1000} = 2.893$
+
+\end{solution}
+
+%\vspace{.6cm}
+\newpage
+
+\probheadernum{4}
+
+Yunsoo and Reuben each have a box containing balls numbered 1 to 30. Yunsoo randomly selects a ball from his box and puts it into Reuben's box. After Yunsoo has placed his ball into Reuben's box, Reuben randomly selects a ball and puts it into Yunsoo's box. What is the probability that Yunsoo and Reuben each end up having balls numbered 1 to 30?
+
+\begin{enumerate}[(a)]
+\item $\frac{2}{30}$
+\item $\frac{1}{30\cdot 31}$
+\item $\frac{1}{31}$
+\item $\frac{1}{30}$
+\item $\frac{2}{31}$
+\end{enumerate}
+
+\begin{solution}
+(e) \\
+Yunsoo can select any ball from his box to put into Reuben's box. For the two to have the same balls in their respective boxes, Reuben then has to select either the ball Yunsoo just put in or the ball originally in his bag with the same number. There are 2 ways to do this and there are 31 balls in Reuben's bag. Thus, there is a probability of $\frac{2}{31}$.
+\end{solution}
+
+%\newpage
+
+\probheadernum{4}
+
+A certain divide and conquer algorithm divides a problem of size $n$ into $9$ non-overlapping subproblems, each of equal size. The algorithm must then solve one third of the $9$ subproblems and do $2n+5$ work to join the results of the subproblems before the problem of size $n$ has been solved. What is the runtime of this algorithm?
+
+\begin{enumerate}[a)]
+    \item $\Theta(\sqrt{n})$
+    \item $\Theta(n)$
+    \item $\Theta(n^2)$
+    \item $\Theta(n\log_9 n)$
+    \item $\Theta(n^n)$
+\end{enumerate}
+
+\begin{solution}
+(b)\\
+$T(n) = 3T(\frac{n}{9}) + 2n + 5$. Note that $2n + 5$ is $\Theta(n)$. Then by applying Master Theorem, we see $\frac{a}{b^d} = \frac{3}{9^1} < 1$. Therefore, the algorithm is $O(n^1) = O(n)$.
+\end{solution}
+
+%\vspace{3cm}
+
+\probheadernum{4}
+
+What is the coefficient for the $y^{25}$ term in the expansion of $((3x^2+\frac{5}{x^3})y)^{25}$? \\
+Note: There are no typos in this question.
+
+\begin{enumerate}[(a)]
+\item 0
+\item $\binom{25}{13}3^{12}\cdot 5^{13}$
+\item $\binom{25}{25}3^{0}\cdot 5^{25}$
+\item $\binom{25}{15}3^{15}\cdot 5^{10}$
+\item $\binom{25}{5}3^{20}\cdot 5^{5}$
+\end{enumerate}
+
+\begin{solution}
+(d) \\
+We can write $((3x^2+\frac{5}{x^3})y)^{25}=(3x^2y+\frac{5y}{x^3})^{25}$. When the first term is raised to the 15th power and the second term is raised to the 10th power, the $x$ term disappears and we are left with $y^{25}$. Thus, the coefficient is $\binom{25}{10}3^{15}\cdot 5^{10}=\binom{25}{15}3^{15}\cdot 5^{10}$
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A2 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Part A2: Multiple Answer Multiple Choice}
+\textbf{In this section, select ALL of the answers that are correct for each question. Each question may have 0, 1, 2, 3, 4, or 5 correct answers.} 
+\vspace{0.2in}
+
+\probheadernum{4}
+
+Let $R$ be a relation over the set of all sets. For sets $A$ and $B$, let ${}_A R_B$ if and only if $A - B$ is finite. Which of the following are true about $R$?
+\begin{enumerate}[a)]
+    \item reflexive
+    \item symmetric
+    \item antisymmetric
+    \item transitive
+\end{enumerate}
+\begin{solution}
+(a), (d)\\
+\begin{enumerate}[a)]
+    \item True; For every set $A$, $A - A = \emptyset$ and since the empty set is finite, then R is reflexive.
+    \item False; Choose $A = \mathbb{Z^+}$ and $B = \mathbb{Z}$. Then ${}_A R_B$ because $A - B = \emptyset$, but $\neg {}_B R_A$ because $B - A = \mathbb{Z^-} \cup \{0\}$ which is countable infinite (not finite).
+    \item False; Choose $A = \{1\}$ and $B = \{2\}$. Then ${}_A R_B$ because $A - B = \{1\}$ which is finite and ${}_B R_A$ because $B - A = \{2\}$ which is finite, but $A \neq B$.
+    \item True; For arbitrary sets $A, B, C$, suppose that ${}_A R_B$ and ${}_B R_C$. We would like to show that ${}_A R_C$. Since ${}_A R_B$ then $A - B = A \cap \overline{B}$ is finite and since ${}_B R_C$ then $B - C = B \cap \overline{C}$ is finite. Then because the union of 2 finite sets must also be finite, we investigate and simplify $(A \cap \overline{B}) \cup (B \cap \overline{C}) = (A \cup B) \cap (A \cup \overline{C}) \cap (\overline{B} \cup \overline{C})$.\\
+    If ${}_A R_C$, it would have to be true that $A - C = A \cap \overline{C}$ is finite. This can be proven by showing that $A \cap \overline{C} \subseteq (A \cup B) \cap (A \cup \overline{C}) \cap (\overline{B} \cup \overline{C})$. For any arbitrary $x \in A \cap \overline{C}$, $x \in A$ and $x \in \overline{C}$ by definition of set intersection. Since $x \in A$, then we know $x \in A$ or $x \in B$, so $x \in A \cup B$ and we know $x \in A$ or $x \in \overline{C}$, so $x \in A \cup \overline{C}$ by definition of set union. Also, since $x \in \overline{C}$, then we know $x \in \overline{B}$ or $x \in \overline{C}$, so $x \in \overline{B} \cup \overline{C}$. Thus, $x \in (A \cup B) \cap (A \cup \overline{C}) \cap (\overline{B} \cup \overline{C})$, so $A \cap \overline{C} \subseteq (A \cup B) \cap (A \cup \overline{C}) \cap (\overline{B} \cup \overline{C})$. Therefore, $A \cap \overline{C} = A - C$ must be finite, so ${}_A R_C$, which proves that R must be transitive.
+\end{enumerate}
+\end{solution}
+
+\vspace{2cm}
+
+\probheadernum{4}
+
+Which of the following are true?
+
+\begin{enumerate}[a)]
+    \item $(n^2 + 5n^4 - 7)(6 - n)$ is $\Theta (n^4)$
+    \item $(n^3 + \frac{5}{n})^{15}$ is $O(n^{30})$
+    \item $3^n + n^3 + 3!$ is $O(4^n)$
+    \item $\sum\limits_{k=0}^{20} n \cdot 3^k$ is $\Theta(n)$
+    \item $n^n$ is $O(n!)$
+\end{enumerate}
+
+\begin{solution}
+(c), (d)\\
+\begin{enumerate}[a)]
+    \item False; Looking at the highest-degree term from each factor, this expression would be $\Theta (n^4 \cdot n) = \Theta (n^5)$ which is not $\Theta (n^4)$.
+    \item False; This expression will have as large as an $n^{45}$ term which is larger than $n^{30}$, therefore it is not $O(n^{30})$.
+    \item True; $3^n + n^3 + 3!$ is $O(3^n)$ which is also $O(4^n)$ since $4^n$ grows faster than $3^n$.
+    \item True; $\sum\limits_{k=0}^{20} n \cdot 3^k = n \cdot \sum\limits_{k=0}^{20} 3^k$ since the $n$ term does not at all depend on the bounds $k$. Then since $\sum\limits_{k=0}^{20} 3^k$ is just a constant, then the whole expression is $\Theta(n)$.
+    \item False; Suppose there exists a $C \in \mathbb{R}$ such that $n^n \leq C \cdot n!$ for all $n \geq k \in \mathbb{R}$.
+    \begin{align*}
+        n^n &\leq C \cdot n!\\
+        n \cdot n \cdot n \dots \cdot n &\leq C \cdot n \cdot (n - 1) \cdot (n - 2) \dots \cdot 1\\
+        \frac{n}{n} \cdot \frac{n}{n - 1} \cdot \frac{n}{n - 2} \dots \cdot \frac{n}{1} &\leq C\\
+        C &\geq \frac{n}{n} \cdot \frac{n}{n - 1} \cdot \frac{n}{n - 2} \dots \cdot \frac{n}{1} \geq n\\
+    \end{align*}
+    Therefore, for any choice of $C$, we can choose an $n > C$, say $C +1$ to disprove our assumption. Therefore, $n^n$ is not $O(n!)$.
+\end{enumerate}
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+\emph{Reminders}: A standard deck has 52 cards, with 4 suits ($\heartsuit, \diamondsuit, \clubsuit, \spadesuit
+$) and 13 ranks (2, 3, \dots, 10, J, Q, K, A).\\
+
+\noindent
+How many different 8-card poker hands have 3 cards that share a rank, 3 cards that share a different rank, and 2 cards that share another rank? For example, your hand may contain $2\heartsuit, 2\diamondsuit, 2\clubsuit, 5\spadesuit, 5\diamondsuit, 5\heartsuit,\text{J}\spadesuit,\text{J}\heartsuit$.
+
+\begin{enumerate}[(a)]
+\item $\binom{13}{3}\cdot 3\cdot 4\cdot 4\cdot 6{}$
+\item $\frac{13\cdot 12\cdot 11\cdot\binom{4}{3}\binom{4}{3}\binom{4}{2}}{6}$
+\item $\frac{52\cdot 3\cdot 2\cdot 48\cdot 3\cdot 2\cdot 44\cdot 3}{6\cdot 6\cdot 2\cdot 2}$
+\item $\binom{13}{2}\binom{11}{1}\binom{4}{2}4^2$
+\item $13\cdot 12\cdot 44 \cdot 3\cdot 4\cdot 4$
+\end{enumerate}
+
+\begin{solution}
+(a) (c) (d)
+\begin{enumerate}[(a)]
+\item This is first choosing all the ranks then picking 1 of the 3 as the rank of the 2 cards of the same rank. Then we have 4 ways to choose one suit to not be in the hand for each of the groups of 3 cards that share a rank. And similarly for the other rank. Then $\binom{4}{2}=6$ ways to choose the 2 suits for the 2 cards of a rank.
+\item This divides out too much. The only overcounting occurs with the $13\cdot 12$, thus we would only have to divide out 2 and not 6.
+\item This is just picking all the cards separately then dividing out all the overcounting, we must divide by 6 twice then 2 twice, as the first 3 cards can be selected in any order and then the order of the ranks for the first 6 cards can be reversed (a divide by 2). Then again the order of the last 2 cards can be reversed, thus we must again divide by 2 there.
+\item This is just picking 2 ranks for the groups 3 cards that share a rank, then picking a rank for the 2 cards that share a rank, then picking 2 suits for the 2 cards that share a rank and $\binom{4}{3}=4$ ways to pick 3 suits for each of the two remaining ranks.
+\item This is picking a rank for the 3 cards that share a rank, then picking another rank for the 3 cards that share a rank. We are overcounting, because the order doesn't matter, thus we must divide out by 2. Then from the remaining 44 cards, picking a card then picking another card of the same rank. Again we are overcounting and must divide out by 2, because the order we select the cards doesn't matter. After we have 4 choices to select the one card of the rank that is not in our hand. This occurs two times (once for each rank of 3 cards of a kind). Thus the $2\cdot 2$ is never divided out, so we are overcounting.
+\end{enumerate}
+\end{solution}
+
+%\vspace{2cm}
+
+\probheadernum{4}
+
+Which of the following are true about graphs?
+
+\begin{enumerate}[a)]
+    \item $K_5$ is bipartite
+    \item $C_{60}$ is bipartite
+    \item It is possible to have 56 edges in a bipartite graph with 14 vertices
+    \item $Q_4$ has more vertices than $W_8$
+    \item All directed multigraphs with $n$ vertices have more edges than all simple graphs with $n$ vertices 
+\end{enumerate}
+
+\begin{solution}
+(b), (d)\\
+\begin{enumerate}[a)]
+    \item False; $K_5$ is not bipartite since $K_5$ contains triangles which are cycles of odd length and any time a graph contains a cycle of odd length, the graph cannot be bipartite.
+    \item True; $C_{60}$ is bipartite because $60$ is even and any $C_{n}$ with even $n$ is bipartite by assigning one vertex a color and then alternating colors at every vertex along the cycle.
+    \item False; The maximum possible edges in a bipartite graph with $2n$ vertices is $n^2$. This is because we must partition our set of vertices into two sets where no vertices within the same set are connected by an edge. When this is true, we maximize the number of edges by having every edge possible between vertices in separate sets. So if $k$ is the number of vertices in one partition, then $2n - k$ is the number in the other partition, creating a maximum of $k(2n - k)$ edges. This product is maximized when $k = n$, producing $n^2$ edges at maximum. Therefore, if we have 14 vertices in a bipartite graph, then we have a maximum of 49 edges.
+    \item True; $Q_4$ has $2^4 = 16$ vertices, whereas $W_8$ only has $8 + 1 = 9$ vertices.
+    \item False; A directed multigraph with $n$ vertices \textit{might} have more edges than a simple graph with $n$ vertices but it also might not. For example, let $G_1 = K_4$. $G_1$ is simple graph with 4 vertices and $\binom{4}{2} = 6$ edges. Now let $G_2$ be a directed multigraph with 4 vertices and 0 edges. Then $G_1$ and $G_2$ have the same number of vertices, but $G_1$ has more edges than $G_2$.
+\end{enumerate}
+\end{solution}
+
+\newpage
+
+\end{document}

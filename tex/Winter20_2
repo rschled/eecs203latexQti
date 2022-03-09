@@ -1,0 +1,606 @@
+\title{WN 2020 EECS203 Midterm Exam 2, Questions}
+\documentclass[12pt]{exam}
+%\footer{}{}{\thepage}
+%\footer{}{\thepage}{}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\oddsidemargin .25in
+\evensidemargin .25in
+\topmargin -0.25in
+\textwidth 6.0in
+\textheight 9.5in
+\sloppy
+
+\usepackage{graphicx}
+\usepackage{url, amsmath, amsthm, enumerate, multicol}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{boxproof}
+\usepackage{amsthm}
+\usepackage{eucal}
+\usepackage{todonotes}
+\usepackage{algpseudocode}
+\let\oldReturn\Return
+\renewcommand{\Return}{\State\oldReturn}
+
+\usepackage{placeins}
+\usepackage{listings}
+
+
+\usepackage{verbatim}
+\usepackage{fullpage}
+\usepackage{array}
+
+
+\usepackage{soul}
+\usepackage{color}
+
+\usepackage{comment}
+
+\definecolor{Light}{gray}{.90}
+\sethlcolor{Light}
+
+\newcounter{bar}
+\newcommand{\probheadernum}[1]{%
+        \vspace{0.2in}
+        \stepcounter{bar}%
+        \noindent{\large\bf Problem \arabic{bar}. {(#1 points)}}
+%        \noindent{\large\bf Problem \arabic{bar}. {\small (#1 points)}}
+        \smallskip
+}
+
+
+\newcounter{scantron}
+\newcommand{\scantronlabelnocount}{{\texttt{{\large\hl{{\small Scantron} XX{}}}}}}
+
+\newcommand{\scantronlabel}{
+	\stepcounter{scantron}
+	{\texttt{{\large\hl{{\small Scantron} \thescantron{\small }}}}}
+}
+\newcommand{\tfproblem}{
+	\vspace{0.2in}
+	\noindent \hspace{0.4in}
+	{\texttt{\scantronlabel (A) True (B) False}}
+	\vspace{0.2in}
+}
+
+\newcommand{\multchoice}{\vspace{0.3in}\noindent\scantronlabel
+}
+
+\pagenumbering{arabic}
+
+\def\infer#1#2{\raisebox{.5ex}{\rule{0pt}{2.5ex}$#1$}
+            \over\raisebox{.5ex}{\rule{0pt}{2.5ex}$#2$}}
+
+
+\def\encl#1#2{\fbox{\parbox{.3em}{$#1$ $\vdots$ $#2$}}}
+\def\bigencl#1#2{\fbox{\parbox{1em}{$#1$ $~\,\vdots$ $~~#2$}}}
+\def\bbigencl#1#2{\fbox{\parbox{5em}{$#1$ \hspace{4em}  $~~~~~~\vdots~~~$ $~~~~~~~#2$}}}
+\def\low#1{{\parbox{2em}{$~~~~~~$ $~~~~~~$ $~~~~~~$ $#1$}}}
+
+\mathchardef\hyph="2D
+\newcommand{\premise}{\mathrm{premise}}
+\newcommand{\assump}{\mathrm{assumption}}
+\newcommand{\intr}{\mathrm{\hyph intro\ }}
+\newcommand{\eli}{\mathrm{\hyph elim\ }}
+\newcommand{\fal}{{\tt F}}
+\newcommand{\mt}{\mathrm{Modus Tollens\ }}
+\newcommand{\pbc}{\mathrm{PBC\ }}
+
+\newcommand{\romanlist}{(\roman{enumi})}
+\newcommand{\countlist}{\usecounter{enumi}}
+\newcommand{\se}{\subseteq}
+
+% Shortcuts
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\ex}{\exists}
+
+%Removed these to get page numbers to show up
+%\thispagestyle{empty}
+%\pagestyle{empty}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{.7, .7, .7}
+\usepackage{calc}
+\usepackage{framed}
+
+\newcommand{\newpagename}{\newpage
+\noindent
+
+{\bf Name (Print): }\hrulefill
+\bigskip}
+
+\printanswers
+
+\setlength\parindent{0pt}       %Turn off indents
+\setlength {\marginparwidth}{2cm}
+\begin{document}
+
+\begin{minipage}[t]{0.98\columnwidth}%
+\begin{shaded}
+\section*{
+     \begin{center}
+          Midterm 2\\
+          %(Part A -- Multiple Choice)\\
+          QUESTIONS PACKET\\
+          EECS 203\\
+          Winter 2020
+     \end{center}}
+\medskip
+\end{shaded}
+\end{minipage}
+
+
+\vspace{0.4in}
+\noindent
+{\bf Name (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf Uniqname (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf 8-Digit UMID: }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+\begin{center}%TODO
+{\bf ***MAKE SURE YOU HAVE PROBLEMS 1 - 19 IN THIS BOOKLET.*** }
+\end{center}
+\vspace{0.2in}
+\noindent {\large \bf General Instructions}
+
+\vspace{0.1in}
+\noindent 
+You have 120 minutes to complete 
+this exam. 
+You should have two exam packets. 
+%\vspace{0.1in}
+\begin{itemize}
+%TODO Here
+\item \textbf{Questions Packet:} Contains ALL of the questions for this exam, worth 100 points total. There are 13 Multiple Choice questions (4 points each) and 6 Free Response questions (8 points each). You may do scratch work on this part of the exam, but only work in the Answers Packet will be graded. 
+
+\item \textbf{Answers Packet:} Write all of your answers in the Answers Packet, including your answers to multiple choice questions. 
+%There is no Scantron form for this exam. 
+%Both sides of the pages in the Answers Packet will be scanned and graded. 
+\textbf{For free response questions, you must show your work! Answers alone will receive little or no credit.}
+%Write down your answer with care: {\bf If your answer is unreadable (such as too faint or messy), it will not be graded}. 
+
+\item You may bring \textbf{one} 8.5'' by 11'' note sheet, front and back, created by you. 
+\item You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. 
+%\item Leave at least one seat between yourself and other students, if possible.
+
+\item After you complete the exam, sign the Honor Code Pledge on the front of the Answers Packet.
+
+\item You must turn in both parts of this exam.
+
+\item \textbf{You are not to discuss the exam until the solutions are published.}
+
+%\item  This exam is administered under the College of Engineering Honor Code. \textbf{After you have completed the exam}, please sign the Honor Code statement below. We will not grade your exam without your signature.
+\end{itemize}
+
+%\noindent This exam is administered under the College of Engineering Honor Code.  Your signature endorses the pledge below. We will not grade your exam without your signature.
+
+% \bigskip
+% \linespread{1.5}
+% \noindent
+% \textit{I have neither given nor received unauthorized aid on this examination, nor 
+% have I concealed any violations of the Honor Code. I further agree not to discuss any aspect of this examination in any way, shape, or form until the solutions have been published.} 
+
+% \bigskip
+% \vspace{0.2 in}
+% \noindent Signature: \hrulefill
+
+% \linespread{1}
+
+% \noindent {\large \bf General Instructions}
+
+% \noindent 
+% You have 120 minutes to complete the two parts of this exam. {\bf Part A has 13 problems (four points each), and part B has 6 problems (eight points each)}. The exam is worth 100 points total.
+% \vspace{0.5em}
+
+% \noindent
+% For this exam, you are allowed to bring two 8.5'' by 11'' note sheets, front and back, created by you. You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. Leave at least one seat between yourself and other students. %This also means making room if you are in a row with 2 or more seats.
+% \vspace{0.5em}
+
+% \noindent
+% Your answers for all parts of this exam will be written in the Answers packet. The Answers packet contains more instructions. % this sounds clunky
+% \vspace{0.5em}
+
+% \noindent
+% Feel free to do scratch work on this part of the exam.
+
+
+% \noindent Please note: \textbf{You are not to discuss the exam until the solutions are published}
+
+\newpage
+
+\begin{comment}
+\noindent {\large \bf Part A Instructions} 
+\begin{itemize}
+\item This section of the exam contains \textbf{13 multiple choice questions}, each worth 4 points, for a total of 52 points. 
+\item Write your answer(s) to each multiple-choice question in the corresponding box in the Answers Packet. 
+\item Nothing written in this Questions Packet will be graded.
+\end{itemize}
+\vspace{0.2in}
+%%% TODO: Fill in which questions belong to A1 and A2
+
+\noindent
+\textbf{Part A1: Single Answer Multiple Choice}
+\begin{itemize}
+\itemsep0em
+\item Questions 1-7 each have a single correct answer. \textbf{Please write only one answer for each question.} 
+\item If you write more than one letter as an answer in your Answers Packet, that question will be marked as incorrect.
+\end{itemize}
+\vspace{0.2in}
+
+\noindent
+\textbf{Part A2: Multiple Answer Multiple Choice} \begin{itemize}
+\itemsep0em
+    \item For Questions 8-13, \textbf{select ALL of the answers that are correct for each question.} 
+    \item Each question may have 0, 1, 2, 3, 4, or 5 correct answers. 
+ For example, if answers A B and C are correct, write ``ABC" in the corresponding answer box.
+ \item Partial credit can be earned for partially correct answers.
+ \end{itemize}
+\vspace{0.2in}
+
+\noindent {\large \bf Part B Instructions}
+
+\begin{itemize}
+\itemsep0em
+\item Part B (Questions 14-19) contains {\bf six Free Response problems} each worth eight points, for a total of 48 points. 
+\item Please write your solutions clearly on the corresponding pages in the Answers Packet.
+\item Nothing in this Questions Packet will be graded.
+\end{itemize}
+\vspace{0.2 in}
+
+%\noindent
+%You must write your name and uniqname on the front cover of this packet and turn in this part of the exam, along with your Answers packet. (We will check to make sure that you have turned in this part of the exam.)
+\vspace{0.2in}
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 	NO HONOR CODE SIGNATURE LINE	  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\bigskip
+
+
+\noindent {\large \bf Honor Code  Instructions}
+
+\noindent This exam is administered under the College of Engineering Honor Code. After you finish your exam, please sign on the line below. Your signature endorses the pledge below. We will not grade your exam without your signature.
+
+\bigskip
+\linespread{1.5}
+\noindent
+\textit{I have neither given nor received unauthorized aid on this examination, nor 
+have I concealed any violations of the Honor Code. I further agree not to discuss any aspect of this examination in any way, shape, or form until the solutions have been published.} 
+
+\bigskip
+
+\noindent Signature: \hrulefill
+
+\linespread{1}
+
+\setcounter{bar}{15}
+
+\newpage
+
+Scratch paper. {\bf Nothing written on this page will be graded.}
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A1 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section*{Part A1: Single Answer Multiple Choice}
+\textbf{[Only one answer choice is correct in Part A1]} 
+\vspace{0.1in}
+
+\probheadernum{4}\\
+title page question
+
+\probheadernum{4}\\
+% Team 1, Question 2
+Consider license plates with 7 characters, each of which can either be an uppercase letter or a numerical digit 0 through 9.  How many possible license plates are there that start or end with the word ``CAT"?
+\begin{enumerate}[(a)]
+    \item $26^4+26^4-26$
+    \item $36^4$
+    \item $26^4+26^4+10$
+    \item $36^4+36^4-36$
+    \item $36^4+36^4$
+\end{enumerate}
+\begin{solution}
+(d) \\
+Since there are 26 uppercase letters and 10 digits, each character on the license plate has 36 options.  There are $36^4$ license plate that start with CAT and $36^4$ license plates that end with CAT.  There are 36 license plates that both start and end with CAT.  Therefore, by the inclusion exclusion principle, there are $36^4+36^4-36$ license plates that start or end with CAT.
+\end{solution}
+
+%\vspace{2cm}
+
+
+%\newpage
+
+\probheadernum{4}\\
+% Team 2, Question 5
+\textit{Reminders:} A standard deck has 52 cards with 4 suits ($\heartsuit, \diamondsuit, \clubsuit, \spadesuit$) and 13 ranks (2, 3, \dots, 10, Jack (J), Queen (Q), King (K), Ace (A)). \\
+
+Joseph randomly draws a hand of $13$ cards from a standard deck of cards. What is the probability of his hand contains exactly two Aces?
+\begin{enumerate}[(a)]
+\item $\frac{4\cdot3\cdot\binom{48}{11}}{\binom{52}{13}}$
+\item $\frac{\binom{4}{2}\cdot\binom{48}{11}}{\binom{52}{13}}$
+\item $\left(\frac{4}{52}\right)^2\cdot\left(\frac{48}{52}\right)^{11}$
+\item $\left(\frac{4}{52}\right)^2\cdot\left(\frac{48}{52}\right)^{11}\cdot(13)!$
+\item $\left(\frac{4}{52}\right)^2\cdot\left(\frac{48}{52}\right)^{11}\cdot\binom{13}{2}$
+\end{enumerate}
+\begin{solution}
+(b)\\
+The size of the sample space is the number of ways to choose $13$ cards out of $52$ cards, which is $\binom{52}{13}$. The task of drawing $13$ cards with exactly two Aces can be viewed as the cascade of drawing $2$ Aces out of $4$ Aces and drawing $11$ non-Aces out of $48$ non-Aces. By the product rule, the size of the event is $\binom{4}{2}\cdot\binom{48}{11}$. Since we assume random drawing, all outcomes in the sample space are equally likely, the probability is $\frac{\binom{4}{2}\cdot\binom{48}{11}}{\binom{52}{13}}$.
+\end{solution}
+
+%\vspace{2cm}
+
+\probheadernum{4}\\
+% Team 3, Question 1
+Brian dealt out a standard 52-card deck of cards. What is the probability that the first King occurs on the 20th card?
+\begin{enumerate}[(a)]
+\item $\frac{\binom{52}{19}\cdot\binom{4}{1}\cdot42!}{52!}$
+\item $\frac{(48!/29!)\cdot32!\cdot4}{52!}$
+\item $\frac{51!\cdot4}{52!}$
+\item $\frac{(48!/29!)\cdot4}{52!}$
+\item $(\frac{48}{52})^{19}\cdot\frac{4}{52}$
+\end{enumerate}
+\begin{solution}
+(b)\\
+The sample space is all the possible permutations of 52 cards. The event is the set of permutations that the first king occurs at the 20th position. The first 19 positions must not have rank of king, and hence $\frac{48!}{29!}$ ways to form the first 19 positions. 4 options at the 20th position because each rank can take on 4 possible suits. The arrangement of the rest of 32 cards has no constraint, and there are 32! ways to form the remaining 32 positions.
+\end{solution}
+
+\probheadernum{4}\\
+% Emily Graetz, Seinfeldish Question
+Pam wants to prank her mom for April Fools' Day.  When she pulls a prank on her mom, her mom will react in one of 3 different ways: she laughs, she groans, or she gets angry.  Each of these 3 reactions are equally likely.  Pam will keep pranking her mom until she gets at least one laugh and at least one groan.  How many pranks should Pam expect to have to pull?
+\begin{enumerate}[(a)]
+    \item 1.5
+    \item 3
+    \item 4.5
+    \item 5.5
+    \item 6
+\end{enumerate}
+\begin{solution}
+(c)\\
+Let $X$ be the number of pranks needed to pull to get both reactions.  We will let $X_1$ be the number of pranks until you get your first of laugh or groan, and $X_2$ be the number of pranks after your first laugh or groan until you get the other.  $X=X_1+X_2$, so $E(X)=E(X_1+X_2)=E(X_1)+E(X_2)$.  Both $X_1$ and $X_2$ are geometric random variables.  $X_1$ has success probability $2/3$, while $X_2$ has success probability $1/3$, so $E(X)=E(X_1)+E(X_2)=\frac1{2/3}+\frac1{1/3}=\frac32+3=4.5$
+\end{solution}
+
+
+\probheadernum{4}\\
+% Team 4, Question 2
+24 IAs sit in a circle for board game night. Grace wants to sit next to Yunsoo and directly across from Eric. 
+
+If they sit down randomly, what is the probability that this happens?
+\begin{enumerate}[(a)]
+    \item $\frac{21!}{24!}$
+    \item $\frac{24 \cdot 21!}{24!}$ 
+    \item $\frac{24 \cdot 2 \cdot 21!}{24!}$ 
+    \item $\frac{2 \cdot 21!}{24!}$ 
+    \item $\frac{24 \cdot 2}{24!}$ 
+\end{enumerate}
+\begin{solution}
+(c)\\
+Sample space: there are 24! possible ways that the 24 IAs can sit.
+\\Event: Grace can sit in 24 spots. Yunsoo, sitting right next to her, can sit in two possible spots (to her left or to her right). Eric can only sit in one possible spot. Hence, there are $24 \cdot 2 \cdot 1 \cdot 21!$ ways that both events can occur.
+\\Dividing the event by the sample space gives us the probability of the event: $\frac{24 \cdot 2 \cdot 1 \cdot 21!}{24!}$
+\end{solution}
+
+%\newpage
+
+%\vspace{2cm}
+
+\probheadernum{4}\\
+% Greg, Binomial Coefficient Question
+In the binomial expansion of $(1/x^2 + x)^{15}$, what is the coefficient of the term $x^7$?
+\begin{enumerate}[(a)]
+    \item 0
+    \item $15 \choose 7$
+    \item $15 \choose 5$
+    \item $15 \choose 9$
+    \item 1
+\end{enumerate}
+\begin{solution}
+(a)\\
+Expand the expression
+\begin{align*}
+(x^{-2} + x)^{15}  =& \sum_{k=0}^{15} {15\choose k}{(x^{-2})}^k {x}^{15-k} \\
+=& \sum_{k=0}^{15} {15\choose k}x^{-2k} x^{15-k} \\
+=& \sum_{k=0}^{15} {15\choose k}x^{-2k+15-k} \\
+=& \sum_{k=0}^{15} {15\choose k}x^{15-3k}\\
+\end{align*}
+Since the non-zero terms in the expansion have exponents that are multiples of 3, the coefficient for $x^7$ is 0. 
+\end{solution}
+
+%\newpage 
+
+\probheadernum{4}\\
+% Team 2, Question 2
+Michigan's basketball team is predicted to win 60\% of the games they play. When the team is predicted to win, they have a 70\% probability of actual winning. When they are predicted to lose, they have a 45\% probability of winning. Given that Michigan won a basketball game, what is the probability that they were predicted to win?
+\begin{enumerate}[(a)]
+\item 0.6
+\item $0.6\cdot0.7$
+\item $\frac{0.7}{0.45+0.7}$
+\item $\frac{0.6\cdot0.7}{0.6\cdot0.7+0.6\cdot(1-0.45)}$
+\item $\frac{0.6\cdot0.7}{0.6\cdot0.7+(1-0.6)\cdot0.45}$
+\end{enumerate}
+\begin{solution}
+(e)\\
+Denote $W_p$ and $L_p$ as the events of predicted winning and losing, $W$ and $L$ as the events of actual winning and losing. Then
+\[
+P(W_p|W)=\frac{P(W_p)\cdot P(W|W_p)}{P(W_p)\cdot P(W|W_p)+P(L_p)\cdot P(W|L_p)}=\frac{0.6\cdot 0.7}{0.6\cdot0.7+(1-0.6)\cdot0.45}
+\]
+\end{solution}
+
+\probheadernum{4}\\
+% Team 4, Question 1
+
+You would like to cross the river depicted below.  Sometimes, though, the bridges are broken.  Each bridge has probability $p$ that you can \textbf{cross it}.  What is the probability that you are able to get across the river.
+
+\includegraphics[]{question9.png}
+
+
+
+
+\begin{enumerate}[(a)]
+\item $4p^2$
+\item $2p^2 + 2p^3$
+\item $4p-6p^2+6p^3-p^4$
+\item $(2p-p^2)^2$
+\item $(2p^2 - 3p)^2$
+\end{enumerate}
+\begin{solution}
+(d)\\
+We need cross one of the bridges on the left to get to the island, then cross one of the bridges on the right to get to the other shore.  The probability that we can get to the island is $p + p - p^2$ (because of inclusion-exclusion). The probability that you can get from the island to the right shore is also $2p - p^2$. So the probability that you can cross the river is $(2p-p^2)^2$
+\end{solution}
+
+\probheadernum{4}\\
+% Team 2, Question 3
+How many 52 letter non-decreasing strings are there when the letters are chosen with repetition from the 26-letter English alphabet (abcdefghijklmnopqrstuvwxyz)?\\
+(Note: Non-decreasing means that a letter at a latter position can only be the same or greater than its former letter, so a string of ``aabxzzzz" would be valid, whereas ``a\textbf{\underline{db}}" would not be valid.)\\
+\textit{Hint:} Consider how you can use stars and bars to solve this.
+\begin{enumerate}[(a)]
+\item $\binom{52}{26}$
+\item $\binom{77}{51}$
+\item $26^{52}$
+\item $\binom{77}{25}$
+\item $\binom{78}{51}$
+\end{enumerate}
+\begin{solution}
+(d)\\
+This boils down to a Stars and Bars problem. We just need to choose the letters of the string, since once we have letters there is exactly one way to make a valid string (arrange the letters in a non-decreasing order). We have 25 bars coming from the 26 possible letter choices. Each letter in the string is a star that fits into one of the letter boxes. We have $\binom{\text{stars+bars}}{\text{stars}}=\binom{25+52}{25}=\binom{77}{25}$ possible strings.
+\end{solution}
+
+\probheadernum{4}\\
+% Team 3, Question 5
+
+Balls labeled 1 through 9 are placed in a knapsack. Two balls are selected from the knapsack, one at a time without replacement. The first ball we draw is even.  What is the probability that the second ball is greater than the first ball?
+\begin{enumerate}[(a)]
+\item 1/9
+\item 3/8
+\item 4/9
+\item 1/2
+\item 5/8
+\end{enumerate}
+\begin{solution}
+(d)
+
+We can solve this with the law of total probability.  Let $X=$the value of the first ball and $Y=$the value of the second ball.  $P(Y>X|X\text{ is even})=P(Y>X|X=2)P(X=2|X\text{ is even})+P(Y>X|X=4)P(X=4|X\text{ is even})+P(Y>X|X=6)P(X=6|X\text{ is even})+P(Y>X|X=8)P(X=8|X\text{ is even})$. 
+Plugging in values, we get $\frac78\cdot\frac14+\frac58\cdot\frac14+\frac38\cdot\frac14+\frac18\cdot\frac14$.  Factoring out the $\frac14$, we have $\frac14(\frac78+\frac58+\frac38+\frac18)=\frac14(2)=\frac12$
+\end{solution}
+
+%\vspace{2cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A2 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Part A2: Multiple Answer Multiple Choice}
+\textbf{In this section, select ALL of the answers that are correct for each question. Each question may have 0, 1, 2, 3, 4, or 5 correct answers.} 
+\vspace{0.2in}
+
+
+
+\probheadernum{4}\\
+% Team 2, Question 6
+Which of the following represent the number of strings that consist of exactly 5 A's, 4 B's, and 3 C's?  Select all that apply.
+\begin{enumerate}[(a)]
+\item $3^{12}$
+\item $\binom{12}{5}\cdot\binom{12}{4}\cdot\binom{12}{3}$
+\item $\frac{12!}{5!\cdot4!\cdot3!}$
+\item $\binom{12}{5}\cdot\binom{7}{4}\cdot\binom{3}{3}$
+\item $5!\cdot 4!\cdot 3!$
+\end{enumerate}
+\begin{solution}
+(c),(d)
+\begin{enumerate}[(a)]
+\addtocounter{enumi}{2}
+\item counts all permutations of 12 possible letters, then divides by repeated letters to avoid overcounting. 
+\item computes multinomial coefficients by choosing where all repetitions of a given letter go at once $\binom{12}{5}\cdot \binom{7}{4}\cdot\binom{3}{3}$.
+\end{enumerate}
+\end{solution}
+
+%\newpage 
+
+\probheadernum{4}\\
+% Team 4, Question 11
+Emily pays \$1 to play a dice game.  She rolls a fair 6-sided die.
+\begin{itemize}
+    \item If she rolls a 1 or a 2 she loses another \$2
+    \item If she rolls a 3 or 4 she wins \$4
+    \item If she rolls a 5 or a 6 she wins \$7
+\end{itemize}
+Let X be a random variable for the amount of money Emily gained or lost due to playing the game. (\textbf{Remember} that she spent \$1 to play the game.) \\
+
+What is $E(X)$? What is $Var(X)$?
+
+\begin{enumerate}[(a)]
+    \item $E(X) = 2$
+    \item $E(X) = 3$
+    \item $E(X) = \frac{13}{3}$
+    \item $Var(X) = 14$
+    \item $Var(X) = \frac{38}{9}$
+\end{enumerate}
+
+\begin{solution} (a) (d)
+Since Emily pays \$1 to play, Emily can lose \$3, win \$3, or win \$6.
+$$E(X) = -3(1/3) + 3(1/3) + (6)(1/3)$$
+$$E(X) = 2$$ \\
+
+$$E(X^2) = 9(1/3) + 9(1/3) + 36(1/3)$$
+$$E(X^2) = 3 + 3 + 12 = 18$$
+
+$$Var(X) = 18 - 2^2 = 14$$
+
+\end{solution}
+
+%\vspace{2cm}
+%\newpage
+
+\probheadernum{4}\\
+% Team 4, Question 7
+Which of the following sets are well-ordered under the given ordering?
+\begin{enumerate}[(a)]
+    \item ($\mathbb{R^+}$, $<$)
+    \item ($\mathbb{Z} \cap \mathbb{Q^-}$, $>$)
+    \item $([-2, 7], <)$
+    \item ($\mathbb{N}$, $>$)
+    \item $(\{-\frac1n|n\in \mathbb{Z}^+\}\cup\{1-\frac1n|n\in\mathbb{Z}^+\},<)$
+\end{enumerate}
+\begin{solution}
+(b),(e)
+\begin{enumerate}[(a)]
+    \item No. The subset $(0, 1)$ does not have a least element.
+    \item Yes. $\mathbb{Z} \cap \mathbb{Q^-}$ is equivalent to ${Z^-}$. The negative integers is well-ordered under $>$.
+    \item No. The subset $(-2, 7)$ does not have a least element.
+    \item No. The set $\mathbb{N}$ does not have a least element under $>$.
+    \item Yes. Notice that this is the set $\{-\frac{1}{1}, -\frac{1}{2}, -\frac{1}{3}, ...\} \cup \{0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4} ...\}$. Under $<$, a subset of one of the component sets will always have a least (the smallest $n$ produces it), and a subset with some from each will have a least that is the least in the first set, as everything in the first set is less than everything in the second.
+\end{enumerate}
+\end{solution}
+
+\newpage
+
+
+\end{document}

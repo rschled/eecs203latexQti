@@ -1,0 +1,582 @@
+\title{FA 2018 EECS203 Midterm Exam 2, Questions}
+\documentclass[12pt]{exam}
+%\footer{}{}{\thepage}
+%\footer{}{\thepage}{}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages
+
+\oddsidemargin .25in
+\evensidemargin .25in
+\topmargin -0.25in
+\textwidth 6.0in
+\textheight 9.5in
+\sloppy
+
+\usepackage{graphicx}
+\usepackage{url, amsmath, amsthm, enumerate, multicol}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{boxproof}
+\usepackage{amsthm}
+\usepackage{eucal}
+\usepackage{todonotes}
+\usepackage{algpseudocode}
+\let\oldReturn\Return
+\renewcommand{\Return}{\State\oldReturn}
+
+\usepackage{placeins}
+\usepackage{listings}
+
+
+\usepackage{verbatim}
+\usepackage{fullpage}
+
+
+
+\usepackage{soul}
+\usepackage{color}
+
+\usepackage{comment}
+
+\definecolor{Light}{gray}{.90}
+\sethlcolor{Light}
+
+\newcounter{bar}
+\newcommand{\probheadernum}[1]{%
+        \vspace{0.3in}
+        \stepcounter{bar}%
+        \noindent{\large\bf Problem \arabic{bar}. {(#1 points)}}
+%        \noindent{\large\bf Problem \arabic{bar}. {\small (#1 points)}}
+        \smallskip}
+
+
+\newcounter{scantron}
+\newcommand{\scantronlabelnocount}{{\texttt{{\large\hl{{\small Scantron} XX{}}}}}}
+
+\newcommand{\scantronlabel}{
+	\stepcounter{scantron}
+	{\texttt{{\large\hl{{\small Scantron} \thescantron{\small }}}}}
+}
+\newcommand{\tfproblem}{
+	\vspace{0.2in}
+	\noindent \hspace{0.4in}
+	{\texttt{\scantronlabel (A) True (B) False}}
+	\vspace{0.2in}
+}
+
+\newcommand{\multchoice}{\vspace{0.3in}\noindent\scantronlabel
+}
+
+\pagenumbering{arabic}
+
+\def\infer#1#2{\raisebox{.5ex}{\rule{0pt}{2.5ex}$#1$}
+            \over\raisebox{.5ex}{\rule{0pt}{2.5ex}$#2$}}
+
+
+\def\encl#1#2{\fbox{\parbox{.3em}{$#1$ $\vdots$ $#2$}}}
+\def\bigencl#1#2{\fbox{\parbox{1em}{$#1$ $~\,\vdots$ $~~#2$}}}
+\def\bbigencl#1#2{\fbox{\parbox{5em}{$#1$ \hspace{4em}  $~~~~~~\vdots~~~$ $~~~~~~~#2$}}}
+\def\low#1{{\parbox{2em}{$~~~~~~$ $~~~~~~$ $~~~~~~$ $#1$}}}
+
+\mathchardef\hyph="2D
+\newcommand{\premise}{\mathrm{premise}}
+\newcommand{\assump}{\mathrm{assumption}}
+\newcommand{\intr}{\mathrm{\hyph intro\ }}
+\newcommand{\eli}{\mathrm{\hyph elim\ }}
+\newcommand{\fal}{{\tt F}}
+\newcommand{\mt}{\mathrm{Modus Tollens\ }}
+\newcommand{\pbc}{\mathrm{PBC\ }}
+
+\newcommand{\romanlist}{(\roman{enumi})}
+\newcommand{\countlist}{\usecounter{enumi}}
+\newcommand{\se}{\subseteq}
+
+% Shortcuts
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+
+%Removed these to get page numbers to show up
+%\thispagestyle{empty}
+%\pagestyle{empty}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{.7, .7, .7}
+\usepackage{calc}
+%\usepackage{framed}
+
+\newcommand{\newpagename}{\newpage
+\noindent
+
+{\bf Name (Print): }\hrulefill
+\bigskip}
+
+\printanswers
+
+\setlength\parindent{0pt}       %Turn off indents
+\begin{document}
+
+\begin{minipage}[t]{0.98\columnwidth}%
+\begin{shaded}
+\section*{
+     \begin{center}
+          Midterm 2 \\
+          %(Part A -- Multiple Choice)\\
+          QUESTIONS PACKET\\
+          EECS 203\\
+          Fall 2018
+     \end{center}}
+\medskip
+\end{shaded}
+\end{minipage}
+
+
+\vspace{0.4in}
+\noindent
+{\bf Name (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf Uniqname (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf 8-Digit UMID: }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+\begin{center}%TODO
+{\bf ***MAKE SURE YOU HAVE PROBLEMS 1 - 19 IN THIS BOOKLET.*** }
+\end{center}
+\vspace{0.2in}
+\noindent {\large \bf General Instructions}
+
+\vspace{0.1in}
+\noindent 
+You have 120 minutes to complete 
+this exam. 
+You should have two exam packets. 
+%\vspace{0.1in}
+\begin{itemize}
+\item \textbf{Questions Packet:} Contains ALL of the questions for this exam, worth 100 points total. There 13 Multiple Choice questions (4 points each) and 6 Free Response questions (8 points each). You may do scratch work on this part of the exam, but only work in the Answers Packet will be graded. 
+
+\item \textbf{Answers Packet:} Write all of your answers in this packet, including your answers to multiple choice questions. There is no Scantron form for this exam. Both sides of the pages in the Answers Packet will be scanned and graded. 
+%Write down your answer with care: {\bf If your answer is unreadable (such as too faint or messy), it will not be graded}. 
+
+\item You are allowed to bring \textbf{two} 8.5'' by 11'' note sheets, front and back, created by you. 
+\item You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. 
+%\item Leave at least one seat between yourself and other students, if possible.
+
+\item After you complete the exam, sign the Honor Code Pledge on the front of the Answers Packet.
+
+\item You must turn in both parts of this exam.
+
+\item \textbf{You are not to discuss the exam until the solutions are published.}
+
+%\item  This exam is administered under the College of Engineering Honor Code. \textbf{After you have completed the exam}, please sign the Honor Code statement below. We will not grade your exam without your signature.
+\end{itemize}
+
+%\noindent This exam is administered under the College of Engineering Honor Code.  Your signature endorses the pledge below. We will not grade your exam without your signature.
+
+% \bigskip
+% \linespread{1.5}
+% \noindent
+% \textit{I have neither given nor received unauthorized aid on this examination, nor 
+% have I concealed any violations of the Honor Code. I further agree not to discuss any aspect of this examination in any way, shape, or form until the solutions have been published.} 
+
+% \bigskip
+% \vspace{0.2 in}
+% \noindent Signature: \hrulefill
+
+% \linespread{1}
+
+% \noindent {\large \bf General Instructions}
+
+% \noindent 
+% You have 120 minutes to complete the two parts of this exam. {\bf Part A has 13 problems (four points each), and part B has 6 problems (eight points each)}. The exam is worth 100 points total.
+% \vspace{0.5em}
+
+% \noindent
+% For this exam, you are allowed to bring two 8.5'' by 11'' note sheets, front and back, created by you. You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. Leave at least one seat between yourself and other students. %This also means making room if you are in a row with 2 or more seats.
+% \vspace{0.5em}
+
+% \noindent
+% Your answers for all parts of this exam will be written in the Answers packet. The Answers packet contains more instructions. % this sounds clunky
+% \vspace{0.5em}
+
+% \noindent
+% Feel free to do scratch work on this part of the exam.
+
+
+% \noindent Please note: \textbf{You are not to discuss the exam until the solutions are published}
+
+\newpage
+
+\begin{comment}
+\noindent {\large \bf Part A Instructions} 
+\begin{itemize}
+\item This section of the exam contains \textbf{13 multiple choice questions}, each worth 4 points, for a total of 52 points. 
+\item Write your answer(s) to each multiple-choice question in the corresponding box in the Answers Packet. 
+\item Nothing written in this Questions Packet will be graded.
+\end{itemize}
+\vspace{0.2in}
+%%% TODO: Fill in which questions belong to A1 and A2
+
+\noindent
+\textbf{Part A1: Single Answer Multiple Choice}
+\begin{itemize}
+\itemsep0em
+\item Questions 1-7 each have a single correct answer. \textbf{Please write only one answer for each question.} 
+\item If you write more than one letter as an answer in your Answers Packet, that question will be marked as incorrect.
+\end{itemize}
+\vspace{0.2in}
+
+\noindent
+\textbf{Part A2: Multiple Answer Multiple Choice} \begin{itemize}
+\itemsep0em
+    \item For Questions 8-13, \textbf{select ALL of the answers that are correct for each question.} 
+    \item Each question may have 0, 1, 2, 3, 4, or 5 correct answers. 
+ For example, if answers A B and C are correct, write ``ABC" in the corresponding answer box.
+ \item Partial credit can be earned for partially correct answers.
+ \end{itemize}
+\vspace{0.2in}
+
+\noindent {\large \bf Part B Instructions}
+
+\begin{itemize}
+\itemsep0em
+\item Part B (Questions 14-19) contains {\bf six Free Response problems} each worth eight points, for a total of 48 points. 
+\item Please write your solutions clearly on the corresponding pages in the Answers Packet.
+\item Nothing in this Questions Packet will be graded.
+\end{itemize}
+\vspace{0.2 in}
+
+%\noindent
+%You must write your name and uniqname on the front cover of this packet and turn in this part of the exam, along with your Answers packet. (We will check to make sure that you have turned in this part of the exam.)
+\vspace{0.2in}
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 	NO HONOR CODE SIGNATURE LINE	  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\bigskip
+
+
+\noindent {\large \bf Honor Code  Instructions}
+
+\noindent This exam is administered under the College of Engineering Honor Code. After you finish your exam, please sign on the line below. Your signature endorses the pledge below. We will not grade your exam without your signature.
+
+\bigskip
+\linespread{1.5}
+\noindent
+\textit{I have neither given nor received unauthorized aid on this examination, nor 
+have I concealed any violations of the Honor Code. I further agree not to discuss any aspect of this examination in any way, shape, or form until the solutions have been published.} 
+
+\bigskip
+
+\noindent Signature: \hrulefill
+
+\linespread{1}
+
+\setcounter{bar}{15}
+
+\newpage
+
+Scratch paper. {\bf Nothing written on this page will be graded.}
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A1 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section*{Part A1: Single Answer Multiple Choice}
+\textbf{[Only one answer choice is correct in Part A1]} 
+\vspace{0.1in}
+
+\probheadernum{4}
+% team 2.4
+
+Consider 3 red balls and 5 blue balls arranged on a line from left to right. How many different orderings of balls are there on this line if each red ball must have a blue ball immediately to its right? Balls of the same color are indistinguishable.
+
+\begin{enumerate}[(a)]
+\item 5
+\item 10
+\item 20
+\item 40
+\item 120
+\end{enumerate}
+\begin{solution}
+B
+\\
+Each pair of (red, blue) becomes an entity (there are 3 of these). There are 2 remaining blue balls. The number of orderings of these 5 entities is $5!/(3! \cdot 2!)=120/(6 \cdot 2)=10$. Another way to view this problem is choosing where to put the 2 single blue balls among the 5 available spots, which is $\binom{5}{2} = 10$.
+\end{solution}
+
+\probheadernum{4}
+% team 3.2
+
+What is the coefficient for the $m^{50} n^{51}$ term in the binomial expansion of $(3m-n)^{101}$
+\begin{enumerate}[(a)]
+    \item $-(3^{51})\binom{101}{51}$ 
+    \item $-(3^{50})\binom{101}{50}$
+    \item $3^{50}\binom{101}{51}$ 
+    \item $3^{51}\binom{101}{50}$  
+\end{enumerate}
+
+\begin{solution}
+B
+\\
+The binomial expansion is $\sum_{k=0}^{101}\binom{101}{k}(3m)^{k}(-n)^{101-k}$. Expanding this, we get $\sum_{k=0}^{101}(-1)^{101-k}3^{k}m^kn^{101-k}$. The term asked for is when $k = 50$, so plugging that into the coefficient, we get $\binom{101}{50}(-1)^{51}3^{50} = -(3^{50})\binom{101}{50}$. 
+\end{solution}
+
+
+\probheadernum{4}
+% team 4.2
+
+Throw two fair dice. What is the probability the difference between the two numbers rolled is greater than 1?
+
+\begin{enumerate}[(a)]
+    \item $\frac{11}{36}$
+    \item $\frac{7}{18}$
+    \item $\frac{4}{9}$
+    \item $\frac{5}{9}$
+    \item $\frac{25}{36}$
+\end{enumerate}
+
+\begin{solution}
+\bigskip
+D
+\\
+Let E be the event that the difference between those two numbers is less than or equal to 1, i.e., the difference is 0 or 1. Of the 36 possible rolls, there are 6 rolls where the dice come up the same (e.g., (2,2)). For a difference of 1, we could have (1,2), (2,3),...,(5,6) or (2,1),(3,2),...,(6,5), so $2\cdot 5$ ways.\\
+$|E| = 6+5 \cdot 2 = 16$\\
+$P = 1 - P(E) = 1 - \frac{16}{6 \cdot 6} = \frac{5}{9}$
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+% team 3.3
+
+How many ways are there to create an unordered group of 7 letters from the 26 English letters (lower-case only), where repetition is allowed?  
+\begin{enumerate}[(a)]
+    \item \text{\Large{$\frac{26!}{7!7!7!7!7!7!7!}$}}
+    \item $\binom{26}{7}$
+    \item $\binom{32}{7}$
+    \item $\binom{33}{7}$
+    \item $P(26, 7)$
+\end{enumerate}
+
+\begin{solution}
+C
+\\
+This is stars n' bars, with 7 stars and $26-1=25$ bars. There are $\binom{stars+bars}{stars} = \binom{7+25}{7}=\binom{32}{7}$ ways to create a group of 7 letters. You can also think about this problem as putting 7 indistinguishable objects in 26 distinguishable boxes.
+\end{solution}
+
+
+\probheadernum{4}
+% team 2.2
+
+Consider a set $S$ that contains all integers between 1 and 203 inclusive. What is the minimum number of distinct integers you can pick from set $S$ such that you are guaranteed that at least 2 of those numbers sum to 204?\\
+
+\begin{enumerate}[(a)]
+\item 2
+\item 101
+\item 102
+\item 103
+\item 202
+\end{enumerate}
+\begin{solution}
+D
+\end{solution}
+
+
+\probheadernum{4}
+% team 3.5
+
+We need to assign 4 students (A, B, C, and D) to 3 different teams (Team 1, Team 2, and Team 3). Each team needs to have at least 1 student. A and B cannot be in the same team. How many different ways are there to assign the teams?
+\begin{enumerate}[(a)]
+    \item 6  
+    \item 24 
+    \item 30
+    \item 36
+\end{enumerate}
+
+\begin{solution}
+C
+\\
+We need to put the 4 students into 3 groups and each group needs to have at least 1 student. This means two of the students need to be in the same team.  There are $C(4, 2)=6$ ways to select two students who will be on the same team. However, A and B cannot be in the same team, so there are $6-1=5$ ways to select the pair of students who will on the same team. We now have 3 groups of 1, 1, and 2 students, and we assign the 3 groups to 3 teams, so there are in total $5 \cdot P(3, 3)= 5 \cdot 3! = 30$ ways.
+
+\end{solution}
+ 
+ 
+\probheadernum{4}
+% team 1.2
+Suppose we roll a fair die until we see a 2 and a 3 in no particular order. What is the expected value of the number of times we roll the die?
+
+\begin{enumerate}[(a)]
+\item 6
+\item 9
+\item 12
+\item 18
+\item 24
+\end{enumerate}
+\begin{solution}
+B
+\\
+Let X = number of rolls to get the first 2 or 3. $p=1/3$, so $E(X)=3$.\\
+Let Y = number of rolls to get the other number. $p=1/6$, so $E(Y)=6$.\\
+$E(X + Y) = E(X) + E(Y) = 3 + 6 = 9$.
+%Let X = number of times we roll the dice get a 2 first and not 3 and then a 3, $E(X)= E(2) + E(3) = 3 + 6 = 9 $
+%Let Y = number of times we roll the dice get a 3 first and not 2then a 2, $E(Y)= E(3) + E(2) = 3 + 6 = 9$
+%total expected value
+%\\ $E(X $ \cup $ Y) = E(X) + E(Y) = 18 $
+\end{solution}
+
+ 
+ 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A2 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Part A2: Multiple Answer Multiple Choice}
+\textbf{In this section, select ALL of the answers that are correct for each question. Each question may have 0, 1, 2, 3, 4, or 5 correct answers.} 
+\vspace{0.2in}
+
+\probheadernum{4}
+% team 1.3
+
+Consider a relation $R$ on the set of all sets, where two sets $A$ and $B$ are related via $R$ if and only if $A$ and $B$ have at least 3 elements in common. Which properties hold for this relation?
+
+\begin{enumerate}[(a)]
+    \item Reflexive
+    \item Symmetric
+    \item Antisymmetric
+    \item Transitive
+\end{enumerate}
+
+\begin{solution}
+B
+\\
+$R$ is not reflexive, because there is only 1 element in the intersection of a set of size 1 with
+itself. $R$ is not antisymmetric; for example $\{1,2,3,4\}$ is related to $\{1,2,3\}$, but they are not the same set. $R$ is not transitive, because \{1, 2, 3, 4\} is related to \{1, 2, 3\} and \{2, 3, 4\} which are
+not related, and $R$ is symmetric because $A \cap B$ = $B \cap A$.
+\end{solution}
+
+
+\probheadernum{4}
+% team 4.6
+
+Two fair six-sided dice are rolled, where one is red and one is blue. Let $R$ be the event that the red die came up as a 3, and let $A$ be the event that at least one of the two dice came up as 3. Which of the following are true?
+
+\begin{enumerate} [(a)]
+    \item $P(A|R) = P(A)$
+    \item $P(R|A) = P(R)$
+    \item $P(A \cap R) = P(R)$
+    \item $P(A) = \frac{1}{3}$
+    \item $P(R) = \frac{1}{6}$
+\end{enumerate}
+
+\begin{solution}
+C, E
+\\
+The intersection of "red die came up as a 3" and "at least one of the two dice came up as 3" should be still "red die came up as a 3", which means $P(A \cap R) = P(R)$. For (a), $P(A|R) = P(A \cap R)/P(R) = P(R)/P(R) = 1$. For (b), $P(R|A) = P(A \cap R)/P(A) = P(R)/P(A) \neq P(R)$. For (d), $P(A) = 11/36$ since there are 11 valid combinations out of 36(the size of sample space).
+\end{solution}
+
+
+
+\probheadernum{4}
+% team 1.8
+
+Which of the following sets are well ordered under the standard `$<$` ordering?
+\begin{enumerate}[(a)]
+\item $\mathbb{N}$
+\item $\mathbb{Z}$
+\item $\mathbb{Z}^+$
+\item $\mathbb{R}^+ \cup \{0\}$ 
+\item $\{0, 1 , 2\}$
+\end{enumerate}
+\begin{solution}
+A, C, E
+\\
+A set is well-ordered when every subset of that set has a least element under the given ordering. This is true for $\mathbb{N}, \mathbb{Z^+}$, and ${0,1,2}$ under the standard `$<$` ordering. For (c), the set of all integers, $Z$ has no least element under $<$. While the set $\mathbb{R}^+ \cup \{0\}$ has a least element (0), it is not true that every subset of this set has a least element (for example, $\mathbb{R^+}$).
+\end{solution}
+
+
+\newpage
+
+% team Misc.11
+\textbf{The following information is needed for problems 11 and 12:} \\\\
+\textbf{Suppose we have a bag with three balls numbered 1, 2, and 3. Alice draws a ball from the bag (and does not put it back), and then Bob draws a ball from the bag. Let $X$ be the value of the ball Alice drew, $Y$ be the value of the ball Bob drew.}
+
+\probheadernum{4}
+% team Misc.11
+
+Which of the following are true?
+\begin{enumerate} [(a)]
+    \item $E(X) = 2$
+    \item $E(Y) = 2$
+    \item $E(XY) = 4$
+    \item $E(X+Y) = 4$
+\end{enumerate}
+\begin{solution}
+A, B, D
+\\
+(c) is not guaranteed since $X$ and $Y$ are not independent, and if you solve for it you get $\frac{11}{3}$
+\end{solution}
+
+\probheadernum{4}
+% team Misc.12
+
+Now, there is a second bag with five balls numbered 1 through 5. Carol draws a ball from this second bag. Let $Z$ be the value of the ball Carol drew, and again let $X$ and $Y$ be values of the balls that Alice and Bob drew, respectively. Which of the following are true? 
+\begin{enumerate} [(a)]
+    \item $V(X) = \frac{2}{3}$
+    \item $V(X+Y) = V(X)+V(Y)$
+    \item $V(Z) = 2$
+    \item $V(X+Z) = V(X)+V(Z)$
+\end{enumerate}
+\begin{solution}
+A, C, D
+\\
+(B) is not guaranteed since $X$ and $Y$ are not independent. (D) works because $X$ and $Z$ are independent.
+\end{solution}
+
+
+\vspace{0.3in}
+
+\probheadernum{4}
+% team 1.13
+
+Suppose that $R$ and $S$ are relations on a set $A$. $R$ is reflexive and $S$ is symmetric. Which of the following statements must be true?
+
+\begin{enumerate}[(a)]
+\item $R \cup S$ is symmetric
+\item $R \cap S$ is symmetric
+\item $S - R$ is symmetric
+\item $R^2$ is reflexive
+\end{enumerate}
+
+\begin{solution}
+D
+\end{solution}
+
+
+
+
+\newpage
+
+\end{document}

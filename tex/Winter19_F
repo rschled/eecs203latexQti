@@ -1,0 +1,738 @@
+ \title{FA 2018 EECS203 Midterm Exam 2, Questions}
+\documentclass[12pt]{exam}
+%\footer{}{}{\thepage}
+%\footer{}{\thepage}{}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\oddsidemargin .25in
+\evensidemargin .25in
+\topmargin -0.25in
+\textwidth 6.0in
+\textheight 9.5in
+\sloppy
+
+\usepackage{graphicx}
+\usepackage{url, amsmath, amsthm, enumerate, multicol}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{boxproof}
+\usepackage{amsthm}
+\usepackage{eucal}
+\usepackage{todonotes}
+\usepackage[linesnumbered,boxed]{algorithm2e}
+\usepackage{tikz}
+
+\usepackage{placeins}
+\usepackage{listings}
+
+\usepackage{verbatim}
+\usepackage{fullpage}
+
+\usepackage{soul}
+\usepackage{color}
+
+\usepackage{comment}
+
+\definecolor{Light}{gray}{.90}
+\sethlcolor{Light}
+
+\newcounter{bar}
+\newcommand{\probheadernum}[1]{%
+        \vspace{0.2in}
+        \stepcounter{bar}%
+        \noindent{\large\bf Problem \arabic{bar}. {(#1 points)}}
+%        \noindent{\large\bf Problem \arabic{bar}. {\small (#1 points)}}
+        \smallskip
+}
+
+
+\newcounter{scantron}
+\newcommand{\scantronlabelnocount}{{\texttt{{\large\hl{{\small Scantron} XX{}}}}}}
+
+\newcommand{\scantronlabel}{
+	\stepcounter{scantron}
+	{\texttt{{\large\hl{{\small Scantron} \thescantron{\small }}}}}
+}
+\newcommand{\tfproblem}{
+	\vspace{0.2in}
+	\noindent \hspace{0.4in}
+	{\texttt{\scantronlabel (A) True (B) False}}
+	\vspace{0.2in}
+}
+
+\newcommand{\multchoice}{\vspace{0.3in}\noindent\scantronlabel
+}
+
+\pagenumbering{arabic}
+
+\def\infer#1#2{\raisebox{.5ex}{\rule{0pt}{2.5ex}$#1$}
+            \over\raisebox{.5ex}{\rule{0pt}{2.5ex}$#2$}}
+
+
+\def\encl#1#2{\fbox{\parbox{.3em}{$#1$ $\vdots$ $#2$}}}
+\def\bigencl#1#2{\fbox{\parbox{1em}{$#1$ $~\,\vdots$ $~~#2$}}}
+\def\bbigencl#1#2{\fbox{\parbox{5em}{$#1$ \hspace{4em}  $~~~~~~\vdots~~~$ $~~~~~~~#2$}}}
+\def\low#1{{\parbox{2em}{$~~~~~~$ $~~~~~~$ $~~~~~~$ $#1$}}}
+
+\mathchardef\hyph="2D
+\newcommand{\premise}{\mathrm{premise}}
+\newcommand{\assump}{\mathrm{assumption}}
+\newcommand{\intr}{\mathrm{\hyph intro\ }}
+\newcommand{\eli}{\mathrm{\hyph elim\ }}
+\newcommand{\fal}{{\tt F}}
+\newcommand{\mt}{\mathrm{Modus Tollens\ }}
+\newcommand{\pbc}{\mathrm{PBC\ }}
+
+\newcommand{\romanlist}{(\roman{enumi})}
+\newcommand{\countlist}{\usecounter{enumi}}
+\newcommand{\se}{\subseteq}
+
+% Shortcuts
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\ex}{\exists}
+
+%Removed these to get page numbers to show up
+%\thispagestyle{empty}
+%\pagestyle{empty}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{.7, .7, .7}
+\usepackage{calc}
+%\usepackage{framed}
+
+\newcommand{\newpagename}{\newpage
+\noindent
+
+{\bf Name (Print): }\hrulefill
+\bigskip}
+
+\printanswers
+
+\setlength\parindent{0pt}       %Turn off indents
+\begin{document}
+
+\begin{minipage}[t]{0.98\columnwidth}%
+\begin{shaded}
+\section*{
+     \begin{center}
+          Final Exam\\
+          %(Part A -- Multiple Choice)\\
+          QUESTIONS PACKET\\
+          EECS 203\\
+          Winter 2019
+     \end{center}}
+\medskip
+\end{shaded}
+\end{minipage}
+
+
+\vspace{0.4in}
+\noindent
+{\bf Name (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf Uniqname (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf 8-Digit UMID: }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+\begin{center}%TODO
+{\bf ***MAKE SURE YOU HAVE PROBLEMS 1 - 19 IN THIS BOOKLET.*** }
+\end{center}
+\vspace{0.2in}
+\noindent {\large \bf General Instructions}
+
+\vspace{0.1in}
+\noindent 
+You have 120 minutes to complete 
+this exam. 
+You should have two exam packets. 
+%\vspace{0.1in}
+\begin{itemize}
+%TODO Here
+\item \textbf{Questions Packet:} Contains ALL of the questions for this exam, worth 100 points total. There are 13 Multiple Choice questions (4 points each) and 6 Free Response questions (8 points each). You may do scratch work on this part of the exam, but only work in the Answers Packet will be graded. 
+
+\item \textbf{Answers Packet:} Write all of your answers in the Answers Packet, including your answers to multiple choice questions. 
+%There is no Scantron form for this exam. 
+%Both sides of the pages in the Answers Packet will be scanned and graded. 
+\textbf{For free response questions, you must show your work! Answers alone will receive little or no credit.}
+%Write down your answer with care: {\bf If your answer is unreadable (such as too faint or messy), it will not be graded}. 
+
+%TODO: Change per exam
+\item You may bring \textbf{three} 8.5'' by 11'' note sheets, front and back, created by you. 
+\item You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. 
+%\item Leave at least one seat between yourself and other students, if possible.
+
+\item After you complete the exam, sign the Honor Code Pledge on the front of the Answers Packet.
+
+\item You must turn in both parts of this exam.
+
+\item \textbf{You are not to discuss the exam until the solutions are published.}
+
+%\item  This exam is administered under the College of Engineering Honor Code. \textbf{After you have completed the exam}, please sign the Honor Code statement below. We will not grade your exam without your signature.
+\end{itemize}
+
+%\noindent This exam is administered under the College of Engineering Honor Code.  Your signature endorses the pledge below. We will not grade your exam without your signature.
+
+% \bigskip
+% \linespread{1.5}
+% \noindent
+% \textit{I have neither given nor received unauthorized aid on this examination, nor 
+% have I concealed any violations of the Honor Code. I further agree not to discuss any aspect of this examination in any way, shape, or form until the solutions have been published.} 
+
+% \bigskip
+% \vspace{0.2 in}
+% \noindent Signature: \hrulefill
+
+% \linespread{1}
+
+% \noindent {\large \bf General Instructions}
+
+% \noindent 
+% You have 120 minutes to complete the two parts of this exam. {\bf Part A has 13 problems (four points each), and part B has 6 problems (eight points each)}. The exam is worth 100 points total.
+% \vspace{0.5em}
+
+% \noindent
+% For this exam, you are allowed to bring two 8.5'' by 11'' note sheets, front and back, created by you. You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. Leave at least one seat between yourself and other students. %This also means making room if you are in a row with 2 or more seats.
+% \vspace{0.5em}
+
+% \noindent
+% Your answers for all parts of this exam will be written in the Answers packet. The Answers packet contains more instructions. % this sounds clunky
+% \vspace{0.5em}
+
+% \noindent
+% Feel free to do scratch work on this part of the exam.
+
+
+% \noindent Please note: \textbf{You are not to discuss the exam until the solutions are published}
+
+\newpage
+
+\begin{comment}
+\noindent {\large \bf Part A Instructions} 
+\begin{itemize}
+\item This section of the exam contains \textbf{13 multiple choice questions}, each worth 4 points, for a total of 52 points. 
+\item Write your answer(s) to each multiple-choice question in the corresponding box in the Answers Packet. 
+\item Nothing written in this Questions Packet will be graded.
+\end{itemize}
+\vspace{0.2in}
+%%% TODO: Fill in which questions belong to A1 and A2
+
+\noindent
+\textbf{Part A1: Single Answer Multiple Choice}
+\begin{itemize}
+\itemsep0em
+\item Questions 1-7 each have a single correct answer. \textbf{Please write only one answer for each question.} 
+\item If you write more than one letter as an answer in your Answers Packet, that question will be marked as incorrect.
+\end{itemize}
+\vspace{0.2in}
+
+\noindent
+\textbf{Part A2: Multiple Answer Multiple Choice} \begin{itemize}
+\itemsep0em
+    \item For Questions 8-13, \textbf{select ALL of the answers that are correct for each question.} 
+    \item Each question may have 0, 1, 2, 3, 4, or 5 correct answers. 
+ For example, if answers A B and C are correct, write ``ABC" in the corresponding answer box.
+ \item Partial credit can be earned for partially correct answers.
+ \end{itemize}
+\vspace{0.2in}
+
+\noindent {\large \bf Part B Instructions}
+
+\begin{itemize}
+\itemsep0em
+\item Part B (Questions 14-19) contains {\bf six Free Response problems} each worth eight points, for a total of 48 points. 
+\item Please write your solutions clearly on the corresponding pages in the Answers Packet.
+\item Nothing in this Questions Packet will be graded.
+\end{itemize}
+\vspace{0.2 in}
+
+%\noindent
+%You must write your name and uniqname on the front cover of this packet and turn in this part of the exam, along with your Answers packet. (We will check to make sure that you have turned in this part of the exam.)
+\vspace{0.2in}
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 	NO HONOR CODE SIGNATURE LINE	  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\bigskip
+
+
+\noindent {\large \bf Honor Code  Instructions}
+
+\noindent This exam is administered under the College of Engineering Honor Code. After you finish your exam, please sign on the line below. Your signature endorses the pledge below. We will not grade your exam without your signature.
+
+\bigskip
+\linespread{1.5}
+\noindent
+\textit{I have neither given nor received unauthorized aid on this examination, nor 
+have I concealed any violations of the Honor Code. I further agree not to discuss any aspect of this examination in any way, shape, or form until the solutions have been published.} 
+
+\bigskip
+
+\noindent Signature: \hrulefill
+
+\linespread{1}
+
+\setcounter{bar}{15}
+
+\newpage
+
+Scratch paper. {\bf Nothing written on this page will be graded.}
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A1 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section*{Part A1: Single Answer Multiple Choice}
+\textbf{[Only one answer choice is correct in Part A1]} 
+\vspace{0.1in}
+
+\probheadernum{4}
+
+How many ways are there to pair up 6 dogs with 6 different dog leashes, where each pair consists of a dog with a leash?
+
+\begin{enumerate}[(a)]
+% Hw Team 3
+\item 6!
+\item $2^6$
+\item $(6!)^2$
+\item $\binom{6+5}{6}$
+\item $\binom{12}{2}\binom{10}{2}\binom{8}{2}\binom{6}{2}\binom{4}{2}$
+\end{enumerate}
+\begin{solution}
+(a) \\
+This is essentially assigning every dog a leash. The first dog can have 6 choices for a leash to pair with, the second dog has 5 choices and so on. Thus we have $6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1=6!$
+\end{solution}
+
+\probheadernum{4}
+
+What is the big-$\Theta$ of the following algorithm, based on the number of print statements?
+
+% See: http://mirror.hmc.edu/ctan/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf
+\begin{algorithm}[H]
+    \SetKwFunction{Cheering}{Cheering}{}
+    \SetKwFunction{Print}{print}
+    \SetKwProg{Fn}{procedure}{\string:}{}
+    \SetKwFor{For}{for}{do}{}
+    \SetKwFor{If}{if}{then}{}
+    \SetKwInOut{Input}{input}
+    \DontPrintSemicolon
+    \Input{$n$ an integer power of 2}
+    \BlankLine
+    \Fn{\Cheering{n}}{
+        \If {$n = 1$} {
+            \KwRet{}
+        }
+        \Cheering{$n/2$}\;
+        \For{$i\leftarrow 1$ \KwTo $5$}{
+            \For{$j\leftarrow 1$ \KwTo $n$}{
+                \Print{``you got this!''}
+            }
+         }
+         \Cheering{$n/2$}\;
+         \Cheering{$n/2$}\;
+         \KwRet{}
+     }
+     \caption{Cheering}
+\end{algorithm}
+
+\begin{enumerate}[(a)]
+\item $\Theta(n)$
+\item $\Theta(n^2)$
+\item $\Theta(n^2\log(n))$
+\item $\Theta(n \log(n^2))$
+\item $\Theta(n^{\log_2 3})$
+\end{enumerate}
+
+
+\begin{solution}
+% Hw Team 4
+(e)\\
+$Cheering$ calls itself 3 times, each with an input size of $n/2$. Outside of the recursive calls, $Cheering$ executes the print statement inside the nested for loops. The inner loop executes $n$ times for each index of the outer loop, and the outer loop executes 5 times, so \textit{``you got this!"} is printed $5n$ times.
+Putting it all together, the complexity of the algorithm, based on the number of print statements, is:
+$T(n) = 3T(n/2) + 5n$.\\
+
+ Using the Master Theorem, we can see that $a = 3, b = 2, d = 1$, so $\frac{a}{b^d} = 3/2 > 1$. Therefore, the complexity of this function is $=\Theta(n^{\log_b a})= \Theta(n^{\log_2 3})$
+\end{solution}
+
+\newpage
+\probheadernum{4}
+
+Let A be a set such that $|A| = 5$. How many relations over $A$ are reflexive? 
+
+\begin{enumerate}[(a)]
+    \item 5
+    \item $2^{25} - 5 \cdot 2^{24}$
+    \item $\sum\limits_{k=1}^{20} \binom{25}{k}$ 
+    \item $2^{11}$
+    \item $2^{20}$
+\end{enumerate}
+
+\begin{solution}
+% HW TEAM 2
+(e) \\
+Of the $5^2 = 25$ potential  edges between elements of $A$, we know that 5 must be in the relation since our relation must be reflexive. That is, of the 25 possible ordered pairs that could be in the relation, we know that all 5 pairs of the form $(x,x)$ must be in the relation in order for it to be reflexive. For the remaining 20 potential ordered pairs, each pair could either be in the relation or not in the relation, giving  $2^{20}$ possible relations.
+\end{solution}
+
+\vspace{3cm}
+
+\probheadernum{4}
+
+What is the remainder when $9^{102}$ is divided by 11?
+
+\begin{enumerate}[(a)]
+    \item 2
+    \item 4
+    \item 6
+    \item 8
+    \item 10
+\end{enumerate}
+
+\begin{solution}
+(b)
+Using Fermat's Little Theorem, we note that  $9^{10} \equiv 1 \pmod{11}$, so:
+\begin{align*}
+    9^{102} &=9^{100} \cdot 9^2 \\
+    &= (9^{10})^{10} \cdot 9^2 \\
+    &\equiv (1)^{10}  \cdot 9^2  \pmod{11}\\
+    &\equiv 81 \pmod{11}\\
+    &\equiv 4 \pmod{11}
+\end{align*}
+
+Alternatively, since $9^5 \equiv (-2)^5 \equiv -32 \equiv 1 \pmod{11}$, we get
+$$(9^5)^{20} \equiv (1)^{20} \mod 11$$
+$$9^{100} \equiv 1 \mod 11$$
+$$9^{102} \equiv 9^2 \cdot 9^{100} \equiv 81 \cdot 1 \equiv 4 \pmod{11}$$
+Thus $9^{102} \equiv 4 \mod 11$, so the remainder is 4.
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+Let $a_n = k_1\cdot a_{n-1} + k_2\cdot a_{n-2}$. If the roots to its characteristic equation are $-5$ and 2, what are $k_1$ and $k_2$?
+\begin{enumerate}[(a)]
+\item $k_1$ = $-7$, $k_2$ = $-10$
+\item $k_1$ = $-3$, $k_2$ = 10
+\item $k_1$ = 3, $k_2$ = $-10$
+\item $k_1$ = 7, $k_2$ = $-10$
+\item $k_1$ = 3, $k_2$ = 10
+\end{enumerate}
+\begin{solution}
+(b)
+% Hw Team 4
+\begin{align*}
+    (x+5)(x-2) &= 0 \\
+    x^2 + 3x - 10 &= 0 \\
+    x^2 &= -3x + 10 \\
+    x^n &= -3x^{n-1} + 10x^{n-2} \\
+    a_n &= -3a_{n-1} + 10a_{n-2}
+\end{align*}
+\end{solution}
+
+\vspace{3cm}
+
+\probheadernum{4}
+
+You roll a fair 6-sided die  until a 5 or a 6 comes up or you've rolled three times. For example, if you roll (3, 5) you roll a total of 2 times, and if you roll (3, 3, 4) you roll a total of 3 times. Let $X$ be the number of times you roll the die. Find $E(X)$.\\
+
+
+
+\begin{enumerate}[(a)]
+\item $\frac{11}{9}$
+\item $\frac{5}{3}$
+\item 2
+\item $\frac{19}{9}$
+\item 3
+\end{enumerate}
+
+\begin{solution} 
+%New problem, hw team 3???
+(d)
+
+Let $F_i$ be the event of rolling a 5 or a 6 on the $i$-th roll. Since each roll is independent, $p(F_i)=2/6=1/3$, for $i=1,2,3$. $X \in \{1,2,3\}$. Note that if we do not roll a 5 or a 6 on either the first roll or the second roll, then $X=3$ regardless of what comes up on the third roll.\\
+$p(X=1) = p(F_1) = 1/3$\\
+$p(X=2) = p(\overline{F_1}\cap F_2) = p(\overline{F_1})\cdot p(F_2) = 2/3 \cdot 1/3 = 2/9$.\\
+$p(X=3) = p(\overline{F_1}\cap \overline{F_2})=p(\overline{F_1})\cdot p(\overline{F_2})=2/3 \cdot 2/3 = 4/9.$
+\begin{align*}
+   E(X) &= 1\cdot p(X=1) + 2 \cdot p(X=2) + 3 \cdot p(X=3)  \\
+   &= 1 \cdot \frac{1}{3} + 2 \cdot \frac{2}{9} + 3 \cdot \frac{4}{9} \\
+   &= \frac{3}{9}+\frac{4}{9} + \frac{12}{9} \\
+   &= \frac{19}{9}
+\end{align*}
+
+
+(a) is the result if a student said $p(X=3) = p(\overline{F_1}\cap \overline{F_2}\cap F_3)$.\\
+(b) is the result if a student said $p(X=3) = p(\overline{F_1}\cap \overline{F_2}\cap \overline{F_3})$.\\
+(c) is the result if a student assigned equal probabilities to all values of $X$.\\
+(e) is the result if a student used the Geometric distribution: $E(X) = 1/p = 3$.
+\end{solution}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A2 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Part A2: Multiple Answer Multiple Choice}
+\textbf{In this section, select ALL of the answers that are correct for each question. Each question may have 0, 1, 2, 3, 4, or 5 correct answers.} 
+\vspace{0.2in}
+
+\probheadernum{4}
+
+The relation represented by this zero - one matrix possesses which of the following properties?\\ 
+\begin{center}
+$
+\begin{bmatrix}
+    1&1&1&1 \\
+    1&0&0&0 \\
+    1&0&1&1 \\
+    1&0&1&1 \\
+\end{bmatrix}
+$ 
+\end{center}
+
+
+\begin{enumerate}[(a)]
+    \item reflexive
+    \item symmetric
+    \item antisymmetric
+    \item irreflexive
+    \item transitive
+\end{enumerate}
+
+\begin{solution}
+% Hw Team 2
+(b)\\
+For ease of the solution, assume that this matrix is over the set $\{a, b, c, d\}$, however, this relation can be taken over any set of cardinality 4.
+\begin{enumerate}[(a)]
+    \item 
+    Not reflexive since $b$ does not relate to $b$
+    \item
+    The relation is symmetric since the matrix is symmetric (the entries on either side of the main diagonal are identical)
+    \item
+    Not antisymmetric since, for example, $aRc \land cRa$ but $a \neq c$
+    \item
+    Not irreflexive since $aRa$
+    \item
+    Not transitive since $bRa \land aRb$ but $b$ does not relate to $b$
+\end{enumerate}
+\end{solution}
+
+\vspace{2cm}
+
+\probheadernum{4}
+
+Which of the following functions are $O(n^3)$, regardless of whether they are $\Omega(n^3)$?
+\begin{enumerate}[(a)]
+\item $(n+\log (n^n)+4)(7n+5)$
+\item $(n\log n+n^2+4)(3n+\log n+9)$
+\item $(2^n+4)(n+1)$
+\item $(\log (n^2) + 4)(n+2n^2+4)$
+\item $(n^2+n\log n+1)(3+n!)$
+\end{enumerate}
+\begin{solution}
+%TEAM 3
+(a,b,d)
+
+\begin{enumerate}[(a)]
+\item The largest term in the first part is $\log(n^n)=n\log n$ and the largest in the second part is $7n$, which is $O(n)$. Multiplying these two, we have $O(n^2\log n)$ which grows slower than $n^3$ and thus $O(n^3)$
+\item The largest term in the first part is $n^2$ and the largest in the second part is $3n$, which is $O(n)$. Multiplying these two, we have $O(n^3)$ 
+\item The largest term in the first part is $2^n$ and the largest term in the second part is $n$. Multiplying these two, we have $O(n2^n)$ , which grows faster than $O(n^3)$
+\item The largest term in the first part is $\log(n^2)=2\log n$ and the largest term in the second part is $2n^2$ which is $O(n^2)$.
+Multiplying these two, we have $O(n^2\log n)$, which grows slower than $n^3$ and thus $O(n^3)$ 
+\item The largest term in the first part is $n^2$ and the larges term in the second part is $n!$. Multiplying these two, we have $O(n!n^2)$, which grows faster than $O(n^3)$
+\end{enumerate}
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+Let $R$ and $S$ be two relations defined on the same set $A$. Select all of the statements that must be true.
+
+\begin{enumerate}[(a)]
+	\item If $R$, $S$ are both irreflexive, then $ R \cup S $ is irreflexive.
+	\item If $R$, $S$ are both asymmetric, then $R \cup S$ is asymmetric.
+	\item If $R$, $S$ are both asymmetric, then	$R - S$ is	asymmetric.
+	\item If $R$, $S$ are both transitive, then	$ R - S $ is transitive.
+\end{enumerate}
+
+\begin{solution}
+a, c
+\begin{enumerate}[(a)]
+\item TRUE. R is irreflexive means $\neg \exists a \in R$ such that $aRa$, and S is irreflexive means $\neg \exists b \in S$ such that $bSb$, so $\forall c \in R \cup S, (c, c) \notin R \cup S$, i.e. $R \cup S$ is irreflexive.
+\item FALSE. For a counterexample, suppose $ A=\{1,2,3\} $, $ R = \{(1,2)\} $, $ S = \{(2,1)\} $. R and S are both asymmetric but $ R \cup S = \{(1,2), (2,1)\} $ is not asymmetric since $(1, 2) \in R \cup S \wedge (2, 1) \in R \cup S$.
+\item TRUE. R is asymmetric means $(a, b) \in R \implies (b, a) \notin R$. For all (a, b) $\in$ R, removing (c, d) $\in S \cap R$ to get R - S cannot add (b, a) to R, so we still cannot have $(a, b) \in R \wedge (b, a) \in R$.
+\item FALSE. For a counterexample, suppose $ A=\{1,2,3\} $, $ R = \{(1,2), (2, 3), (1, 3)\} $, $ S = \{(1, 3)\} $. R and S are both transitive but $ R - S = \{(1,2), (2,3)\} $ which is not transitive since (1, 2) $\in$ R - S $\wedge$ (2, 3) $\in$ R - S but (1, 3) $\notin$ R - S. 
+\end{enumerate}
+\end{solution}
+
+\vspace{4cm}
+
+\probheadernum{4}
+
+Which of the following functions are onto?
+\begin{enumerate}[(a)]
+\item $f: \mathbb{N} \rightarrow \mathbb{N}: f(x) = x+1$
+\item $f: \mathbb{R}-\{\frac{1}{2}\} \rightarrow \mathbb{R}: f(x) = \frac{1}{1-2x}$
+\item $f: \mathbb{R} \rightarrow \mathbb{R}: f(x) = x^2 + 2x$
+\item $f: \mathbb{Z} \rightarrow \mathbb{Z}: f(x) = 2x$
+\item $f: \mathbb{Z} \rightarrow \mathbb{N}: f(x) = |x+5|$
+\end{enumerate}
+
+\begin{solution}
+%TEAM 4
+(e). In (a) and (b), nothing maps to 0. In (c), nothing maps to negative numbers below -1. In (d), nothing maps to odd numbers.
+\end{solution}
+
+\newpage
+
+\probheadernum{4}
+
+Which of the following values of $x$ satisfy the congruence $3x \equiv 10$ (mod 12)?
+\begin{enumerate}[(a)]
+\item 4
+\item 10
+\item 12
+\item 20
+\item 22
+\end{enumerate}
+
+\begin{solution}
+%TEAM 1
+None of the above. $3x \equiv 10$ (mod 12) has no solutions. The only possible values of $3x$ in (mod 12) are \{0,3,6,9\}, thus $3x$ can never be 10.
+\end{solution}
+
+\vspace{1cm}
+
+\probheadernum{4}
+
+Which of the following are true?
+
+\begin{enumerate}[(a)]
+\item gcd$(108,25) = 1$
+\item $25x \equiv 29 \pmod{108}$ has a solution.
+\item $25^{-1} \equiv -4$  (mod  108)
+\item $25^{-1} \equiv 13$  (mod 108)
+\item $25^{-1}$ does not exist  (mod $108$)
+\end{enumerate}
+
+\begin{solution} a, b, d
+% Hw team 1
+
+We can implement the Extended Euclidean Algorithm on (108, 25) to answer all parts of this problem.
+    \begin{align*}
+        108-4\cdot 25 &=8 &\\
+        25 -3 \cdot 8 &= 1 & \text{so} \gcd(108,25)=1\\
+        \text{Working back up: }\\
+        1&= 25-3\cdot 8 \\
+         &= 25 - 3(108 - 4 \cdot 25) \\
+         &= -3\cdot 108 +13 \cdot 25 \\
+    \end{align*}
+    
+
+Looking at $1= -3\cdot 108 +13 \cdot 25$ in (mod 108), we get $1 \equiv 13 \cdot 25$ (mod 108) from which we observe that 13 and 25 are inverses in (mod 108). 
+\end{solution}
+
+%\newpage
+\vspace{1cm}
+
+
+\probheadernum{4}
+
+Given the poset $(\{-3, 1, 2,  5, 12, 9, 36\}, |)$, which of the following statements are true?
+
+\begin{enumerate}[(a)]
+    \item 
+    There is at least one maximum element.
+    \item
+    There is at least one minimum element.
+    \item
+    There is exactly one lower bound of \{9, 12\}. 
+    \item
+    There are exactly two upper bounds of \{2,$-3$\}
+    \item
+    A viable compatible total ordering for this poset is
+    \[
+        1 \prec -3 \prec 2 \prec 9 \prec 5 \prec 12 \prec 36 
+    \]
+\end{enumerate}
+
+\begin{solution}
+b,d,e
+
+\begin{tikzpicture}
+    \fill (9,4) circle[radius=2.5pt] node[label=above:$ {36}$] (36) {};
+    
+    \fill (8,3) circle[radius=2.5pt] node[label=left:$ {9}$] (9) {};
+    \fill (10,3) circle[radius=2.5pt] node[label=right:$ {12}$] (12) {};
+    
+    \fill (6,2.3) circle[radius=2.5pt] node[label=above:$ {5}$] (5) {};
+    \fill (8,2) circle[radius=2.5pt] node[label=left:$ {-3}$] (-3) {};
+    \fill (10,2) circle[radius=2.5pt] node[label=right:$ {2}$] (2) {};
+    
+    \fill (8,1) circle[radius=2.5pt] node[label=below:$ {1}$] (1) {};
+    
+    \draw (1) -- (5);
+    \draw (1) -- (-3);
+    \draw (1) -- (2);
+    \draw (-3) -- (9);
+    \draw (-3) -- (12);
+    \draw (2) -- (12);
+    \draw (9) -- (36);
+    \draw (12) -- (36);
+
+\end{tikzpicture}
+
+\begin{enumerate}[(a)]
+    \item 
+    No, 5 and 36 are both maximal. There is no maximum element.
+    \item
+    Yes, 1 is the minimum element
+    \item
+    No, 1 and 3 are both lower bounds of \{9, 12\}
+    \item
+    Yes, 12 and 36 are upper bounds
+    \item
+    Yes, it is.
+\end{enumerate}
+
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART B BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\end{document}

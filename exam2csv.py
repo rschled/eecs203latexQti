@@ -7,6 +7,9 @@ from pylatexenc.latex2text import UnknownMacroError
 
 CSV_HEADER = ['title', 'topics', 'text']
 
+class EmptySolutionError(Exception):
+    pass
+
 
 class Problem:
     def __init__(self):
@@ -59,6 +62,9 @@ class Problem:
             elif self.unparsed_solution[i] not in {'(', ',', ')'}:
                 done = True
             i += 1
+        if len(self.parsed_solution) == 0:
+            raise EmptySolutionError
+
 
 
 def readLatexFile(file) -> ([str], [str]):
@@ -110,7 +116,7 @@ def getProblemList(document: str, filename: str) -> [Problem]:
 
 
 def convertFile(filename: str):
-    with open(f'tex/{filename}.tex', "r") as f:
+    with open(f'tex/{filename}', "r") as f:
         header, document = readLatexFile(f)
     problems: [Problem] = getProblemList(document, filename)
     max_answer_count = 0
@@ -123,10 +129,10 @@ def convertFile(filename: str):
             prob.question = latex.compile(header, prob.question)
             prob.answer_choices = [latex.compile(header, ans) for ans in prob.answer_choices]
             success_list.append(prob)
-        except UnknownMacroError:
+        except (UnknownMacroError, latex.EmptyCompilationResult, EmptySolutionError) as e:
             # Add to unknown list
             fail_list.append(fail)
-            print(f'Failed on: {prob.title}')
+            print(f'Failed on: {prob.title} with {type(e)}')
 
         max_answer_count = max(max_answer_count, len(prob.answer_choices))
 

@@ -1,0 +1,600 @@
+\title{SP 2019 EECS203 Midterm Exam 1, Questions}
+\documentclass[12pt]{exam}
+%\footer{}{}{\thepage}
+%\footer{}{\thepage}{}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\oddsidemargin .25in
+\evensidemargin .25in
+\topmargin -0.25in
+\textwidth 6.0in
+\textheight 9.5in
+\sloppy
+
+\usepackage{graphicx}
+\usepackage{url, amsmath, amsthm, enumerate, multicol}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{boxproof}
+\usepackage{amsthm}
+\usepackage{eucal}
+\usepackage{todonotes}
+\usepackage{algpseudocode}
+\let\oldReturn\Return
+\usepackage[linesnumbered,boxed]{algorithm2e}
+\renewcommand{\Return}{\State\oldReturn}
+
+\usepackage{placeins}
+\usepackage{listings}
+
+
+\usepackage{verbatim}
+\usepackage{fullpage}
+
+
+
+\usepackage{soul}
+\usepackage{color}
+
+\usepackage{comment}
+
+\usetikzlibrary{arrows,automata}
+
+\newcommand{\nat}{{\Bbb N}}
+\newcommand{\zahl}{{\Bbb Z}}
+\newcommand{\real}{{\Bbb R}}
+\newcommand{\rat}{{\Bbb Q}}
+\newcommand{\ignore}[1]{}
+\newcommand{\textred}[1]{\textcolor{red}{#1}}
+
+
+\definecolor{Light}{gray}{.90}
+\sethlcolor{Light}
+
+\newcounter{bar}
+\newcommand{\probheadernum}[1]{%
+        \vspace{0.2in}
+        \stepcounter{bar}%
+        \noindent{\large\bf Problem \arabic{bar}. {(#1 points)}}
+%        \noindent{\large\bf Problem \arabic{bar}. {\small (#1 points)}}
+        \smallskip
+}
+
+
+\newcounter{scantron}
+\newcommand{\scantronlabelnocount}{{\texttt{{\large\hl{{\small Scantron} XX{}}}}}}
+
+\newcommand{\scantronlabel}{
+	\stepcounter{scantron}
+	{\texttt{{\large\hl{{\small Scantron} \thescantron{\small }}}}}
+}
+\newcommand{\tfproblem}{
+	\vspace{0.2in}
+	\noindent \hspace{0.4in}
+	{\texttt{\scantronlabel (A) True (B) False}}
+	\vspace{0.2in}
+}
+
+\newcommand{\multchoice}{\vspace{0.3in}\noindent\scantronlabel
+}
+
+\pagenumbering{arabic}
+
+\def\infer#1#2{\raisebox{.5ex}{\rule{0pt}{2.5ex}$#1$}
+            \over\raisebox{.5ex}{\rule{0pt}{2.5ex}$#2$}}
+
+
+\def\encl#1#2{\fbox{\parbox{.3em}{$#1$ $\vdots$ $#2$}}}
+\def\bigencl#1#2{\fbox{\parbox{1em}{$#1$ $~\,\vdots$ $~~#2$}}}
+\def\bbigencl#1#2{\fbox{\parbox{5em}{$#1$ \hspace{4em}  $~~~~~~\vdots~~~$ $~~~~~~~#2$}}}
+\def\low#1{{\parbox{2em}{$~~~~~~$ $~~~~~~$ $~~~~~~$ $#1$}}}
+
+\mathchardef\hyph="2D
+\newcommand{\premise}{\mathrm{premise}}
+\newcommand{\assump}{\mathrm{assumption}}
+\newcommand{\intr}{\mathrm{\hyph intro\ }}
+\newcommand{\eli}{\mathrm{\hyph elim\ }}
+\newcommand{\fal}{{\tt F}}
+\newcommand{\mt}{\mathrm{Modus Tollens\ }}
+\newcommand{\pbc}{\mathrm{PBC\ }}
+
+\newcommand{\romanlist}{(\roman{enumi})}
+\newcommand{\countlist}{\usecounter{enumi}}
+\newcommand{\se}{\subseteq}
+
+% Shortcuts
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\ex}{\exists}
+
+%Removed these to get page numbers to show up
+%\thispagestyle{empty}
+%\pagestyle{empty}
+\lfoot{}
+\cfoot{}
+\rfoot[]{Page \thepage\ of \numpages}
+
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{.7, .7, .7}
+\usepackage{calc}
+%\usepackage{framed}
+
+\newcommand{\newpagename}{\newpage
+\noindent
+
+{\bf Name (Print): }\hrulefill
+\bigskip}
+
+\printanswers
+
+\setlength\parindent{0pt}       %Turn off indents
+\begin{document}
+
+\begin{minipage}[t]{0.98\columnwidth}%
+\begin{shaded}
+\section*{
+     \begin{center}
+          Final \\
+          %(Part A -- Multiple Choice)\\
+          QUESTIONS PACKET\\
+          EECS 203\\
+          Spring 2020 
+     \end{center}}
+\medskip
+\end{shaded}
+\end{minipage}
+
+
+\vspace{0.4in}
+\noindent
+{\bf Name (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf Uniqname (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf 8-Digit UMID: }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+\begin{center}%TODO
+{\bf ***MAKE SURE YOU HAVE PROBLEMS 1 - 19 IN THIS BOOKLET.*** }
+\end{center}
+\vspace{0.2in}
+\noindent {\large \bf General Instructions}
+
+\vspace{0.1in}
+\noindent 
+You have 120 minutes to complete 
+this exam. 
+You should have two exam packets. 
+%\vspace{0.1in}
+\begin{itemize}
+%TODO Here
+\item \textbf{Questions Packet:} Contains ALL of the questions for this exam, worth 100 points total. There are 13 Multiple Choice questions (4 points each) and 6 Free Response questions (8 points each). You may do scratch work on this part of the exam, but only work in the Answers Packet will be graded. 
+
+\item \textbf{Answers Packet:} Write all of your answers in the Answers Packet, including your answers to multiple choice questions. 
+%There is no Scantron form for this exam. 
+%Both sides of the pages in the Answers Packet will be scanned and graded. 
+\textbf{For free response questions, you must show your work! Answers alone will receive little or no credit.}
+%Write down your answer with care: {\bf If your answer is unreadable (such as too faint or messy), it will not be graded}. 
+
+\item You may bring \textbf{one} 8.5'' by 11'' note sheet, front and back, created by you. 
+\item You may {\bf NOT} use any other sources of information, including but not limited to electronic devices (including calculators), textbooks, or notes. 
+%\item Leave at least one seat between yourself and other students, if possible.
+
+\item After you complete the exam, sign the Honor Code Pledge on the front of the Answers Packet.
+
+\item You must turn in both parts of this exam.
+
+\item \textbf{You are not to discuss the exam until the solutions are published.}
+\end{itemize}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A1 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section*{Part A1: Single Answer Multiple Choice}
+\textbf{[Only one answer choice is correct in Part A1]} 
+\vspace{0.1in}
+
+%Marina 2
+\probheadernum{4}\\
+In this question we will look at the number of ways to misspell English words.
+When Benny types, he might click by mistake on the wrong key. The wrong key will be adjacent to the key Benny is trying to press.
+For example, if Benny tries to hit G, he may hit one of T,Y,F,H,V,B instead (or he may actually hit G like he wanted).
+
+How many ways does Benny have to \textbf{misspell} ``pastel'' (how many ways can he accidentally type it incorrectly)?
+
+\includegraphics[width=10cm]{keyboard2.png}
+
+\begin{enumerate} [a)]
+    \item $2\cdot 4\cdot 6 \cdot 4 \cdot 4 \cdot 3$
+    \item $2\cdot 4\cdot 6 \cdot 4 \cdot 4 \cdot 3-1$
+    \item $3\cdot 5\cdot 7 \cdot 5 \cdot 5 \cdot 4$
+    \item $3\cdot 5\cdot 7\cdot 5\cdot 5\cdot 4 - 1$
+    \item $3\cdot 5\cdot 7 \cdot 5 \cdot 5 \cdot 4 - 2\cdot 4\cdot 6 \cdot 4 \cdot 4 \cdot 3$
+\end{enumerate}
+
+\begin{solution} (d)\\
+    We will enumerate the amount of keys that might be hit for each letter:
+    \begin{itemize}
+        \item P can be P,O,L - 3 options
+        \item A can be A,Q,W,S,Z - 5 options
+        \item S can be S,W,E,D,X,Z,A - 7 options
+        \item T can be T,R,F,G,Y - 5 options
+        \item E can be E,W,R,S,D - 5 options
+        \item L can be L,P,O,K - 4 options
+    \end{itemize}
+    In total $3\cdot 5\cdot 7 \cdot 5 \cdot 5 \cdot 4$ ways, one of which is correct (not misspelled), so there are $3\cdot 5\cdot 7 \cdot 5 \cdot 5 \cdot 4-1$
+\end{solution}
+
+
+%Marina 4
+\probheadernum{4}\\
+    Which of the following relations on $\{A, B, C, D, E\}$ is a function?
+    
+    \begin{enumerate} [a)]
+        \item 
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
+                            semithick]
+          \tikzstyle{every state}=[fill=black,draw=none,text=white]
+        
+          \node[state]         (A)                    {A};
+          \node[state]         (B) [above right of=A] {B};
+          \node[state]         (D) [below right of=A] {D};
+          \node[state]         (C) [below right of=B] {C};
+          \node[state]         (E) [below right of=C] {E};
+        
+          \path 
+                (A) edge [loop left] (A)
+                (B) edge [loop above] (B)
+                (C) edge [loop above] (C)
+                (E) edge [loop above] (E)
+                (B) edge [bend right=10] (A)
+                (A) edge [bend right=10] (B)
+                (B) edge [bend right=10] (D)
+                (D) edge [bend right=10] (B)
+                (A) edge [bend right=10] (D)
+                (D) edge [bend right=10] (A)
+                (C) edge [bend right=10] (E)
+                (E) edge [bend right=10] (C)
+                ;
+        \end{tikzpicture}
+        \item 
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
+                            semithick]
+          \tikzstyle{every state}=[fill=black,draw=none,text=white]
+        
+          \node[state]         (A)                    {A};
+          \node[state]         (B) [above right of=A] {B};
+          \node[state]         (D) [below right of=A] {D};
+          \node[state]         (C) [below right of=B] {C};
+          \node[state]         (E) [below right of=C] {E};
+        
+          \path 
+                (A) edge [bend right=10] (C)
+                (B) edge [bend right=10] (D)
+                (C) edge [bend right=10] (E)
+                (D) edge [bend right=10] (A)
+                (B) edge [bend right=10] (C)
+                ;
+        \end{tikzpicture}
+        \item 
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
+                            semithick]
+          \tikzstyle{every state}=[fill=black,draw=none,text=white]
+        
+          \node[state]         (A)                    {A};
+          \node[state]         (B) [above right of=A] {B};
+          \node[state]         (D) [below right of=A] {D};
+          \node[state]         (C) [below right of=B] {C};
+          \node[state]         (E) [below right of=C] {E};
+        
+          \path 
+                (A) edge [bend right=10] (C)
+                (B) edge [bend right=10] (D)
+                (C) edge [bend right=10] (E)
+                (D) edge [bend right=10] (A)
+                (B) edge [bend right=10] (C)
+                (B) edge [loop above] (B)
+                ;
+        \end{tikzpicture}
+        \item 
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
+                            semithick]
+          \tikzstyle{every state}=[fill=black,draw=none,text=white]
+        
+          \node[state]         (A)                    {A};
+          \node[state]         (B) [above right of=A] {B};
+          \node[state]         (D) [below right of=A] {D};
+          \node[state]         (C) [below right of=B] {C};
+          \node[state]         (E) [below right of=C] {E};
+        
+          \path 
+                (A) edge [bend right=10] (C)
+                (B) edge [bend right=10] (D)
+                (C) edge [bend right=10] (E)
+                (D) edge [bend right=10] (A)
+                (E) edge [bend right=10] (C)
+                ;
+        \end{tikzpicture}
+        \item 
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
+                            semithick]
+          \tikzstyle{every state}=[fill=black,draw=none,text=white]
+        
+          \node[state]         (A)                    {A};
+          \node[state]         (B) [above right of=A] {B};
+          \node[state]         (D) [below right of=A] {D};
+          \node[state]         (C) [below right of=B] {C};
+          \node[state]         (E) [below right of=C] {E};
+        
+          \path 
+                (A) edge [bend right=10] (C)
+                (B) edge [bend right=10] (D)
+                (C) edge [bend right=10] (E)
+                (D) edge [bend right=10] (A)
+                (E) edge [bend right=10] (C)
+                (C) edge [bend right=10] (B)
+                ;
+        \end{tikzpicture}
+    \end{enumerate}
+    \begin{solution}
+        (d)  To be a function, a relation must have each element map to exactly 1 element.
+    \end{solution}
+    
+
+
+%Atreya 2
+\probheadernum{4} \\
+Let $A$ and $B$ be sets. Which of the following is equivalent to $\overline{A - B}$?
+\begin{enumerate} [a)]
+    \item $\overline{A} - \overline{B}$
+    \item $B$
+    \item $B - A$
+    \item $A \cap B$
+    \item $\overline{A} \cup B$
+\end{enumerate}
+
+\begin{solution}
+(e)  $\overline{A-B}=\overline{A\cap\overline{B}}=\overline A\cup B$
+\end{solution}
+
+
+%Brian 1-5
+\probheadernum{4}\\
+5 people want to play doubles ping-pong. They are going to split up into two pairs, and one of them will referee the game. How many different ways are there to set up the game?
+
+\begin{enumerate}[(a)]
+\item $\frac{\binom{5}{1} \cdot \binom{4}{2} \cdot \binom{2}{2}}{2!}$
+\item $\binom{5}{1} \cdot \binom{4}{2} \cdot \binom{2}{2}$
+\item $\frac{5!}{2! \cdot 2!}$
+\item $\binom{5}{1} \cdot 2^4$
+\item $\frac{5!}{4! \cdot 2}$
+\end{enumerate}
+\begin{solution}
+(a)\\
+choose the referee $\binom{5}{1}$, then select two players who will be on a team $\binom{4}{2}$ and select the other two remaining who will be on a team $\binom{2}{2}$. Then we divide by $2!$ because we overcount the case we choose AB then CD and the case we choose CD and then AB since they both set up the game the same way.
+\end{solution}
+
+\probheadernum{4}\\
+Let $G_1$ be a wheel graph with 22 edges and let $G_2$ be a simple graph. Let $G_3$ be $G_1 \cap G_2$ and is guaranteed to contain the center vertex of $G_1$. If $G_3$ has 8 vertices and $G_1 \cup G_2$ has 18 vertices, how many vertices does $G_2$ have.
+\begin{enumerate}[a)]
+    \item 4
+    \item 8
+    \item 12
+    \item 14
+    \item 18
+\end{enumerate}
+\begin{solution}
+(d) \\
+$G_1$ is a $W_{11}$ graph since there are 22 edges. A $W_{11}$ graph has 12 vertices so $G_1$ has 12 vertices. After, we can solve this with inclusion exclusion, since the vertices of $G_1 \cup G_2 = G_1 + G_2 - G_1 \cap G_2$. $18 = 12 + G_2 - 8$. $G_2 = 14$
+\end{solution}
+
+\probheadernum{4}\\
+In the binomial expansion of $(x^3 - 1/{x^4})^{12}$, what is the coefficient of the $x^{15}$?
+\begin{enumerate}[a)]
+    \item $-\binom{12}{9}$
+    \item $\binom{12}{9}$
+    \item $\binom{12}{6}$
+    \item $-\binom{12}{6}$
+    \item $0$
+\end{enumerate}
+\begin{solution}
+(a)\\
+Use the binomial theorem to express as\\  $\sum_{a=0}^{12}\binom {12}a(x^3)^a \cdot (-x^{-4})^{12-a}=\sum_{a=0}^{12}\binom {12}ax^{3a} \cdot (-1)^{12-a}x^{-48+4a}=\sum_{a=0}^{12}\binom {12}ax^{7a-48} \cdot (-1)^{12-a}$. when exponent $15 = 7a - 48$, we have $a = 9$. Therefore the coefficient is $\binom{12}{9} \cdot (-1)^3$
+\end{solution}
+
+\probheadernum{4}\\
+Let relation $R$ be $a$ relates to $b$ iff $a$ and $b$ have the same number of digits that are 5 (for example $(45, 500)\in R$ and $(55, 550)\in R$).  Let the domain of $R$ be the set of integers from 1 to 1000. What is the cardinality of the equivalence class of 55.
+\begin{enumerate}[a)]
+    \item 27
+    \item 28
+    \item 29
+    \item 30
+    \item 729
+\end{enumerate}
+\begin{solution}
+(a) \\
+We can treat the number 0 through 999 as 3-digit numbers with leading 0s if you need them (e.g. 7 = 007).  55 does not relate to 0 or 1000, so we don't need to worry about those boundary issues.  We need to consider how to assign the 3 digits to get exactly two 5s.  We select which two to be 5s $\binom 32$, and then select what digit other than 5 the other digit is (9).  Multiplying these, we get $$\binom32\cdot 9=27$
+\end{solution}
+
+
+\probheadernum{4}\\
+Out in 3D space, we have coordinates in the $x, y,$ and $z$ dimension. We have a spaceship that can only move in three possible directions, one coordinate unit at a time: towards \textbf{positive} $x, y,$ or $z$. 
+
+In other words, if we are at location $(x,y,z)$, there are 3 locations we can travel to next:
+\begin{itemize}
+    \item $(x+1,y,z)$
+    \item $(x,y+1,z)$
+    \item $(x,y,z+1)$
+\end{itemize}
+
+It costs 1 gallon of fuel to move 1 coordinate unit distance. Our spaceship starts at the origin (0,0,0) and we must use up all 25 gallons of fuel that our ship has.  How many possible end destinations does our spaceship have? \\\\
+For example, $(10,7,8)$ is one possible destination, but $(0,0,1)$ is not possible, because that would only use up 1 gallon of fuel (and we are not able to travel in negative directions to waste the fuel).
+\begin{enumerate}[a)]
+    \item $\binom{27}{2}$
+    \item $\binom{25}{3}$
+    \item $\frac{25!}{22!}$
+    \item $\frac{27!}{25!}$
+    \item $3^{25}$
+\end{enumerate}
+\begin{solution}
+(a) \\
+The order we make our moves doesn't matter, only where we end up, so we are just asking how many non-negative integer $(x,y,z)$ coordinates have $x+y+z=25$.  This is a stars and bars problem, with 25 stars and 3 categories (towards x towards y towards z), so 2 bars.   $\binom{27}{2}$. 
+\end{solution}
+
+
+\probheadernum{4}\\
+What is the big-$\Theta$ runtime of the following algorithm, based on the number of print statements?
+
+\begin{algorithm}[H]
+    \SetKwFunction{goodLuck}{goodLuck}{}
+    \SetKwFunction{Print}{print}
+    \SetKwProg{Fn}{procedure}{\string:}{}
+    \SetKwFor{For}{for}{do}{}
+    \SetKwFor{If}{if}{then}{}
+    \SetKwInOut{Input}{input}
+    \DontPrintSemicolon
+    \Input{$n$ is an integer, $x$ an integer}
+    \BlankLine
+    \Fn{\goodLuck{n, x}}{
+        \If {$n = 1$} {
+            \KwRet{}
+        }
+        a := \goodLuck{$n/2$, $x$}\;
+        b := \goodLuck{$n/2$, $x+1$}\;
+        c := \goodLuck{$n/2$, $x+2$}\;
+        \For{$j\leftarrow 1$ \KwTo n}{
+            \Print{``Good Luck!''}
+        }
+         \KwRet{a + b + c}
+     }
+     \caption{goodLuck}
+\end{algorithm}
+
+\begin{enumerate} [a)]
+    \item $\Theta (n^{\log_2 3})$ 
+    \item $\Theta (n)$
+    \item $\Theta (n \log_2 3) $
+    \item $\Theta (n^2)$
+    \item $\Theta (n^3)$
+\end{enumerate}
+
+\begin{solution}
+(a) \\
+$T(n) = 3T(n/2) + n$. Using master theorem, $a = 3, b=2, d=1$, so we get the runtime is $\Theta (n^{\log_2 3})$.
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 		PART A2 BEGINS HERE			  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Part A2: Multiple Answer Multiple Choice}
+\textbf{In this section, select ALL of the answers that are correct for each question. Each question may have 0, 1, 2, 3, 4, or 5 correct answers.} 
+\vspace{0.2in}
+
+
+%Atreya 4
+\probheadernum{4}
+Which of the following are $O(n^2)$?
+\begin{enumerate}[a)]
+    \item $(n^2+n)+(n\cdot \log (n^4))$
+    \item $(n \log n) + (n \log n)$
+    \item $(n^3 - n^2)(n^4 - n^3)$
+    \item $n^2\log (n^{\frac{1}{n}})$
+    \item $\frac{n!}{(n-5)!} \cdot \frac{n}{n^3}$
+\end{enumerate}
+
+\begin{solution}
+(a), (b), (d)\\
+(a) $n^2+n\in O(n^2)$, and $n\cdot \log(n^4)\in O(n\log n)$, so $(a)\in O(n^2+n\log n)=O(n^2)$\\
+(b) This is $O(n\log n)$ (and therefore transitively $O(n^2)$)\\
+(c) This is $n^7-2n^6+n^5\in \Omega(n^7)$\\
+(d) $n^2\log(n^{\frac1n})=n^2\cdot \frac1n\log n=n\log n\leq n^2$\\
+(e) This is $n(n-1)(n-2)(n-3)(n-4)\frac1{n^2}=(n-1)(n-2)(n-3)(n-4)/n\in \Omega(n^3)$
+\end{solution}
+
+%Brian 6-8
+\probheadernum{4}\\
+Let 
+\begin{align*}
+    a \equiv 3 \pmod{12}\\
+    b \equiv 2 \pmod{15}\\
+    c \equiv 1 \pmod{4}
+\end{align*}
+Which of these must be true:
+\begin{enumerate}[(a)]
+\item $2a \equiv c \pmod{4}$
+\item $a + c \equiv 0 \pmod{4}$
+\item $a + b \equiv 2 \pmod{3}$
+\item $3c \equiv 11 \pmod{4}$
+\item $a - b \equiv 1 \pmod{15}$
+\end{enumerate}
+\begin{solution}
+b, c, d\\
+Because $a\equiv 3\pmod {12}$, we also know $a\equiv 3\pmod 4$ and $a\equiv 3\pmod 3$.  Similarly, we know $b\equiv 2\pmod 3$ and $b\equiv 2\pmod 5$.\\
+(a) $2a\equiv 2\not\equiv1\equiv c\pmod 4$\\
+(b) $a+c\equiv 3+1\equiv 0\pmod 4$\\
+(c) $a+b\equiv 3+2\equiv 5\equiv 2\pmod 3$\\
+(d) $3c\equiv 3\equiv 11\pmod 4$\\
+(e) We don't know what $a$ is mod 15, so we don't know what $a-b$ is mod 15.  For example, perhaps $a=15\equiv 3\pmod {12}$ as needed.  This would make $a-b= 15-2\equiv 13\pmod {15}$  
+\end{solution}
+
+\probheadernum{4}\\
+Take \textbf{partial order} $R$ on set $S$. Let the domain of discourse of $x, y,$ and $z$ be elements in $S$. Which of the following \textbf{must} be true:
+\begin{enumerate}[a)]
+    \item $\forall x \exists y (xRy)$
+    \item $\exists x \forall y (yRx)$
+    \item $\forall x \forall y (xRy) \rightarrow (yRx)$
+    \item $\forall x \forall y \forall z (xRy) \wedge (yRz) \rightarrow (x = z)$
+    \item $\forall x \forall y (xRy) \vee (yRx) $
+\end{enumerate}
+\begin{solution}
+a
+\begin{enumerate}[a)]
+    \item This follows from reflexivity. Since $R$ is reflexive, for every element, there exists an element that it relates to: itself.
+    \item This basically says there is a maximum element, however since this is a partial order and not necessarily a total order, it is not guaranteed to be true.
+    \item This is the definition of symmetry.  $R$ is guaranteed to be antisymmetric, but not guaranteed to be symmetric.
+    \item This is a hybrid of antisymmetric and transitive, however does not follow from those properties.  The only partial order with this property is ``="
+    \item This basically says every 2 elements must be comparable (close to the definition of total), however since this is a partial order, not necessarily a total order, it is not guarenteed to be true.
+\end{enumerate}
+\end{solution}
+
+
+\probheadernum{4}\\
+Let $R$ be a reflexive and not transitive relation and let $Q$ be a transitive and not reflexive relation both on set $S$, which of the following \textbf{must} be true.
+\begin{enumerate}[a)]
+    \item $R \cap Q$ is reflexive
+    \item $R \cup Q$ is reflexive
+    \item $R \cap Q$ is transitive 
+    \item $Q - R$ is irreflexive
+    \item $Q - R$ is transitive
+\end{enumerate}
+\begin{solution}
+b, d, 
+\begin{enumerate}[a)]
+    \item since Q is not reflexive, taking the intersection means some element will not relate to itself
+    \item true all the self-loops from $R$ will be in the new relation
+    \item false, if Q and R both had (a,b) and (b,c) but only Q had (a,c) then the intersection would not be transitive
+    \item subtracting R took away all the self-loops
+    \item false, if Q had (a,b), (b,c), (a,c) and R has (a,c) but neither of the other two listed, then the set minus would not be transitive
+\end{enumerate}
+\end{solution}
+
+\end{document}

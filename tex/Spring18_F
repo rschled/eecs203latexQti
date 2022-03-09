@@ -1,0 +1,466 @@
+\documentclass[12pt]{exam}
+%\usepackage{anysize}
+%\usepackage{dsfont}
+\usepackage{fullpage}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{boxproof}
+\usepackage{url,amsfonts, amssymb, amsthm,color, enumerate, multicol}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{fancybox}
+\usepackage{multicol}
+\usepackage{tkz-graph}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+\oddsidemargin .25in
+\evensidemargin .25in
+\topmargin -0.25in
+\textwidth 6.0in
+\textheight 9.5in
+\sloppy
+
+
+\usepackage{url, amsmath, amsthm, enumerate, multicol}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{eucal}
+\usepackage[normalem]{ulem}
+\usepackage{boxproof}
+
+\usepackage{algorithm2e}
+
+
+\usepackage{verbatim}
+\usepackage{fullpage}
+
+\usepackage{soul}
+\usepackage{color}
+%\usepackage[pdftex]{graphicx}
+\usepackage{pdfpages}
+
+\definecolor{Light}{gray}{.80}
+\sethlcolor{Light}
+
+\newcounter{bar}
+\newcommand{\probheadernum}[1]{%
+        \stepcounter{bar}%
+        \noindent{\large\bf Problem \arabic{bar}. {\small (#1 points)}}
+        \smallskip}
+
+
+\newcounter{scantron}
+\newcommand{\scantronlabelnocount}{{\texttt{{\large\hl{{\small Scantron} XX{}}}}}}
+
+\newcommand{\scantronlabel}{
+	\stepcounter{scantron}
+	{\texttt{{\large\hl{{\small Scantron} \thescantron{\small }}}}}
+}
+\newcommand{\tfproblem}{
+	\vspace{0.2in}
+	\noindent \hspace{0.4in}
+	{\texttt{\scantronlabel (A) True (B) False}}
+	\vspace{0.2in}
+}
+
+\newcommand{\multchoice}{\vspace{0.3in}\noindent\scantronlabel
+}
+
+\pagenumbering{arabic}
+
+\def\infer#1#2{\raisebox{.5ex}{\rule{0pt}{2.5ex}$#1$}
+            \over\raisebox{.5ex}{\rule{0pt}{2.5ex}$#2$}}
+
+
+\def\encl#1#2{\fbox{\parbox{.3em}{$#1$ $\vdots$ $#2$}}}
+\def\bigencl#1#2{\fbox{\parbox{1em}{$#1$ $~\,\vdots$ $~~#2$}}}
+\def\bbigencl#1#2{\fbox{\parbox{5em}{$#1$ \hspace{4em}  $~~~~~~\vdots~~~$ $~~~~~~~#2$}}}
+\def\low#1{{\parbox{2em}{$~~~~~~$ $~~~~~~$ $~~~~~~$ $#1$}}}
+
+\mathchardef\hyph="2D
+\newcommand{\premise}{\mathrm{premise}}
+\newcommand{\assump}{\mathrm{assumption}}
+\newcommand{\intr}{\mathrm{\hyph intro\ }}
+\newcommand{\eli}{\mathrm{\hyph elim\ }}
+\newcommand{\fal}{{\tt F}}
+\newcommand{\mt}{\mathrm{Modus Tollens\ }}
+\newcommand{\pbc}{\mathrm{PBC\ }}
+
+\newcommand{\romanlist}{(\roman{enumi})}
+\newcommand{\countlist}{\usecounter{enumi}}
+\newcommand{\se}{\subseteq}
+\newcommand{\nat}{{\Bbb N}}
+\newcommand{\zahl}{{\Bbb Z}}
+\newcommand{\real}{{\Bbb R}}
+\newcommand{\rat}{{\Bbb Q}}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+
+\usepackage{color}
+\definecolor{shadecolor}{rgb}{.8, .8, .8}
+\usepackage{calc}
+%\marginsize{2cm}{2cm}{2cm}{3cm}
+
+\newcounter{probnumcount}
+\setcounter{probnumcount}{1}
+\newcommand{\probnum}{\arabic{probnumcount}. \addtocounter{probnumcount}{1}}
+\newcommand{\ignore}[1]{}
+\newcommand{\textred}[1]{\textcolor{red}{#1}}
+\newcommand{\newpagename}{\newpage
+\noindent
+{\bf Uniqname (Print): }\hrulefill
+\bigskip}
+\setlength{\columnseprule}{1pt}
+
+\begin{document}
+\printanswers
+%\noprintanswers
+\begin{minipage}[t]{1\columnwidth}%
+\begin{shaded}%
+\section*{
+     \begin{center}
+          Final \\
+          (Part A -- Multiple Choice Questions)\\
+          EECS 203\\
+          Spring 2018
+     \end{center}}
+\medskip
+\end{shaded}%
+\end{minipage}
+
+
+\vspace{0.4in}
+\noindent
+{\bf Name (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf Uniqname (ALL CAPS): }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+\noindent
+{\bf 8-Digit UMID: }\hrulefill
+%\underline{\mbox{\hspace*{3.75in}}}
+\vspace{0.2in}
+~
+
+
+\begin{center}
+{\bf ***MAKE SURE YOU HAVE PROBLEMS 1-13 IN THIS BOOKLET.***}
+\end{center}
+\vspace{0.2in}
+
+\noindent {\large \bf General Instructions}
+
+\noindent 
+You have 120 minutes to complete the two parts of this exam. {\bf Part A has 13 problems (four points each), and part B has 6 problems (eight points each)}. The exam is worth 100 points, so you should work at a pace of more than a point per minute. If you find yourself spending more minutes on a question than the points it is worth, consider moving on and coming back to that question. \\
+With this exam, you are allowed to bring two 8.5'' by 11'' cheat sheets, each of them both front and back, created by you. You may {\bf NOT} use any other sources of information, including but not limited to electronic devices, calculators, textbooks, or notes. Leave at least one seat between yourself and other students. There are two parts to this exam. You will answer the questions from Part A by filling in the Scantron form. Use a number 2 pencil to do so. \\
+Your answers for Part B will be written on the exam itself. The front side of the page that a question in Part B appears on will be scanned and graded in Gradescope. Since only the front side of the page will be scanned and graded, make sure that everything you want graded appears on that front side. The back side can be used for scratch work, but will not be read by the exam graders. Write down your answer with care: {\bf If your answer is unreadable (such as too faint or messy), it will not be graded}. After you have completed the exam, 
+please sign the Honor Code statement found on the cover of Part B.
+
+%Please note: \textbf{You are not allowed to discuss the exam until the solutions are published}
+
+\newpage
+
+\noindent {\large \bf Part A (Scantron) Instructions}
+
+\noindent This part of the exam contains 52 points worth of questions that you will answer by filling out the Scantron form you have received. You will recognize the question that should be answered using the Scantron form when you see the label \begin{quote} \scantronlabelnocount \end{quote} preceding a question. The \texttt{XX} will refer to the corresponding number on the Scantron form. Use a number 2 pencil to fill in the bubbles corresponding to your answers. The first section of multiple choice will be \textbf{single answer} and the second section will be \textbf{multiple answer} Be sure to fill out the required information on the Scantron form -- {\bf especially your name and UM ID number}. Otherwise we cannot give you a grade. {\bf You may leave the section number and key number blank}. Even though your answers to this part will be on the Scantron form, you must write your name and uniqname above and turn in this part of exam. We will check to make sure that you have turned in this part of the exam. Feel free to do scratch work on this part of the exam (but not the Scantron form!).
+
+
+\newpage
+
+\section{Single Answer Multiple Choice}
+\begin{enumerate}
+
+
+\item Let $f(x)$ and $g(x)$ be functions on $\mathbb{R}$ taking positive values. If $f(x) = O(g(x))$ which of the following must be true
+\begin{enumerate}[label=\Alph*]
+\item $f(x) = \Omega(g(x))$
+\item $f(x) = \Theta(g(x))$
+\item $g(x) = O(f(x))$
+\item $g(x) = \Omega(f(x))$
+\item $g(x) = \Theta(f(x))$
+\end{enumerate}
+
+\begin{solution}
+D
+\end{solution}
+
+
+
+%\vspace{1in}
+\item Which of the following is \textbf{not} equivalent to the remaining ones?
+\begin{enumerate}[label = \Alph*]
+
+\item $(\neg p) \oplus q$
+\item $p \leftrightarrow q$
+\item $(p \land \neg q) \lor (\neg p \land q)$
+\item $(p \lor \neg q )\land (\neg p \lor q)$
+\item $(p\rightarrow q) \land (p\lor \neg q)$
+
+\end{enumerate}
+
+\begin{solution}
+C.  All of these are equivalent to $p\leftrightarrow q$ except for C, which is equivalent to $p\oplus q$.  This can also be checked by using truth table, since only $2$ variables are involved.
+\end{solution}
+
+
+
+%\vspace{1in}
+\item Suppose that events $A$ and $B$ are independent with $P(A)=\frac{1}{2}$ and $P(B)=\frac{3}{10}$. What is $P(A|B)$? 
+
+
+\begin{enumerate}[label = \Alph*]
+\item $\frac{1}{2}$
+\item $\frac{1}{5}$
+\item $\frac{9}{20}$
+\item $\frac{3}{10}$
+\item $0$
+\end{enumerate}
+
+\begin{solution}
+A.  One definition of independence is that $P(A|B)=P(A)$
+\end{solution}
+
+
+\newpage
+\item Suppose you have 16 black pens, 12 blue pens and 2 red pens. In how many ways can you choose 10 pens if you know you need at least 4 black pens?
+\begin{enumerate}[label=\Alph*]
+        \item ${8 \choose 2}$
+        \item ${10\choose 4}$
+        \item ${30\choose 4}$
+		\item ${12 \choose 2}$
+		\item ${8 \choose 2} - {5 \choose 2}$
+\end{enumerate}
+
+\begin{solution}
+E.  First, set aside 4 black pens.  Now we need 6 more pens of 3 categories (2 bars to divide them) giving $\binom82$, but then, we need to account for the limit of 2 red pens.  We subtract the ways we fail at that, having 3 or more red pens.  For this, we set aside 3 red pens, leaving 3 stars and 2 bars for $\binom52$.
+\end{solution}
+
+
+
+%\vspace{1in}
+\item How many relations on $n$ elements are both symmetric and antisymmetric? 
+	  \begin{enumerate}[label=\Alph*]
+
+        \item $2^{n \choose 2}$
+
+        \item $2^{n^2}$
+
+        \item $n^2$
+
+        \item $2^n$
+
+        \item None - it is impossible for a relation to be both symmetric and antisymmetric
+
+      \end{enumerate}
+      
+\begin{solution}
+D
+\end{solution}
+
+
+
+%\vspace{1in}
+\item Which of the following is $4^{183}\bmod{61}$?
+\begin{enumerate}[label=\Alph*]
+\item 1
+\item 3
+\item 4
+\item 16
+\item 64
+\end{enumerate}
+\begin{solution}
+B.  By FLT, $4^{183}\equiv 4^3\pmod {61}$.  $4^3=64$, but the question asks for computational mod, so we need it in the smallest positive version, $64-61=3$.
+\end{solution}
+
+
+\newpage
+\item Consider the following algorithm:
+\begin{verbatim}
+func(list){
+	x := 1
+
+    if length(list) < 4 then
+    	return x
+    
+    else 
+        m1 := floor(n/4)
+        m2 := floor(n/2)
+        m3 := floor(3*n/4)
+        x := x+func(list[0:m2])
+        x := x+func(list[m1+1:m3])
+        x := x+func(list[m2+1:n])
+        
+        for i:= 1 to n
+        	if list[i] < 0 then
+                	x := x+1
+        
+        return x
+}
+\end{verbatim}
+Which of the following functions gives the big-$\Theta$ runtime of this function?
+	  \begin{enumerate}[label=\Alph*]
+
+        \item $\Theta(n^2)$
+
+        \item $\Theta(n)$
+
+        \item $\Theta(n \log n)$
+
+        \item $\Theta(n^{\log_2 3})$
+
+        \item $\Theta(\log n)$
+
+      \end{enumerate}
+      
+\begin{solution}
+D. $T(n) = 3T(n/2)+n$, so by master theorem, $T(n) = O(n^{\log_2 3})$
+\end{solution}
+
+
+
+\newpage
+\item How many ways are there to roll three dice so that you roll at least one six?
+
+\begin{enumerate}[label=\Alph*]
+        \item $3 \cdot 5^2$
+
+        \item $3 \cdot 5^2-1$
+
+        \item ${3 \choose 0}+5 \cdot {3 \choose 1}+5^2 \cdot {3 \choose 2}+5^3 \cdot {3 \choose 3}$
+
+		\item ${3 \choose 0}+{3 \choose 1}+{3 \choose 2}+{3 \choose 3}$
+
+        \item $6^3 - 5^3$
+
+      \end{enumerate}
+      
+
+\begin{solution}
+E
+\end{solution}
+
+
+
+%\vspace{1in}
+\item What is the maximum number of edges a simple bipartite graph with $10$ vertices can have? 
+\begin{enumerate}[label = \Alph*]
+\item $5$
+\item $24$
+\item $25$
+\item $32$
+\item $5^5$
+\end{enumerate}
+
+\begin{solution}
+C.  If we have k vertices on the left, we have 10-k on the right.  Connecting all of them gives k(10-k) edges.  This quantity is maximized when k=10-k, meaning k=5.
+\end{solution}
+
+
+
+%\vspace{1in}
+\item How many people must be invited to a party to guarantee that at least two people have the same first and last initials as each other?
+
+\begin{enumerate}[label=\Alph*]
+
+        \item $26 \times 25+1$
+
+		\item 27
+
+        \item $26^2+1$
+
+        \item ${26 \choose 2}+1$
+
+        \item There is no way to guarantee this
+
+      \end{enumerate}
+      
+\begin{solution}
+c
+\end{solution}
+
+
+\end{enumerate}
+\newpage 
+\section{Multiple Answer Multiple Choice}
+
+\begin{enumerate}
+\addtocounter{enumi}{10}
+
+\item If $(P,R)$ is a Poset. Then which of the following must be true
+\begin{enumerate} [label = \Alph*]
+\item $R$ is reflexive
+\item $R$ is irreflexive
+\item $R$ is symmetric
+\item $R$ is antisymmetric
+\item $R$ is transitive
+\end{enumerate}
+
+\begin{solution}
+ADE
+\end{solution}
+
+
+
+%\vspace{1in}
+\item For which of the following sets is there an onto function from $\mathbb{Q}$ to it? 
+\begin{enumerate}[label=\Alph*]
+\item
+Integer solutions to $2x +1 \equiv 2\pmod 5$
+\item
+$\left\{a + bi : a \in \mathbb{Z}, b \in \mathbb{Z}\right\}$
+\item
+Set of simple graphs with $10$ vertices. 
+\item
+Set of equivalence relations with exactly $2$ equivalence classes on $\mathbb{Z}$.
+\item Set of relations on $\mathbb{Z}$.
+\end{enumerate}
+
+\begin{solution}
+ABC. There is an onto function from $\mathbb{Q}$ if the set is countably infinite or finite. AB are clearly countably infinite. C is finite. D is uncountable, since we can define a bijection from this set to an uncountable set: the set of functions taking value $0$ or $1$ defined on $\mathbb{Z}$. We can define functions $f(x) = 1$ if $xR0$, and $f(x) = 0$ otherwise. E is uncountable
+\end{solution}
+
+
+
+%\vspace{1in}
+\item We define the sets $A_k = \left\{x\in \mathbb{Z}: x = k\cdot n,n \in \mathbb{Z}\right\}$ for $k \in \mathbb{Z}^+$. Which of the following statements are correct? 
+
+\begin{enumerate}[label=\Alph*]
+\item
+$(A_k \subseteq A_l) \rightarrow (k \leq l)$
+\item
+$A_{1} = \mathbb{Z}$
+\item
+$(A_3 - A_2) = (A_3 - A_6)$
+\item
+$(A_2 \cap A_3) = A_6$
+\item
+$(A_2 \cup A_3) = A_1$
+\end{enumerate}
+
+\begin{solution}
+BCD.  A would be true if we said $k\geq l$ instead.  For C, the only values in $A_3$ that are also in $A_2$ are exactly those in $A_6$, so these are the same.
+\end{solution}
+
+
+\end{enumerate}
+
+
+
+
+\end{document}
+
+
+
+
+
